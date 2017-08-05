@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 def Swap_channels(image,number):
-	file_name_output = '../output/p0-2-a'+str(number)+'.jpg'
+	file_name_output = '../output/p0-2-a-'+str(number)+'.jpg'
 	# Swap blue channel with red channel
 	aux = image[:,:,2]
 	image[:,:,2] = image[:,:,0]
