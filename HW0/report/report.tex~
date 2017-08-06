@@ -34,13 +34,13 @@ Campinas-SP, Brazil, 13083-852 \\
 \end{center}
 \begin{figure}[H]
 \centering
-\begin{subfigure}{0.2\textwidth}
+\begin{subfigure}{0.1\textwidth}
   \centering
   \includegraphics[width=\linewidth]{image/p0-1-0.jpg}
   \caption{Figura 1}
   \label{fig:sfig1}
 \end{subfigure}%
-\begin{subfigure}{0.2\textwidth}
+\begin{subfigure}{0.1\textwidth}
   \centering
   \includegraphics[width=\linewidth]{image/p0-1-1.jpg}
   \caption{Figura 2}
