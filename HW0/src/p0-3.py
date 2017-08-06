@@ -5,8 +5,8 @@ def replacements_pixels(image, image_green, image_red,number):
 	# File name of output
 	file_name_output = 'output/p0-3-a-'+str(number)+'.jpg'
 	# Index of the central position	
-	fil=image_green.shape[0]/2-50
-	col=image_green.shape[1]/2-50
+	fil=int(image_green.shape[0]/2-50)
+	col=int(image_green.shape[1]/2-50)
 	#	Replace indexs in original image
 	image_green[fil:fil+100,col:col+100]=image_red[fil:fil+100,col:col+100]
 	#	Write output image
