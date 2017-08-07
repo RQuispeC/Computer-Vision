@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  6 AUG 2017 21:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  7 AUG 2017 13:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -582,7 +582,31 @@ LaTeX Warning: Label `fig:sfig2' multiply defined.
 LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
 
 
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
+
+
 LaTeX Warning: Label `fig:fig' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
 
 
 LaTeX Warning: Label `fig:sfig1' multiply defined.
@@ -612,6 +636,18 @@ LaTeX Warning: Label `fig:sfig2' multiply defined.
 LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
 
 
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
+
+
 LaTeX Warning: Label `fig:fig' multiply defined.
 
 
@@ -627,7 +663,31 @@ LaTeX Warning: Label `fig:sfig2' multiply defined.
 LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
 
 
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
+
+
 LaTeX Warning: Label `fig:fig' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
 
 
 LaTeX Warning: Label `fig:sfig1' multiply defined.
@@ -750,18 +810,18 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<../input/p0-1-0.jpg, id=16, 236.885pt x 207.77625pt>
+(./p0-1.tex <../input/p0-1-0.jpg, id=16, 236.885pt x 207.77625pt>
 File: ../input/p0-1-0.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-0.jpg>
-Package pdftex.def Info: ../input/p0-1-0.jpg used on input line 42.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 45.
+Package pdftex.def Info: ../input/p0-1-0.jpg used on input line 7.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 10.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 45.
+LaTeX Font Info:    Try loading font information for U+msb on input line 10.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -770,42 +830,56 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: ../input/p0-1-1.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-1.jpg>
-Package pdftex.def Info: ../input/p0-1-1.jpg used on input line 48.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
+Package pdftex.def Info: ../input/p0-1-1.jpg used on input line 13.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
  <../input/p0-1-2.jpg, id=18, 385.44pt x 273.02pt>
 File: ../input/p0-1-2.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-2.jpg>
-Package pdftex.def Info: ../input/p0-1-2.jpg used on input line 54.
-(pdftex.def)             Requested size: 178.25568pt x 126.26143pt.
+Package pdftex.def Info: ../input/p0-1-2.jpg used on input line 19.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
 
 <../input/p0-1-3.jpg, id=19, 503.8825pt x 391.4625pt>
 File: ../input/p0-1-3.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-3.jpg>
-Package pdftex.def Info: ../input/p0-1-3.jpg used on input line 60.
-(pdftex.def)             Requested size: 178.25568pt x 138.48334pt.
-
+Package pdftex.def Info: ../input/p0-1-3.jpg used on input line 25.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+) (./p0-2.tex
 <../output/p0-2-a-0.jpg, id=20, 236.885pt x 207.77625pt>
 File: ../output/p0-2-a-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-a-0.jpg>
-Package pdftex.def Info: ../output/p0-2-a-0.jpg used on input line 75.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
+Package pdftex.def Info: ../output/p0-2-a-0.jpg used on input line 8.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
 <../output/p0-2-a-1.jpg, id=21, 276.03125pt x 183.68625pt>
 File: ../output/p0-2-a-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-a-1.jpg>
-Package pdftex.def Info: ../output/p0-2-a-1.jpg used on input line 81.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
+Package pdftex.def Info: ../output/p0-2-a-1.jpg used on input line 14.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--88
+<../output/p0-2-a-2.jpg, id=22, 385.44pt x 273.02pt>
+File: ../output/p0-2-a-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-2-a-2.jpg>
+Package pdftex.def Info: ../output/p0-2-a-2.jpg used on input line 20.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-2-a-3.jpg, id=23, 503.8825pt x 391.4625pt>
+File: ../output/p0-2-a-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-2-a-3.jpg>
+Package pdftex.def Info: ../output/p0-2-a-3.jpg used on input line 26.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--34
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--88
+Underfull \hbox (badness 10000) in paragraph at lines 3--34
 
  []
 
@@ -813,103 +887,167 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--88
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../input/p0-1-0.jpg> <../i
 nput/p0-1-1.jpg> <../input/p0-1-2.jpg> <../input/p0-1-3.jpg> <../output/p0-2-a-
-0.jpg> <../output/p0-2-a-1.jpg>]
-<../output/p0-2-b-0.jpg, id=33, 236.885pt x 207.77625pt>
+0.jpg> <../output/p0-2-a-1.jpg> <../output/p0-2-a-2.jpg> <../output/p0-2-a-3.jp
+g>] <../output/p0-2-b-0.jpg, id=35, 236.885pt x 207.77625pt>
 File: ../output/p0-2-b-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-b-0.jpg>
-Package pdftex.def Info: ../output/p0-2-b-0.jpg used on input line 94.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
+Package pdftex.def Info: ../output/p0-2-b-0.jpg used on input line 40.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-2-b-1.jpg, id=34, 276.03125pt x 183.68625pt>
+<../output/p0-2-b-1.jpg, id=36, 276.03125pt x 183.68625pt>
 File: ../output/p0-2-b-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-b-1.jpg>
-Package pdftex.def Info: ../output/p0-2-b-1.jpg used on input line 100.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
+Package pdftex.def Info: ../output/p0-2-b-1.jpg used on input line 46.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--107
+<../output/p0-2-b-2.jpg, id=37, 385.44pt x 273.02pt>
+File: ../output/p0-2-b-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-2-b-2.jpg>
+Package pdftex.def Info: ../output/p0-2-b-2.jpg used on input line 52.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-2-b-3.jpg, id=38, 503.8825pt x 391.4625pt>
+File: ../output/p0-2-b-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-2-b-3.jpg>
+Package pdftex.def Info: ../output/p0-2-b-3.jpg used on input line 58.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--66
 
  []
 
-<../output/p0-2-c-0.jpg, id=35, 236.885pt x 207.77625pt>
+<../output/p0-2-c-0.jpg, id=39, 236.885pt x 207.77625pt>
 File: ../output/p0-2-c-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-c-0.jpg>
-Package pdftex.def Info: ../output/p0-2-c-0.jpg used on input line 113.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
+Package pdftex.def Info: ../output/p0-2-c-0.jpg used on input line 72.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-2-c-1.jpg, id=36, 276.03125pt x 183.68625pt>
+<../output/p0-2-c-1.jpg, id=40, 276.03125pt x 183.68625pt>
 File: ../output/p0-2-c-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-c-1.jpg>
-Package pdftex.def Info: ../output/p0-2-c-1.jpg used on input line 119.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
+Package pdftex.def Info: ../output/p0-2-c-1.jpg used on input line 78.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--126
+<../output/p0-2-c-2.jpg, id=41, 385.44pt x 273.02pt>
+File: ../output/p0-2-c-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-2-c-2.jpg>
+Package pdftex.def Info: ../output/p0-2-c-2.jpg used on input line 84.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-2-c-3.jpg, id=42, 503.8825pt x 391.4625pt>
+File: ../output/p0-2-c-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-2-c-3.jpg>
+Package pdftex.def Info: ../output/p0-2-c-3.jpg used on input line 90.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--98
 
  []
 
-[2 <../output/p0-2-b-0.jpg> <../output/p0-2-b-1.jpg> <../output/p0-2-c-0.jpg> <
-../output/p0-2-c-1.jpg>]
-<../output/p0-3-a-0.jpg, id=48, 236.885pt x 207.77625pt>
+[2 <../output/p0-2-b-0.jpg> <../output/p0-2-b-1.jpg> <../output/p0-2-b-2.jpg> <
+../output/p0-2-b-3.jpg> <../output/p0-2-c-0.jpg> <../output/p0-2-c-1.jpg> <../o
+utput/p0-2-c-2.jpg> <../output/p0-2-c-3.jpg>]) (./p0-3.tex
+<../output/p0-3-a-0.jpg, id=51, 236.885pt x 207.77625pt>
 File: ../output/p0-3-a-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-a-0.jpg>
-Package pdftex.def Info: ../output/p0-3-a-0.jpg used on input line 142.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
+Package pdftex.def Info: ../output/p0-3-a-0.jpg used on input line 8.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-3-a-1.jpg, id=49, 276.03125pt x 183.68625pt>
+<../output/p0-3-a-1.jpg, id=52, 276.03125pt x 183.68625pt>
 File: ../output/p0-3-a-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-a-1.jpg>
-Package pdftex.def Info: ../output/p0-3-a-1.jpg used on input line 148.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
+Package pdftex.def Info: ../output/p0-3-a-1.jpg used on input line 14.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-<../output/p0-3-b-0.jpg, id=50, 236.885pt x 207.77625pt>
+<../output/p0-3-a-2.jpg, id=53, 385.44pt x 273.02pt>
+File: ../output/p0-3-a-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-3-a-2.jpg>
+Package pdftex.def Info: ../output/p0-3-a-2.jpg used on input line 20.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-3-a-3.jpg, id=54, 503.8825pt x 391.4625pt>
+File: ../output/p0-3-a-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-3-a-3.jpg>
+Package pdftex.def Info: ../output/p0-3-a-3.jpg used on input line 26.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+<../output/p0-3-b-0.jpg, id=55, 236.885pt x 207.77625pt>
 File: ../output/p0-3-b-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-b-0.jpg>
-Package pdftex.def Info: ../output/p0-3-b-0.jpg used on input line 160.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
+Package pdftex.def Info: ../output/p0-3-b-0.jpg used on input line 39.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-3-b-1.jpg, id=51, 276.03125pt x 183.68625pt>
+<../output/p0-3-b-1.jpg, id=56, 276.03125pt x 183.68625pt>
 File: ../output/p0-3-b-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-b-1.jpg>
-Package pdftex.def Info: ../output/p0-3-b-1.jpg used on input line 166.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
- [3 <../output/p0-3-a-0.jpg> <../output/p0-3-a-1.jpg> <../output/p0-3-b-0.jpg> 
-<../output/p0-3-b-1.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+Package pdftex.def Info: ../output/p0-3-b-1.jpg used on input line 45.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
+
+<../output/p0-3-b-2.jpg, id=57, 385.44pt x 273.02pt>
+File: ../output/p0-3-b-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-3-b-2.jpg>
+Package pdftex.def Info: ../output/p0-3-b-2.jpg used on input line 51.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-3-b-3.jpg, id=58, 503.8825pt x 391.4625pt>
+File: ../output/p0-3-b-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-3-b-3.jpg>
+Package pdftex.def Info: ../output/p0-3-b-3.jpg used on input line 57.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--66
+
+ []
+
+[3 <../output/p0-3-a-0.jpg> <../output/p0-3-a-1.jpg> <../output/p0-3-a-2.jpg> <
+../output/p0-3-a-3.jpg> <../output/p0-3-b-0.jpg> <../output/p0-3-b-1.jpg> <../o
+utput/p0-3-b-2.jpg> <../output/p0-3-b-3.jpg>])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
+ [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: D74BBBAB91D671B23A8F86622CBEBBAA;152.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 39.
  ) 
 Here is how much of TeX's memory you used:
- 8793 strings out of 493304
- 128354 string characters out of 6139871
- 222423 words of memory out of 5000000
- 12103 multiletter control sequences out of 15000+600000
+ 8853 strings out of 493304
+ 129616 string characters out of 6139871
+ 223359 words of memory out of 5000000
+ 12143 multiletter control sequences out of 15000+600000
  22692 words of font info for 34 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,8n,40p,454b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,40p,467b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/bitstrea/charter/bchri8a.pfb>
-Output written on report.pdf (3 pages, 477159 bytes).
+Output written on report.pdf (4 pages, 1292805 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 95 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
