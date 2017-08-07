@@ -84,7 +84,7 @@ The report shows the results for the first two images, while the code generates 
 \end{subfigure}
 \label{fig:fig}
 \end{figure}
-\\\\The imread() instruction of OpenCV reads images in format BGR, then we have to swap the channel blue(first channel) with the channel red(third channel), generating a new image in RGB format.\\We can see that the red colored regions become blue colored regions and the blue colored regions become  red colored regions\\
+\\\\The imread() instruction of OpenCV reads images in format BGR, then we have to swap the channel blue(first channel) with the channel red(third channel), generating a new image in RGB format.\\We can see that the red colored regions become blue colored regions and the blue colored regions become  red colored regions
 
 \item Create a monochrome image (img-green) by selecting the green channel of the input image.
 \begin{figure}[h!]
@@ -103,7 +103,7 @@ The report shows the results for the first two images, while the code generates 
 \end{subfigure}
 \label{fig:fig}
 \end{figure}
-\\As we extract the green channel from the original image to generate a monochromatic image, then, the regions of the image that depend more on green color will have values close to 255 in the channel green, which means that in the output image those regions will have a color close to white, while the other regions of the image will have a color close to black.\\
+\\As we extract the green channel from the original image to generate a monochromatic image, then, the regions of the image that depend more on green color will have values close to 255 in the channel green, which means that in the output image those regions will have a color close to white, while the other regions of the image will have a color close to black.
 
 \item Create a monochrome image (img-red) by selecting the red channel of the first input image.
 \begin{figure}[h!]
@@ -122,15 +122,9 @@ The report shows the results for the first two images, while the code generates 
 \end{subfigure}
 \label{fig:fig}
 \end{figure}
-\\Similar to the previous interpretation, we say that the light colored regions in the output image are red colored regions in the original image.\\
-\item Which image looks more like what you would expect a monochrome image to look like? Would you
-expect a computer vision algorithm to work on one better than the other? Why?
-\begin{enumerate}[label=\arabic*)]
-\item The monochrome image generated from the green channel is the image that most closely resembles the monochrome image that I would expect from the original image.
-\item I think that in computer vision, the computing power of a computer is more important than the optimization of an algorithm, because in computer vision we work on the representation of an image, which is an matrix, then to perform any type of operation in a Matrix we will need to go through this in any way. \\In conclusion one algorithm works better than another depending on the environment in which it is executed.
+\\Similar to the previous interpretation, we say that the light colored regions in the output image are red colored regions in the original image.
 \end{enumerate}
-\end{enumerate}
-\newpage
+\item Create a monochrome image (img-red) by selecting the red channel of the first input image.
 \section{Replacements of pixels.}
 \begin{enumerate}[label={(\arabic*)}]
 \item Lets call the monochrome image from your answer to the last item of the previous
@@ -151,7 +145,7 @@ question A, and the other one B. Take the center square region of 100 x 100 pixe
 \end{subfigure}
 \label{fig:fig}
 \end{figure}
-\\The central region of the image B takes the values of the pixels of the image A.
+
 \item Replace the respective channel of B into the original image
 \begin{figure}[h!]
 \centering
@@ -169,7 +163,6 @@ question A, and the other one B. Take the center square region of 100 x 100 pixe
 \end{subfigure}
 \label{fig:fig}
 \end{figure}
-\\The image is the same, except for the central region, the central region replaced its pixels of the green channel by pixels of the red channel, generating a new color.
 \end{enumerate}
 
 \end{document}

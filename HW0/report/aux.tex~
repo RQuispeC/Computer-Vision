@@ -1,0 +1,31 @@
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[nocompress]{cite}
+\usepackage{enumerate} 
+\usepackage{geometry}
+\geometry{top=1.3cm,bottom=1.3cm,left=1.6cm,right=1.5cm}
+\begin{document}
+\begin{enumerate}[1.]
+    \item Manzanas.
+    \item Plátanos.
+    \item Pescado fresco.
+    \begin{enumerate}[a)]
+        \item Emperador.
+        \item Gallo.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc} % sempre salve seus arquivos como UTF8
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage[left=2.5cm,right=2cm,top=2cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{graphicx} % figuras
+\usepackage{enumerate} 
+% load times font
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+% teoremas, lemas, etc...
+\newtheorem{questao}{Questão}
+\newtheorem{invariant}{Invariante}
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}[theorem]{Lema}
+\renewcommand*{\proofname}{Demonstração}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{subcaption}
+\begin{document}
+\begin{enumerate}[1.]
+    \item Manzanas.
+    \item Plátanos.
+    \item Pescado fresco.
+    \begin{enumerate}[a)]
+        \item Emperador.
+        \item Gallo.
+    \end{enumerate}
+\end{enumerate}
+
+\begin{document}
