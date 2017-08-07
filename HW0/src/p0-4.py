@@ -25,4 +25,4 @@ if __name__=='__main__':
 	#solve question
 	question_A(img)
 	question_B(img)
-  question_C(img)
+ 	question_C(img)
