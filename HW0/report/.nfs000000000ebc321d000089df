@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  6 AUG 2017 21:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  6 AUG 2017 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**report.tex
-(./report.tex
+**aux.tex
+(./aux.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -475,21 +475,13 @@ File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gin@req@height=\dimen117
 \Gin@req@width=\dimen118
 )
-(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip47
-\enit@outerparindent=\dimen119
-\enit@toks=\toks22
-\enit@inbox=\box28
-\enitdp@description=\count111
-)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen120
-\extrarowheight=\dimen121
-\NC@list=\toks23
-\extratabsurround=\skip48
-\backup@length=\skip49
+\col@sep=\dimen119
+\extrarowheight=\dimen120
+\NC@list=\toks22
+\extratabsurround=\skip47
+\backup@length=\skip48
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
@@ -500,173 +492,90 @@ Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen122
-\captionmargin@=\dimen123
-\captionwidth=\dimen124
-\caption@tempdima=\dimen125
-\caption@indent=\dimen126
-\caption@parindent=\dimen127
-\caption@hangindent=\dimen128
+\captionmargin=\dimen121
+\captionmargin@=\dimen122
+\captionwidth=\dimen123
+\caption@tempdima=\dimen124
+\caption@indent=\dimen125
+\caption@parindent=\dimen126
+\caption@hangindent=\dimen127
 )
-\c@ContinuedFloat=\count112
+\c@ContinuedFloat=\count111
 Package caption Info: hyperref package is loaded.
 )
-\c@subfigure=\count113
-\c@subtable=\count114
+\c@subfigure=\count112
+\c@subtable=\count113
 )
 (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen129
-\lightrulewidth=\dimen130
-\cmidrulewidth=\dimen131
-\belowrulesep=\dimen132
-\belowbottomsep=\dimen133
-\aboverulesep=\dimen134
-\abovetopsep=\dimen135
-\cmidrulesep=\dimen136
-\cmidrulekern=\dimen137
-\defaultaddspace=\dimen138
-\@cmidla=\count115
-\@cmidlb=\count116
-\@aboverulesep=\dimen139
-\@belowrulesep=\dimen140
-\@thisruleclass=\count117
-\@lastruleclass=\count118
-\@thisrulewidth=\dimen141
+\heavyrulewidth=\dimen128
+\lightrulewidth=\dimen129
+\cmidrulewidth=\dimen130
+\belowrulesep=\dimen131
+\belowbottomsep=\dimen132
+\aboverulesep=\dimen133
+\abovetopsep=\dimen134
+\cmidrulesep=\dimen135
+\cmidrulekern=\dimen136
+\defaultaddspace=\dimen137
+\@cmidla=\count114
+\@cmidlb=\count115
+\@aboverulesep=\dimen138
+\@belowrulesep=\dimen139
+\@thisruleclass=\count116
+\@lastruleclass=\count117
+\@thisrulewidth=\dimen140
 )
 (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks23
+)
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count119
-\Gm@cntv=\count120
-\c@Gm@tempcnt=\count121
-\Gm@bindingoffset=\dimen142
-\Gm@wd@mp=\dimen143
-\Gm@odd@mp=\dimen144
-\Gm@even@mp=\dimen145
-\Gm@layoutwidth=\dimen146
-\Gm@layoutheight=\dimen147
-\Gm@layouthoffset=\dimen148
-\Gm@layoutvoffset=\dimen149
+\Gm@cnth=\count118
+\Gm@cntv=\count119
+\c@Gm@tempcnt=\count120
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks24
-) (./report.aux
+) (./aux.aux)
+\openout1 = `aux.aux'.
 
-LaTeX Warning: Label `fig:sfig1' multiply defined.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Try loading font information for T1+bch on input line 20.
 
-
-LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:fig' multiply defined.
-
-)
-\openout1 = `report.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Try loading font information for T1+bch on input line 23.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1bch.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1bch.fd
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 )
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 23.
+\AtBeginShipoutBox=\box28
+Package hyperref Info: Link coloring OFF on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -674,29 +583,29 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count122
+\c@section@level=\count121
 )
-LaTeX Info: Redefining \ref on input line 23.
-LaTeX Info: Redefining \pageref on input line 23.
-LaTeX Info: Redefining \nameref on input line 23.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
 
-(./report.out) (./report.out)
+(./aux.out) (./aux.out)
 \@outlinefile=\write3
-\openout3 = `report.out'.
+\openout3 = `aux.out'.
 
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen150
-\scratchbox=\box30
-\nofMPsegments=\count124
-\nofMParguments=\count125
+\scratchcounter=\count122
+\scratchdimen=\dimen149
+\scratchbox=\box29
+\nofMPsegments=\count123
+\nofMParguments=\count124
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen151
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen150
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
 \everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -750,166 +659,32 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<../input/p0-1-0.jpg, id=16, 236.885pt x 207.77625pt>
-File: ../input/p0-1-0.jpg Graphic file (type jpg)
-
-<use ../input/p0-1-0.jpg>
-Package pdftex.def Info: ../input/p0-1-0.jpg used on input line 42.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 45.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 45.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<../input/p0-1-1.jpg, id=17, 276.03125pt x 183.68625pt>
-File: ../input/p0-1-1.jpg Graphic file (type jpg)
-
-<use ../input/p0-1-1.jpg>
-Package pdftex.def Info: ../input/p0-1-1.jpg used on input line 48.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
- <../input/p0-1-2.jpg, id=18, 385.44pt x 273.02pt>
-File: ../input/p0-1-2.jpg Graphic file (type jpg)
-
-<use ../input/p0-1-2.jpg>
-Package pdftex.def Info: ../input/p0-1-2.jpg used on input line 54.
-(pdftex.def)             Requested size: 178.25568pt x 126.26143pt.
-
-<../input/p0-1-3.jpg, id=19, 503.8825pt x 391.4625pt>
-File: ../input/p0-1-3.jpg Graphic file (type jpg)
-
-<use ../input/p0-1-3.jpg>
-Package pdftex.def Info: ../input/p0-1-3.jpg used on input line 60.
-(pdftex.def)             Requested size: 178.25568pt x 138.48334pt.
-
-<../output/p0-2-a-0.jpg, id=20, 236.885pt x 207.77625pt>
-File: ../output/p0-2-a-0.jpg Graphic file (type jpg)
-
-<use ../output/p0-2-a-0.jpg>
-Package pdftex.def Info: ../output/p0-2-a-0.jpg used on input line 75.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
-
-<../output/p0-2-a-1.jpg, id=21, 276.03125pt x 183.68625pt>
-File: ../output/p0-2-a-1.jpg Graphic file (type jpg)
-
-<use ../output/p0-2-a-1.jpg>
-Package pdftex.def Info: ../output/p0-2-a-1.jpg used on input line 81.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--88
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--88
-
- []
-
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../input/p0-1-0.jpg> <../i
-nput/p0-1-1.jpg> <../input/p0-1-2.jpg> <../input/p0-1-3.jpg> <../output/p0-2-a-
-0.jpg> <../output/p0-2-a-1.jpg>]
-<../output/p0-2-b-0.jpg, id=33, 236.885pt x 207.77625pt>
-File: ../output/p0-2-b-0.jpg Graphic file (type jpg)
-
-<use ../output/p0-2-b-0.jpg>
-Package pdftex.def Info: ../output/p0-2-b-0.jpg used on input line 94.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
-
-<../output/p0-2-b-1.jpg, id=34, 276.03125pt x 183.68625pt>
-File: ../output/p0-2-b-1.jpg Graphic file (type jpg)
-
-<use ../output/p0-2-b-1.jpg>
-Package pdftex.def Info: ../output/p0-2-b-1.jpg used on input line 100.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--107
-
- []
-
-<../output/p0-2-c-0.jpg, id=35, 236.885pt x 207.77625pt>
-File: ../output/p0-2-c-0.jpg Graphic file (type jpg)
-
-<use ../output/p0-2-c-0.jpg>
-Package pdftex.def Info: ../output/p0-2-c-0.jpg used on input line 113.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
-
-<../output/p0-2-c-1.jpg, id=36, 276.03125pt x 183.68625pt>
-File: ../output/p0-2-c-1.jpg Graphic file (type jpg)
-
-<use ../output/p0-2-c-1.jpg>
-Package pdftex.def Info: ../output/p0-2-c-1.jpg used on input line 119.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--126
-
- []
-
-[2 <../output/p0-2-b-0.jpg> <../output/p0-2-b-1.jpg> <../output/p0-2-c-0.jpg> <
-../output/p0-2-c-1.jpg>]
-<../output/p0-3-a-0.jpg, id=48, 236.885pt x 207.77625pt>
-File: ../output/p0-3-a-0.jpg Graphic file (type jpg)
-
-<use ../output/p0-3-a-0.jpg>
-Package pdftex.def Info: ../output/p0-3-a-0.jpg used on input line 142.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
-
-<../output/p0-3-a-1.jpg, id=49, 276.03125pt x 183.68625pt>
-File: ../output/p0-3-a-1.jpg Graphic file (type jpg)
-
-<use ../output/p0-3-a-1.jpg>
-Package pdftex.def Info: ../output/p0-3-a-1.jpg used on input line 148.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
-
-<../output/p0-3-b-0.jpg, id=50, 236.885pt x 207.77625pt>
-File: ../output/p0-3-b-0.jpg Graphic file (type jpg)
-
-<use ../output/p0-3-b-0.jpg>
-Package pdftex.def Info: ../output/p0-3-b-0.jpg used on input line 160.
-(pdftex.def)             Requested size: 178.25568pt x 156.3549pt.
-
-<../output/p0-3-b-1.jpg, id=51, 276.03125pt x 183.68625pt>
-File: ../output/p0-3-b-1.jpg Graphic file (type jpg)
-
-<use ../output/p0-3-b-1.jpg>
-Package pdftex.def Info: ../output/p0-3-b-1.jpg used on input line 166.
-(pdftex.def)             Requested size: 178.25568pt x 118.62665pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
- [3 <../output/p0-3-a-0.jpg> <../output/p0-3-a-1.jpg> <../output/p0-3-b-0.jpg> 
-<../output/p0-3-b-1.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
- (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: D74BBBAB91D671B23A8F86622CBEBBAA;152.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
+ (./aux.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 31.
+Package rerunfilecheck Info: File `aux.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 31.
  ) 
 Here is how much of TeX's memory you used:
- 8793 strings out of 493304
- 128354 string characters out of 6139871
- 222423 words of memory out of 5000000
- 12103 multiletter control sequences out of 15000+600000
- 22692 words of font info for 34 fonts, out of 8000000 for 9000
+ 8388 strings out of 493304
+ 121213 string characters out of 6139871
+ 212244 words of memory out of 5000000
+ 11750 multiletter control sequences out of 15000+600000
+ 7225 words of font info for 17 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,8n,40p,454b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,4n,40p,264b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/bitstrea/charter/bchri8a.pfb>
-Output written on report.pdf (3 pages, 477159 bytes).
+e/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb>
+Output written on aux.pdf (1 page, 13635 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 95 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 25 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

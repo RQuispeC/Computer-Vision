@@ -1,14 +1,12 @@
 import numpy as np
 import cv2
 
-def Swap_channels(image,number):
+def Swap_channels(image_,number):
 	file_name_output = '../output/p0-2-a-'+str(number)+'.jpg'
 	# Swap blue channel with red channel
-	aux = image[:,:,2]
-	image[:,:,2] = image[:,:,0]
-	image[:,:,0] = aux;
+	image_ = cv2.cvtColor(image_, cv2.COLOR_BGR2RGB)
 	# Write image in the output folder
-	cv2.imwrite(file_name_output,image)
+	cv2.imwrite(file_name_output,image_)
 
 def Monochrome_Image(image, number):
 	for i in range(0,2):

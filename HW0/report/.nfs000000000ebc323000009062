@@ -1,0 +1,138 @@
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[nocompress]{cite}
+\usepackage{geometry}
+\geometry{top=1.3cm,bottom=1.3cm,left=1.6cm,right=1.5cm}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{center}
+
+\textbf{Introduction to Computer Vision -- Homework 0} \\[0.1cm]
+
+\textbf{RA192617 -- Edgar Rodolfo Quispe Condori} \\[0.1cm]
+\textbf{RA192618 -- Darwin Ttito Concha} \\[0.1cm]
+
+Institute of Computing, University of Campinas (UNICAMP) \\
+Campinas-SP, Brazil, 13083-852 \\
+\end{center}
+
+\section{Input images}
+We consider 4 input images of different sizes.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../input/p0-1-0.jpg}
+  \caption{Input p0-1-0.jpg, 207x236 pixels\\}
+  \label{fig:sfig1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../input/p0-1-1.jpg}
+  \caption{Input p0-1-1.jpg, 183x275 pixels\\}
+  \label{fig:sfig2}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../input/p0-1-2.jpg}
+  \caption{Input p0-1-2.jpg, 272x384 pixels}
+  \label{fig:sfig1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../input/p0-1-3.jpg}
+  \caption{Input p0-1-3.jpg, 390x502 pixels}
+  \label{fig:sfig2}
+\end{subfigure}
+\label{fig:fig}
+\end{figure}
+
+\section{Color planes}
+
+This is section example
+
+\begin{enumerate}[label=\emph{\alph*)}]
+
+\item Swap the red and blue channels of the input image.\\\\
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../output/p0-2-a-0.jpg}
+  \caption{Input p0-1-0.jpg, 207x236 pixels\\}
+  \label{fig:sfig1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../output/p0-2-a-1.jpg}
+  \caption{Input p0-1-1.jpg, 183x275 pixels\\}
+  \label{fig:sfig2}
+\end{subfigure}
+\label{fig:fig}
+\end{figure}
+
+\item Create a monochrome image (img-green) by selecting the green channel of the input image.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../output/p0-2-b-0.jpg}
+  \caption{Input p0-1-0.jpg, 207x236 pixels\\}
+  \label{fig:sfig1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../output/p0-2-b-1.jpg}
+  \caption{Input p0-1-1.jpg, 183x275 pixels\\}
+  \label{fig:sfig2}
+\end{subfigure}
+\label{fig:fig}
+\end{figure}
+
+\item Create a monochrome image (img-red) by selecting the red channel of the first input image.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../output/p0-2-c-0.jpg}
+  \caption{Input p0-1-0.jpg, 207x236 pixels\\}
+  \label{fig:sfig1}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{../output/p0-2-c-1.jpg}
+  \caption{Input p0-1-1.jpg, 183x275 pixels\\}
+  \label{fig:sfig2}
+\end{subfigure}
+\label{fig:fig}
+\end{figure}
+
+\end{enumerate}
+
+\section{Replacements of pixels.}
+This is section example
+\begin{enumerate}[label={(\arabic*)}]
+\item Lets call the monochrome image from your answer to the last item of the previous
+question A, and the other one B. Take the center square region of 100 × 100 pixels of A and insert it into the
+center of B.
+\item Create a monochrome image (img-red) by selecting the red channel of the first input image.
+\end{enumerate}
+
+\end{document}
