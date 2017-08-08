@@ -1,23 +1,22 @@
 import cv2
 import numpy as np
 
-def question_A(img):
-	sigma = 0.3
-	mu = img.sum()/(1. * img.shape[0] * img.shape[1])
+def question_A(img, img_cnt):
+	sigma = 20
+	#mu = img[:, :, 1].sum()/(1. * img.shape[0] * img.shape[1]) * 0.5
+	mu = 1
 	img[:, :, 1] = img[:, :, 1] + np.random.normal(mu, sigma, (img.shape[0], img.shape[1]))
-	cv2.imwrite('../output/p0-5-a-0.jpg', img)
+	cv2.imwrite('output/p0-5-a-'+ str(img_cnt) + '.jpg', img)
 
-def question_B(img):
-  sigma = 0.3
-  mu = img.sum()/(1. * img.shape[0] * img.shape[1])
-  img[:, :, 0] = img[:, :, 0] + np.random.normal(mu, sigma, (img.shape[0], img.shape[1]))
-  cv2.imwrite('../output/p0-5-b-0.jpg', img)
+def question_B(img, img_cnt):
+	sigma = 20
+	mu = 1
+	img[:, :, 0] = img[:, :, 0] + np.random.normal(mu, sigma, (img.shape[0], img.shape[1]))
+	cv2.imwrite('output/p0-5-b-'+ str(img_cnt) +'.jpg', img)
 
 if __name__=='__main__':
-	#read image
- 	img = cv2.imread('../input/p0-1-3.jpg')
-	#solve question
-	print img.shape
-	question_A(img.copy())
-	question_B(img.copy())
-
+	for img_cnt in range(4):
+		img = cv2.imread('input/p0-1-' + str(img_cnt) + '.jpg')
+		#solve question
+		question_A(img.copy(), img_cnt)
+		question_B(img.copy(), img_cnt)

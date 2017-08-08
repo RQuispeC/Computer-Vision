@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  7 AUG 2017 13:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  8 AUG 2017 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**report.tex
+**report
 (./report.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 78 languages loaded.
@@ -556,7 +556,49 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layouthoffset=\dimen148
 \Gm@layoutvoffset=\dimen149
 \Gm@dimlist=\toks24
-) (./report.aux
+)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count122
+\lst@gtempboxa=\box29
+\lst@token=\toks25
+\lst@length=\count123
+\lst@currlwidth=\dimen150
+\lst@column=\count124
+\lst@pos=\count125
+\lst@lostspace=\dimen151
+\lst@width=\dimen152
+\lst@newlines=\count126
+\lst@lineno=\count127
+\lst@maxwidth=\dimen153
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count128
+\lst@skipnumbers=\count129
+\lst@framebox=\box30
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
+))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
+ (./report.aux
 
 LaTeX Warning: Label `fig:sfig1' multiply defined.
 
@@ -703,30 +745,84 @@ LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
 
 
 LaTeX Warning: Label `fig:fig' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sfig2' multiply defined.
 
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Try loading font information for T1+bch on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Try loading font information for T1+bch on input line 36.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1bch.fd
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 )
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 23.
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring OFF on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -734,11 +830,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count122
+\c@section@level=\count130
 )
-LaTeX Info: Redefining \ref on input line 23.
-LaTeX Info: Redefining \pageref on input line 23.
-LaTeX Info: Redefining \nameref on input line 23.
+LaTeX Info: Redefining \ref on input line 36.
+LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \nameref on input line 36.
 
 (./report.out) (./report.out)
 \@outlinefile=\write3
@@ -747,17 +843,17 @@ LaTeX Info: Redefining \nameref on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen150
-\scratchbox=\box30
-\nofMPsegments=\count124
-\nofMParguments=\count125
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen151
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count131
+\scratchdimen=\dimen154
+\scratchbox=\box32
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count134
+\MPscratchDim=\dimen155
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -774,6 +870,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -810,7 +907,8 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(./p0-1.tex <../input/p0-1-0.jpg, id=16, 236.885pt x 207.77625pt>
+\c@lstlisting=\count137
+(./p0-1.tex <../input/p0-1-0.jpg, id=24, 236.885pt x 207.77625pt>
 File: ../input/p0-1-0.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-0.jpg>
@@ -826,48 +924,48 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<../input/p0-1-1.jpg, id=17, 276.03125pt x 183.68625pt>
+<../input/p0-1-1.jpg, id=25, 276.03125pt x 183.68625pt>
 File: ../input/p0-1-1.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-1.jpg>
 Package pdftex.def Info: ../input/p0-1-1.jpg used on input line 13.
 (pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
- <../input/p0-1-2.jpg, id=18, 385.44pt x 273.02pt>
+ <../input/p0-1-2.jpg, id=26, 385.44pt x 273.02pt>
 File: ../input/p0-1-2.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-2.jpg>
 Package pdftex.def Info: ../input/p0-1-2.jpg used on input line 19.
 (pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
 
-<../input/p0-1-3.jpg, id=19, 503.8825pt x 391.4625pt>
+<../input/p0-1-3.jpg, id=27, 503.8825pt x 391.4625pt>
 File: ../input/p0-1-3.jpg Graphic file (type jpg)
 
 <use ../input/p0-1-3.jpg>
 Package pdftex.def Info: ../input/p0-1-3.jpg used on input line 25.
 (pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
 ) (./p0-2.tex
-<../output/p0-2-a-0.jpg, id=20, 236.885pt x 207.77625pt>
+<../output/p0-2-a-0.jpg, id=28, 236.885pt x 207.77625pt>
 File: ../output/p0-2-a-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-a-0.jpg>
 Package pdftex.def Info: ../output/p0-2-a-0.jpg used on input line 8.
 (pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-2-a-1.jpg, id=21, 276.03125pt x 183.68625pt>
+<../output/p0-2-a-1.jpg, id=29, 276.03125pt x 183.68625pt>
 File: ../output/p0-2-a-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-a-1.jpg>
 Package pdftex.def Info: ../output/p0-2-a-1.jpg used on input line 14.
 (pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-<../output/p0-2-a-2.jpg, id=22, 385.44pt x 273.02pt>
+<../output/p0-2-a-2.jpg, id=30, 385.44pt x 273.02pt>
 File: ../output/p0-2-a-2.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-a-2.jpg>
 Package pdftex.def Info: ../output/p0-2-a-2.jpg used on input line 20.
 (pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
 
-<../output/p0-2-a-3.jpg, id=23, 503.8825pt x 391.4625pt>
+<../output/p0-2-a-3.jpg, id=31, 503.8825pt x 391.4625pt>
 File: ../output/p0-2-a-3.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-a-3.jpg>
@@ -888,28 +986,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--34
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../input/p0-1-0.jpg> <../i
 nput/p0-1-1.jpg> <../input/p0-1-2.jpg> <../input/p0-1-3.jpg> <../output/p0-2-a-
 0.jpg> <../output/p0-2-a-1.jpg> <../output/p0-2-a-2.jpg> <../output/p0-2-a-3.jp
-g>] <../output/p0-2-b-0.jpg, id=35, 236.885pt x 207.77625pt>
+g>] <../output/p0-2-b-0.jpg, id=43, 236.885pt x 207.77625pt>
 File: ../output/p0-2-b-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-b-0.jpg>
 Package pdftex.def Info: ../output/p0-2-b-0.jpg used on input line 40.
 (pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-2-b-1.jpg, id=36, 276.03125pt x 183.68625pt>
+<../output/p0-2-b-1.jpg, id=44, 276.03125pt x 183.68625pt>
 File: ../output/p0-2-b-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-b-1.jpg>
 Package pdftex.def Info: ../output/p0-2-b-1.jpg used on input line 46.
 (pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-<../output/p0-2-b-2.jpg, id=37, 385.44pt x 273.02pt>
+<../output/p0-2-b-2.jpg, id=45, 385.44pt x 273.02pt>
 File: ../output/p0-2-b-2.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-b-2.jpg>
 Package pdftex.def Info: ../output/p0-2-b-2.jpg used on input line 52.
 (pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
 
-<../output/p0-2-b-3.jpg, id=38, 503.8825pt x 391.4625pt>
+<../output/p0-2-b-3.jpg, id=46, 503.8825pt x 391.4625pt>
 File: ../output/p0-2-b-3.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-b-3.jpg>
@@ -920,28 +1018,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--66
 
  []
 
-<../output/p0-2-c-0.jpg, id=39, 236.885pt x 207.77625pt>
+<../output/p0-2-c-0.jpg, id=47, 236.885pt x 207.77625pt>
 File: ../output/p0-2-c-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-c-0.jpg>
 Package pdftex.def Info: ../output/p0-2-c-0.jpg used on input line 72.
 (pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-2-c-1.jpg, id=40, 276.03125pt x 183.68625pt>
+<../output/p0-2-c-1.jpg, id=48, 276.03125pt x 183.68625pt>
 File: ../output/p0-2-c-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-c-1.jpg>
 Package pdftex.def Info: ../output/p0-2-c-1.jpg used on input line 78.
 (pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-<../output/p0-2-c-2.jpg, id=41, 385.44pt x 273.02pt>
+<../output/p0-2-c-2.jpg, id=49, 385.44pt x 273.02pt>
 File: ../output/p0-2-c-2.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-c-2.jpg>
 Package pdftex.def Info: ../output/p0-2-c-2.jpg used on input line 84.
 (pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
 
-<../output/p0-2-c-3.jpg, id=42, 503.8825pt x 391.4625pt>
+<../output/p0-2-c-3.jpg, id=50, 503.8825pt x 391.4625pt>
 File: ../output/p0-2-c-3.jpg Graphic file (type jpg)
 
 <use ../output/p0-2-c-3.jpg>
@@ -955,56 +1053,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--98
 [2 <../output/p0-2-b-0.jpg> <../output/p0-2-b-1.jpg> <../output/p0-2-b-2.jpg> <
 ../output/p0-2-b-3.jpg> <../output/p0-2-c-0.jpg> <../output/p0-2-c-1.jpg> <../o
 utput/p0-2-c-2.jpg> <../output/p0-2-c-3.jpg>]) (./p0-3.tex
-<../output/p0-3-a-0.jpg, id=51, 236.885pt x 207.77625pt>
+<../output/p0-3-a-0.jpg, id=59, 236.885pt x 207.77625pt>
 File: ../output/p0-3-a-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-a-0.jpg>
 Package pdftex.def Info: ../output/p0-3-a-0.jpg used on input line 8.
 (pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-3-a-1.jpg, id=52, 276.03125pt x 183.68625pt>
+<../output/p0-3-a-1.jpg, id=60, 276.03125pt x 183.68625pt>
 File: ../output/p0-3-a-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-a-1.jpg>
 Package pdftex.def Info: ../output/p0-3-a-1.jpg used on input line 14.
 (pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-<../output/p0-3-a-2.jpg, id=53, 385.44pt x 273.02pt>
+<../output/p0-3-a-2.jpg, id=61, 385.44pt x 273.02pt>
 File: ../output/p0-3-a-2.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-a-2.jpg>
 Package pdftex.def Info: ../output/p0-3-a-2.jpg used on input line 20.
 (pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
 
-<../output/p0-3-a-3.jpg, id=54, 503.8825pt x 391.4625pt>
+<../output/p0-3-a-3.jpg, id=62, 503.8825pt x 391.4625pt>
 File: ../output/p0-3-a-3.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-a-3.jpg>
 Package pdftex.def Info: ../output/p0-3-a-3.jpg used on input line 26.
 (pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
 
-<../output/p0-3-b-0.jpg, id=55, 236.885pt x 207.77625pt>
+<../output/p0-3-b-0.jpg, id=63, 236.885pt x 207.77625pt>
 File: ../output/p0-3-b-0.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-b-0.jpg>
 Package pdftex.def Info: ../output/p0-3-b-0.jpg used on input line 39.
 (pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
 
-<../output/p0-3-b-1.jpg, id=56, 276.03125pt x 183.68625pt>
+<../output/p0-3-b-1.jpg, id=64, 276.03125pt x 183.68625pt>
 File: ../output/p0-3-b-1.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-b-1.jpg>
 Package pdftex.def Info: ../output/p0-3-b-1.jpg used on input line 45.
 (pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
 
-<../output/p0-3-b-2.jpg, id=57, 385.44pt x 273.02pt>
+<../output/p0-3-b-2.jpg, id=65, 385.44pt x 273.02pt>
 File: ../output/p0-3-b-2.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-b-2.jpg>
 Package pdftex.def Info: ../output/p0-3-b-2.jpg used on input line 51.
 (pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
 
-<../output/p0-3-b-3.jpg, id=58, 503.8825pt x 391.4625pt>
+<../output/p0-3-b-3.jpg, id=66, 503.8825pt x 391.4625pt>
 File: ../output/p0-3-b-3.jpg Graphic file (type jpg)
 
 <use ../output/p0-3-b-3.jpg>
@@ -1017,37 +1115,228 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--66
 
 [3 <../output/p0-3-a-0.jpg> <../output/p0-3-a-1.jpg> <../output/p0-3-a-2.jpg> <
 ../output/p0-3-a-3.jpg> <../output/p0-3-b-0.jpg> <../output/p0-3-b-1.jpg> <../o
-utput/p0-3-b-2.jpg> <../output/p0-3-b-3.jpg>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
- (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
+utput/p0-3-b-2.jpg> <../output/p0-3-b-3.jpg>]) (./p0-4.tex
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
+)
+LaTeX Font Info:    Try loading font information for OMS+bch on input line 31.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
+File: omsbch.fd 
+)
+LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 31.
+
+<../output/p0-4-b-0.jpg, id=80, 236.885pt x 207.77625pt>
+File: ../output/p0-4-b-0.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-b-0.jpg>
+Package pdftex.def Info: ../output/p0-4-b-0.jpg used on input line 44.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
+
+<../output/p0-4-b-1.jpg, id=81, 276.03125pt x 183.68625pt>
+File: ../output/p0-4-b-1.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-b-1.jpg>
+Package pdftex.def Info: ../output/p0-4-b-1.jpg used on input line 50.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
+
+<../output/p0-4-b-2.jpg, id=82, 385.44pt x 273.02pt>
+File: ../output/p0-4-b-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-b-2.jpg>
+Package pdftex.def Info: ../output/p0-4-b-2.jpg used on input line 56.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-4-b-3.jpg, id=83, 503.8825pt x 391.4625pt>
+File: ../output/p0-4-b-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-b-3.jpg>
+Package pdftex.def Info: ../output/p0-4-b-3.jpg used on input line 62.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+<../dbg/hist-original.png, id=85, 579.16376pt x 453.695pt>
+File: ../dbg/hist-original.png Graphic file (type png)
+
+<use ../dbg/hist-original.png>
+Package pdftex.def Info: ../dbg/hist-original.png used on input line 77.
+(pdftex.def)             Requested size: 127.32603pt x 99.73705pt.
+
+<../dbg/hist-normalized.png, id=86, 600.2425pt x 456.70625pt>
+File: ../dbg/hist-normalized.png Graphic file (type png)
+
+<use ../dbg/hist-normalized.png>
+Package pdftex.def Info: ../dbg/hist-normalized.png used on input line 82.
+(pdftex.def)             Requested size: 127.32603pt x 96.87282pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <../output/p0-4-b-0.jpg> <../output/p0-4-b-1.jpg> <../output/p0-4-b-2.jpg> <
+../output/p0-4-b-3.jpg>]
+<../output/p0-4-c-0.jpg, id=113, 236.885pt x 207.77625pt>
+File: ../output/p0-4-c-0.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-0.jpg>
+Package pdftex.def Info: ../output/p0-4-c-0.jpg used on input line 118.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
+
+<../output/p0-4-c-1.jpg, id=114, 236.885pt x 207.77625pt>
+File: ../output/p0-4-c-1.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-1.jpg>
+Package pdftex.def Info: ../output/p0-4-c-1.jpg used on input line 123.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
+
+<../output/p0-4-c-2.jpg, id=115, 276.03125pt x 183.68625pt>
+File: ../output/p0-4-c-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-2.jpg>
+Package pdftex.def Info: ../output/p0-4-c-2.jpg used on input line 128.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
+
+<../output/p0-4-c-3.jpg, id=116, 276.03125pt x 183.68625pt>
+File: ../output/p0-4-c-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-3.jpg>
+Package pdftex.def Info: ../output/p0-4-c-3.jpg used on input line 133.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
+
+<../output/p0-4-c-4.jpg, id=117, 385.44pt x 273.02pt>
+File: ../output/p0-4-c-4.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-4.jpg>
+Package pdftex.def Info: ../output/p0-4-c-4.jpg used on input line 139.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-4-c-5.jpg, id=118, 385.44pt x 273.02pt>
+File: ../output/p0-4-c-5.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-5.jpg>
+Package pdftex.def Info: ../output/p0-4-c-5.jpg used on input line 144.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-4-c-6.jpg, id=119, 503.8825pt x 391.4625pt>
+File: ../output/p0-4-c-6.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-6.jpg>
+Package pdftex.def Info: ../output/p0-4-c-6.jpg used on input line 149.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+<../output/p0-4-c-7.jpg, id=120, 503.8825pt x 391.4625pt>
+File: ../output/p0-4-c-7.jpg Graphic file (type jpg)
+
+<use ../output/p0-4-c-7.jpg>
+Package pdftex.def Info: ../output/p0-4-c-7.jpg used on input line 154.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./p0-5.tex <../output/p0-5-a-0.jpg, id=124, 236.885pt x 207.77625pt>
+File: ../output/p0-5-a-0.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-a-0.jpg>
+Package pdftex.def Info: ../output/p0-5-a-0.jpg used on input line 11.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
+
+<../output/p0-5-a-1.jpg, id=125, 276.03125pt x 183.68625pt>
+File: ../output/p0-5-a-1.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-a-1.jpg>
+Package pdftex.def Info: ../output/p0-5-a-1.jpg used on input line 16.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
+
+<../output/p0-5-a-2.jpg, id=126, 385.44pt x 273.02pt>
+File: ../output/p0-5-a-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-a-2.jpg>
+Package pdftex.def Info: ../output/p0-5-a-2.jpg used on input line 22.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-5-a-3.jpg, id=127, 503.8825pt x 391.4625pt>
+File: ../output/p0-5-a-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-a-3.jpg>
+Package pdftex.def Info: ../output/p0-5-a-3.jpg used on input line 28.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../output/p0-5-b-0.jpg, id=129, 236.885pt x 207.77625pt>
+File: ../output/p0-5-b-0.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-b-0.jpg>
+Package pdftex.def Info: ../output/p0-5-b-0.jpg used on input line 45.
+(pdftex.def)             Requested size: 127.32603pt x 111.68071pt.
+
+<../output/p0-5-b-1.jpg, id=130, 276.03125pt x 183.68625pt>
+File: ../output/p0-5-b-1.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-b-1.jpg>
+Package pdftex.def Info: ../output/p0-5-b-1.jpg used on input line 51.
+(pdftex.def)             Requested size: 127.32603pt x 84.72932pt.
+
+<../output/p0-5-b-2.jpg, id=131, 385.44pt x 273.02pt>
+File: ../output/p0-5-b-2.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-b-2.jpg>
+Package pdftex.def Info: ../output/p0-5-b-2.jpg used on input line 57.
+(pdftex.def)             Requested size: 127.32603pt x 90.18852pt.
+
+<../output/p0-5-b-3.jpg, id=132, 503.8825pt x 391.4625pt>
+File: ../output/p0-5-b-3.jpg Graphic file (type jpg)
+
+<use ../output/p0-5-b-3.jpg>
+Package pdftex.def Info: ../output/p0-5-b-3.jpg used on input line 63.
+(pdftex.def)             Requested size: 127.32603pt x 98.91666pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 54.
+ [5 <../dbg/hist-original.png> <../dbg/hist-normalized.png>] [6 <../output/p0-4
+-c-0.jpg> <../output/p0-4-c-1.jpg> <../output/p0-4-c-2.jpg> <../output/p0-4-c-3
+.jpg> <../output/p0-4-c-4.jpg> <../output/p0-4-c-5.jpg> <../output/p0-4-c-6.jpg
+> <../output/p0-4-c-7.jpg> <../output/p0-5-a-0.jpg> <../output/p0-5-a-1.jpg> <.
+./output/p0-5-a-2.jpg> <../output/p0-5-a-3.jpg>] [7 <../output/p0-5-b-0.jpg> <.
+./output/p0-5-b-1.jpg> <../output/p0-5-b-2.jpg> <../output/p0-5-b-3.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 54.
+
+(./report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 54.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 54.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: D74BBBAB91D671B23A8F86622CBEBBAA;152.
+(rerunfilecheck)             Checksum: B0F9EB235CC66F93DDBAC87E02B6F052;264.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 39.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 54.
  ) 
 Here is how much of TeX's memory you used:
- 8853 strings out of 493304
- 129616 string characters out of 6139871
- 223359 words of memory out of 5000000
- 12143 multiletter control sequences out of 15000+600000
- 22692 words of font info for 34 fonts, out of 8000000 for 9000
+ 11263 strings out of 493304
+ 161311 string characters out of 6139871
+ 275917 words of memory out of 5000000
+ 14463 multiletter control sequences out of 15000+600000
+ 28872 words of font info for 49 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,8n,40p,467b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,9n,42p,643b,1620s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/bitstrea/charter/bchri8a.pfb>
-Output written on report.pdf (4 pages, 1292805 bytes).
+ts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on report.pdf (7 pages, 2553573 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
- 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 198 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 271 words of extra memory for PDF output out of 10000 (max. 10000000)
 
