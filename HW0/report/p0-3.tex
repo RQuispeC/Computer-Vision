@@ -1,6 +1,8 @@
 \section{Replacements of pixels.}
 \begin{enumerate}[label=\emph{\alph*)}]
-\item Take the center square region of 100 x 100 pixels of A and insert it into the center of B.
+\item Let us call the monochrome image from your answer to the last item of the previous question A , and the other one B . Take the center square region of $100 \times 100$ pixels of A and insert it into the center of B.
+
+The results are shown in figure \ref{fig:replace-center}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{0.5\textwidth}
@@ -28,10 +30,13 @@
   \label{fig:sfig2}
 \end{subfigure}
 \caption{Output images for question 3.a}
-\label{fig:fig}
+\label{fig:replace-center}
 \end{figure}
 
-\item Replace the respective channel of B into the original image
+\item Replace the respective channel of B into the original image.
+
+The results are shown in figure \ref{fig:replace-channel}.
+
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{0.5\textwidth}
@@ -59,8 +64,9 @@
   \label{fig:sfig2}
 \end{subfigure}
 \caption{Output images for question 3.b}
-\label{fig:fig}
+\label{fig:replace-channel}
 \end{figure}
-\\In 3.a the central region of the image B take the values of the central region of the image A. The differences are easily visible.
-\\\\In 3.b the output image is the same as the original image, except for the central region, the central region replaced its pixels of the green channel by pixels of the red channel, generating a new color.
+
+In 3.a the differences are easier to see in the images \ref{fig:replace-center}.a, \ref{fig:replace-center}.c, in the same occurs in 3.b. This happens because these images presents higher green than red values in its center areas, generating more purple-blue colors which is reflected as darker points in the monochromatic image. In the images \ref{fig:replace-center}.b,  \ref{fig:replace-center}.d, the red colors turn to yellow which is lighter in the monochromatic image.
+
 \end{enumerate}

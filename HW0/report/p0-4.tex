@@ -11,19 +11,21 @@ The results for each $img-green$ is summarized on table \ref{table:statistics}
 \toprule
 \textbf{Img. name}  & \textbf{max} & \textbf{min} & \textbf{mean} & \textbf{std. deviation}\\
 \midrule
-p0-2-b-0.jpg & 255 & 0 & 137.844325718 & 61.710497328 \\
-p0-2-b-1.jpg & 255 & 0 & 198.553740686 & 76.377641762  \\
-p0-2-b-2.jpg & 255 & 0 & 137.885818781 & 61.294456676 \\
-p0-2-b-3.jpg & 255 & 0 & 138.209035652 & 77.913647393 \\
+p0-2-b-0.jpg & 255 & 0 & 137.844 & 61.710 \\
+p0-2-b-1.jpg & 255 & 0 & 198.553 & 76.377 \\
+p0-2-b-2.jpg & 255 & 0 & 137.885 & 61.294 \\
+p0-2-b-3.jpg & 255 & 0 & 138.209 & 77.913 \\
 \bottomrule
 \end{tabular}
 \caption{Summary for image statistics}
 \label{table:statistics}
 \end{table}
 
+\vspace{1.5cm}
+
 The code snippet for this problem is relative small using python:
 
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[language=python][h!]
 import numpy as np
 def question_A(img):
 	img_max = img.max() #image max
@@ -67,19 +69,19 @@ The results of the normalization are shown in figure \ref{fig:green-normalizatio
 \label{fig:green-normalization}
 \end{figure}
 
-Comparing this images with the originals, it seems that a gray mask has been applied, this turns the image less visually-readable. The explanation for this effect can be done analysing the histograms that the images generate (figure \ref{fig:hist-normalization}). In the normalized image, the color are centered and goes from a range of $[0, 255]$ to a smaller one, note that the shape of the histograms (visual relation between bins size) remains the same, hence, the normalization works as a operation that push the bins to the center values.
+Comparing this images with the originals, it seems that a gray mask has been applied and edges are less highlighting. The explanation for this effect can be done analysing the histograms that the images generate (figure \ref{fig:hist-normalization}). In the normalized image, the color are centered and goes from a range of $[0, 255]$ to a smaller one, note that the shape of the histograms (visual relation between bins size) remains the same, hence, the normalization works as a operation that push the bins to the center values removing the highest and lowest values.
 
 
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{0.5\textwidth}
   \centering
-  \includegraphics[width=0.5\linewidth]{../dbg/hist-original.png}
+  \includegraphics[width=0.8\linewidth]{../dbg/hist-original.png}
   \caption{Histogram for $img-green$ of p0-1-0.jpg}
 \end{subfigure}%
 \begin{subfigure}{0.5\textwidth}
   \centering
-  \includegraphics[width=0.5\linewidth]{../dbg/hist-normalized.png}
+  \includegraphics[width=0.8\linewidth]{../dbg/hist-normalized.png}
   \caption{Histogram for norm. $img-green$ of  p0-1-1.jpg}
 \end{subfigure}
 \caption{Histograms for $img-green$ and its normalizated image}
@@ -89,7 +91,7 @@ Comparing this images with the originals, it seems that a gray mask has been app
 
 \item Shift img-green to the left by 2 pixels. Store the resulting image in the output folder. Subtract the shifted version to the original, and save the difference image. Make sure that all the values you are saving are legal so you can see all the differences. What do the negative values mean? What do you see in the result?
 
-The results for the shifted image, and the original image subtracted with the shifted are shown in figure \ref{fig:shifted-results}, the images shifted to left by two pixel present a black line which actually are the parts of the image that were replaced with 0 as part of the shifting. In the case of the subtracted image, an interesting effects accours: it presents approximation of the edges from the original images. This is really interesting and the min, max, mean and standard deviation (table \ref{table:statistics-shifted}) of the subtracted image can give an intuition of this effect.
+The results for the shifted image, and the original image subtracted with the shifted are shown in figure \ref{fig:shifted-results}, the images shifted to left by two pixel present a black line which actually are the parts of the image that were replaced with 0 as part of the shifting. In the case of the subtracted image, an interesting effects occurs: it presents approximation of the edges from the original images. This is really interesting and the min, max, mean and standard deviation (table \ref{table:statistics-shifted}) of the subtracted image can give an intuition of this effect.
 
 Comparing the image statistics, we can see a big effect in the mean: it has decreased widely, since in RGB system a value 0 is equal to black, all the pixel that has negative value are represented with black, and they may represent no-edges, this is because edges are consider as elements with high frequency, thus, when subtracting with an adjacent pixel (shifted image) its value is usually bigger and the result is positive (not black).
 
@@ -101,10 +103,10 @@ Comparing the image statistics, we can see a big effect in the mean: it has decr
 \toprule
 \textbf{Img. name}  & \textbf{max} & \textbf{min} & \textbf{mean} & \textbf{std. deviation}\\
 \midrule
-p0-2-b-0.jpg & 232 & -211 & 1.00700073692 & 46.3247164932 \\
-p0-2-b-1.jpg & 255 & -253 & 1.83093889717 & 44.5053782822 \\
-p0-2-b-2.jpg & 216 & -168 & 0.64044309129 & 19.2998234779 \\
-p0-2-b-3.jpg & 239 & -234 & 0.60832567167 & 43.4115692626 \\
+p0-2-b-0.jpg & 232 & -211 & 1.007 & 46.324 \\
+p0-2-b-1.jpg & 255 & -253 & 1.830 & 44.505 \\
+p0-2-b-2.jpg & 216 & -168 & 0.640 & 19.299 \\
+p0-2-b-3.jpg & 239 & -234 & 0.608 & 43.411 \\
 \bottomrule
 \end{tabular}
 \caption{Summary for image statistics}
