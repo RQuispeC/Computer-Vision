@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import utils
+import convolution
 import scipy as sp
 from scipy.interpolate import interp2d
 class gaussian_pyramid:
@@ -8,7 +8,7 @@ class gaussian_pyramid:
     def __init__(self, img, levels, kernel_a = 0.3):
         self.img = img
         self.levels = levels
-        self.kernel = utils.create_kernel(kernel_a)
+        self.kernel = convolution.create_kernel(kernel_a)
     
     def interpolation(self,x,y,v, interp = 'bilinear'):
         if interp=='bilinear':  
@@ -51,7 +51,7 @@ class gaussian_pyramid:
         
     def down_sample(self, image,size):
         new_image=np.empty(size)
-        filter_image=utils.convolve(image,self.kernel,normalize=False)
+        filter_image=convolution.convolve(image,self.kernel,normalize=False)
 
         for i in range(0,(image.shape[0]-image.shape[0]%2),2):
             for j in range(0,(image.shape[1]-image.shape[1]%2),2):
