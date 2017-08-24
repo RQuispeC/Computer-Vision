@@ -8,7 +8,7 @@ class gaussian_pyramid:
     def __init__(self, img, levels, kernel_a = 0.3):
         self.img = img
         self.levels = levels
-        self.kernel = convolution.create_kernel(kernel_a)
+        self.kernel = convolution.create_kernel(kernel_a,)
     
     def interpolation(self,x,y,v, interp = 'bilinear'):
         if interp=='bilinear':  
@@ -82,7 +82,6 @@ class gaussian_pyramid:
         
     def show(self, name = 'gauss_pryramid'):
         for i in range(self.levels):
-            print(self.get(i).shape)
             cv2.imwrite(name + str(i) + '.jpg', self.get(i))
     
 
