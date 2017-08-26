@@ -1,10 +1,10 @@
 import numpy as np
 import cv2
 
-def create_kernel(kernel_a):
-    vect = np.array([1/4.0 - kernel_a/2.0, 1/4.0, kernel_a, 1/4.0, 1/4.0 - kernel_a/2.0])
+def gaussian_kernel(gauss_kernel_par):
+    vect = np.array([1/4.0 - gauss_kernel_par/2.0, 1/4.0, gauss_kernel_par, 1/4.0, 1/4.0 - gauss_kernel_par/2.0])
     return np.outer(vect, np.transpose(vect))
-        
+
 def padding(img, padding_width, padding_type = 'mirror', padding_color = 0):
     if padding_type == 'zero' or padding_type == 'constant':
         img = np.pad(img, padding_width, mode = 'constant', constant_values = padding_color)
@@ -29,10 +29,9 @@ def norm(img):
     img = (img * 255).astype("uint8")
     return img
 
-def convolve(img_input, kernel, padding_type = 'zero', padding_color = 0, normalize = True):
-    img_ans = img_input.copy()
-    if len(img_input.shape) == 3 :
-
+def convolve(img_input, kernel, padding_type = 'zero', padding_color = 0, normalize = False):
+    convolved_img = np.empty(img_input.shape)
+    if len(img_input.shape) == 3:
         img_input[:, :, 0] = convolve(img_input[:, :, 0], kernel, padding_type, padding_color, normalize)
         img_input[:, :, 1] = convolve(img_input[:, :, 1], kernel, padding_type, padding_color, normalize)
         img_input[:, :, 2] = convolve(img_input[:, :, 2], kernel, padding_type, padding_color, normalize)
@@ -46,22 +45,42 @@ def convolve(img_input, kernel, padding_type = 'zero', padding_color = 0, normal
     img = padding(img_input, kernel.shape[0]//2, padding_type, padding_color=padding_color)
     #    colvolve
     space = kernel.shape[0]//2
-    for row in range(space,img_ans.shape[0]+space):
-        for col in range(space, img_ans.shape[1]+space): 
+    for row in range(space,convolved_img.shape[0]+space):
+        for col in range(space, convolved_img.shape[1]+space): 
             aux_matrix = img[row-space:row+space + 1,col-space:col+space + 1]
             new_value = (int)((aux_matrix*kernel).sum())
-            img_ans[row-space,col-space]=new_value
+            convolved_img[row-space,col-space]=new_value
 
     if normalize == True:
-        img_ans = norm(img_ans)
-    return img_ans
+        convolved_img = norm(convolved_img)
+    return convolved_img
+
+def load_kernels():
+    kernels = []
+    kernels.append(convolution.gaussian_kernel(0.3))
+    return kernels
 
 if __name__ == "__main__":
-    file_name_input = 'p0-1-0.jpg'
-    image = cv2.imread(file_name_input,1)
-    kernel = np.array([[-1,0,1],
-              [-2,0,2],
-              [-1,0,1]]).astype(np.float)
-  #  kernel=np.ones((5,5))/25
-    ans=convolve(image,kernel,normalize=False)
-    cv2.imwrite("3.jpg",ans)
+    image_names = ['input/p1-1-0.jpg', 'input/p1-1-1.jpg', 'input/p1-1-2.png', 'input/p1-1-3.png']
+    kernels = load_kernels()
+    name_it = 0
+    for image_name in image_names:
+        image = cv2.imread(image_name, 0)
+        for kernel in kernels:
+            ans=convolve(image, kernel, padding_type = 'zero')
+            cv2.imwrite('output/p1-2-1-' + str(name_it) + '.jpg', ans)
+            print(image_name, 'output/p1-2-1-' + str(name_it) + '.jpg')
+            ans=convolve(image, kernel, padding_type = 'constant', padding_color = 128)
+            cv2.imwrite('output/p1-2-1-' + str(name_it+1) + '.jpg', ans)
+            print(image_name, 'output/p1-2-1-' + str(name_it+1) + '.jpg')
+            ans=convolve(image, kernel, padding_type = 'constant', padding_color = 255)
+            cv2.imwrite('output/p1-2-1-' + str(name_it+2) + '.jpg', ans)
+            print(image_name, 'output/p1-2-1-' + str(name_it+2) + '.jpg')
+            ans=convolve(image, kernel, padding_type = 'mirror')
+            cv2.imwrite('output/p1-2-1-' + str(name_it+3) + '.jpg', ans)
+            print(image_name, 'output/p1-2-1-' + str(name_it+3) + '.jpg')
+            name_it += 4
+
+
+
+

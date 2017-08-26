@@ -5,10 +5,13 @@ import scipy as sp
 
 class gaussian_pyramid:
     pyramid = []              
-    def __init__(self, img, levels, kernel_a = 0.3):
+    def __init__(self, img, levels, kernel = None, gauss_kernel_par= 0.3):
         self.img = img
         self.levels = levels
-        self.kernel = convolution.create_kernel(kernel_a,)
+        if kernel == None:
+            self.kernel = convolution.gaussian_kernel(gauss_kernel_par)
+        else:
+            self.kernel = kernel    
     
     def interpolation(self,x,y,v, interp = 'bilinear'):
         if interp=='bilinear':  
@@ -22,6 +25,12 @@ class gaussian_pyramid:
 
     def up_sample(self, image, size, interp = 'bilinear'):
         new_image=np.empty(size)
+        if len(image.shape) == 3:
+            new_image = np.empty((size[0], size[1], 3))
+            new_image[:, :, 0] = self.up_sample(image[:, :, 0], (size[0], size[1]), interp)
+            new_image[:, :, 1] = self.up_sample(image[:, :, 1], (size[0], size[1]), interp)
+            new_image[:, :, 2] = self.up_sample(image[:, :, 2], (size[0], size[1]), interp)
+            return new_image
         for i in range(size[0]):
             for j in range(size[1]):
                 if(interp == 'bilinear'):
@@ -35,7 +44,15 @@ class gaussian_pyramid:
                     new_image[i, j] = self.interpolation(x, y, z, interp)
         return new_image
     
-    def down(self, level): #upsample
+    def down_sample(self, image, size, padding_type = 'zero', padding_color = 0):
+        new_image=np.empty(size)
+        filtered_image=convolution.convolve(image, self.kernel, normalize=False, padding_type = padding_type, padding_color = padding_color)
+        for i in range(0,(image.shape[0]-image.shape[0]%2),2):
+            for j in range(0,(image.shape[1]-image.shape[1]%2),2):
+                new_image[i/2,j/2] = filtered_image[i,j]
+        return new_image
+
+    def down(self, level): #upsample the image
         axis_x=self.pyramid[level].shape[0] * 2
         axis_y=self.pyramid[level].shape[1] * 2
         if len(self.img.shape) == 3 :
@@ -48,16 +65,8 @@ class gaussian_pyramid:
             new_image = self.up_sample(self.pyramid[level],(axis_x,axis_y))
             return new_image
         
-    def down_sample(self, image,size):
-        new_image=np.empty(size)
-        filter_image=convolution.convolve(image,self.kernel,normalize=False)
-
-        for i in range(0,(image.shape[0]-image.shape[0]%2),2):
-            for j in range(0,(image.shape[1]-image.shape[1]%2),2):
-                new_image[i/2,j/2] = filter_image[i,j]
-        return new_image
               
-    def up(self, level): #downsample
+    def up(self, level): #downsample the image
         axis_x=self.pyramid[level].shape[0]//2
         axis_y=self.pyramid[level].shape[1]//2
         if len(self.img.shape) == 3 :
@@ -78,17 +87,40 @@ class gaussian_pyramid:
     def get(self, level):
         if(level >=0 and level < self.levels):
             return self.pyramid[level]
-        exit('Parameter error: invalid gaussian level')
+        exit('Parameter error: invalid gaussian pyramid level')
         
-    def show(self, name = 'gauss_pryramid'):
+    def show(self, name = 'gauss_pyramid'):
         for i in range(self.levels):
             cv2.imwrite(name + str(i) + '.jpg', self.get(i))
     
+def load_kernels():
+    kernels = []
+    kernels.append(np.array([[-1,0,1],
+                            [-2,0,2],
+                            [-1,0,1]]).astype(np.float))
+
+    return kernels
 
 if __name__ == "__main__":
-    file_name_input = 'p0-1-0.jpg'
-    image = cv2.imread(file_name_input,1) 
-    pyramide=gaussian_pyramid(image,7)
-    pyramide.build()
-    pyramide.show()
-    cv2.imwrite("juan.jpg",pyramide.down(1))
+    image_names = ['input/p1-1-0.jpg', 'input/p1-1-1.jpg', 'input/p1-1-2.png', 'input/p1-1-3.png']
+    name_it = 0
+    kernels = load_kernels()
+    pyramid_levels = 7
+    for image_name in image_names:
+        image = cv2.imread(image_name, 1)
+        for kernel in kernels:
+            pyramid = gaussian_pyramid(image, levels = pyramid_levels, kernel = kernel)
+            pyramid.build()
+            #plot downsample results
+            print('downsample results')
+            for i in range(pyramid_levels):
+                cv2.imwrite('output/p1-2-2-' + str(name_it) + '.jpg', pyramid.get(i))
+                print(image_name, 'output/p1-2-2-' + str(name_it) + '.jpg')
+                name_it += 1
+
+            #plot upsample results
+            print('upsample results')
+            for i in range(pyramid_levels):
+                cv2.imwrite('output/p1-2-2-' + str(name_it) + '.jpg', pyramid.down(i))
+                print(image_name, 'output/p1-2-2-' + str(name_it) + '.jpg')
+                name_it += 1
