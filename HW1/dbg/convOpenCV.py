@@ -15,7 +15,7 @@ def load_kernels():
                             [0, 18,  64, 100,  64, 18, 0],
                             [5, 32, 100, 100, 100, 32, 5],
                             [0, 18,  64, 100,  64, 18, 0],
-                            [0,  5,  18,  32,  18,  5, 0],
+                            [0,  5,  18,  32,  18,  5, 0],  
                             [0,  0,   0,   5,   0,  0, 0]]).astype(np.float)/1068.0)
     #media
     kernels.append(np.array([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -46,9 +46,10 @@ def load_kernels():
     return kernels
 
 if __name__ == "__main__":
-    image_names = ['input/p1-1-0.jpg', 'input/p1-1-1.jpg', 'input/p1-1-2.png', 'input/p1-1-3.png']
+    image_names = ['input/p1-1-1.jpg', 'input/p1-1-2.png']
     kernels = load_kernels()
     for image_name in image_names:
+        print('===> Image: '+image_name)  
         image = cv2.imread(image_name, 0)
         for kernel in kernels:
             start = time.time()

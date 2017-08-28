@@ -99,10 +99,11 @@ def load_kernels():
     return kernels
 
 if __name__ == "__main__":
-    image_names = ['input/p1-1-0.jpg', 'input/p1-1-1.jpg', 'input/p1-1-2.png', 'input/p1-1-3.png']
+    image_names = ['input/p1-1-1.jpg', 'input/p1-1-2.png']
     kernels = load_kernels()
     name_it = 0
     for image_name in image_names:
+        print('===> Image: '+image_name) 
         image = cv2.imread(image_name, 0)
         for kernel in kernels:
             start = time.time()
