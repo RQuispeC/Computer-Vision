@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import time
 
 def gaussian_kernel(gauss_kernel_par):
     vect = np.array([1/4.0 - gauss_kernel_par/2.0, 1/4.0, gauss_kernel_par, 1/4.0, 1/4.0 - gauss_kernel_par/2.0])
@@ -69,7 +70,10 @@ if __name__ == "__main__":
     for image_name in image_names:
         image = cv2.imread(image_name, 0)
         for kernel in kernels:
+            start = time.time()
             ans=convolve(image, kernel, padding_type = 'zero')
+            end = time.time()
+            print('Kernel dimensions ' + str(kernel.shape[0])+'x'+str(kernel.shape[1]) + ', time execution: '+str(end-start)) 
             cv2.imwrite('output/p1-2-1-' + str(name_it) + '.jpg', ans)
             print(image_name, 'output/p1-2-1-' + str(name_it) + '.jpg')
             ans=convolve(image, kernel, padding_type = 'constant', padding_color = 128)
