@@ -15,9 +15,8 @@ class laplacian_pyramid:
             
     def gauss_operation(self, gauss_cur, gauss_down, operation = '-'):
         if len(gauss_cur.shape) == 3:
-            gauss_cur[:, :, 0] = self.gauss_operation(gauss_cur[:, :, 0], gauss_down[:, :, 0], operation)
-            gauss_cur[:, :, 1] = self.gauss_operation(gauss_cur[:, :, 1], gauss_down[:, :, 1], operation)
-            gauss_cur[:, :, 2] = self.gauss_operation(gauss_cur[:, :, 2], gauss_down[:, :, 2], operation)
+            for depth in range(gauss_cur.shape[2]):
+                gauss_cur[:, :, depth] = self.gauss_operation(gauss_cur[:, :, depth], gauss_down[:, :, depth], operation)
             return gauss_cur
         if gauss_cur.shape[0] != gauss_down.shape[0]:
                 gauss_down = np.vstack((gauss_down, np.full((1, gauss_down.shape[1]), 255)))
@@ -32,21 +31,17 @@ class laplacian_pyramid:
         gaussian_pyramid = gp.gaussian_pyramid(image, 1)
         image_upsampled = np.empty(size)
         if len(size) == 3:
-            image_upsampled[:,:,0] = gaussian_pyramid.up_sample(image[:,:,0], size)  
-            image_upsampled[:,:,1] = gaussian_pyramid.up_sample(image[:,:,1], size)  
-            image_upsampled[:,:,2] = gaussian_pyramid.up_sample(image[:,:,2], size)
+            for depth in range(size[2]):
+                image_upsampled[:,:,depth] = gaussian_pyramid.up_sample(image[:,:,depth], size)
         else:
             image_upsampled = gaussian_pyramid.up_sample(image, size)
         return image_upsampled
 
     def down(self, up_level_img, cur_level_img):
         if len(up_level_img) == 3:
-            new_size= (up_level_img.shape[0] * 2, up_level_img.shape[1] * 2, 3)
+            new_size= (up_level_img.shape[0] * 2, up_level_img.shape[1] * 2, up_level_img.shape[2])
         else:
             new_size= (up_level_img.shape[0] * 2, up_level_img.shape[1] * 2)
-
-        print (up_level_img.shape)
-        print (cur_level_img.shape)
         return self.gauss_operation(cur_level_img.astype(int), self.up_sample(up_level_img, new_size).astype(int), '+')
 
     def up(self, level, gaussian_pyramid):

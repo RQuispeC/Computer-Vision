@@ -26,10 +26,9 @@ class gaussian_pyramid:
     def up_sample(self, image, size, interp = 'bilinear'):
         new_image=np.empty(size)
         if len(image.shape) == 3:
-            new_image = np.empty((size[0], size[1], 3))
-            new_image[:, :, 0] = self.up_sample(image[:, :, 0], (size[0], size[1]), interp)
-            new_image[:, :, 1] = self.up_sample(image[:, :, 1], (size[0], size[1]), interp)
-            new_image[:, :, 2] = self.up_sample(image[:, :, 2], (size[0], size[1]), interp)
+            new_image = np.empty((size[0], size[1], image.shape[2]))
+            for depth in range(image.shape[2]):
+                new_image[:, :, depth] = self.up_sample(image[:, :, depth], (size[0], size[1]), interp ) 
             return new_image
         for i in range(size[0]):
             for j in range(size[1]):
@@ -56,10 +55,9 @@ class gaussian_pyramid:
         axis_x=self.pyramid[level].shape[0] * 2
         axis_y=self.pyramid[level].shape[1] * 2
         if len(self.img.shape) == 3 :
-            new_image = np.empty((axis_x,axis_y, 3))
-            new_image[:, :, 0] = self.up_sample(self.pyramid[level][:, :, 0],(axis_x,axis_y))
-            new_image[:, :, 1] = self.up_sample(self.pyramid[level][:, :, 1],(axis_x,axis_y))
-            new_image[:, :, 2] = self.up_sample(self.pyramid[level][:, :, 2],(axis_x,axis_y))
+            new_image = np.empty((axis_x,axis_y, self.img.shape[2]))
+            for depth in range(self.img.shape[2]):
+                new_image[:, :, depth] = self.up_sample(self.pyramid[level][:, :, depth],(axis_x,axis_y))
             return new_image
         else:
             new_image = self.up_sample(self.pyramid[level],(axis_x,axis_y))
@@ -70,10 +68,9 @@ class gaussian_pyramid:
         axis_x=self.pyramid[level].shape[0]//2
         axis_y=self.pyramid[level].shape[1]//2
         if len(self.img.shape) == 3 :
-            new_image = np.empty((axis_x,axis_y, 3))
-            new_image[:, :, 0] = self.down_sample(self.pyramid[level][:, :, 0],(axis_x,axis_y))
-            new_image[:, :, 1] = self.down_sample(self.pyramid[level][:, :, 1],(axis_x,axis_y))
-            new_image[:, :, 2] = self.down_sample(self.pyramid[level][:, :, 2],(axis_x,axis_y))
+            new_image = np.empty((axis_x,axis_y, self.img.shape[2]))
+            for depth in range(self.img.shape[2]):
+                new_image[:, :, depth] = self.down_sample(self.pyramid[level][:, :, depth],(axis_x,axis_y))
             return new_image
         else:
             new_image = self.down_sample(self.pyramid[level],(axis_x,axis_y))
@@ -95,9 +92,7 @@ class gaussian_pyramid:
     
 def load_kernels():
     kernels = []
-    kernels.append(np.array([[-1,0,1],
-                            [-2,0,2],
-                            [-1,0,1]]).astype(np.float))
+    kernels.append(convolution.gaussian_kernel(0.3))
 
     return kernels
 

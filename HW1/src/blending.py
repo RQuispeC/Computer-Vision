@@ -3,22 +3,22 @@ import numpy as np
 import gaussian_pyramid as gp
 import laplacian_pyramid as lp
 
-def inverse(mask):
-    return np.full(mask.shape,255) - mask
+def inverse(mask, value = 255):
+    return np.full(mask.shape, value) - mask
     
-def set_mask(mask_type = 'left_right', img_shape = None, mask_img_filename = ''):
+def set_mask(mask_type = 'left_right', img_shape = None, value = 255, mask_img_filename = ''):
     if mask_type == 'left_right': #left and right blending mask
         mid = img_shape[1] // 2
         if len(img_shape) == 3:
-            return np.hstack((np.zeros((img_shape[0], mid, 3)), np.full((img_shape[0], img_shape[1] - mid, 3), 255)))
+            return np.hstack((np.zeros((img_shape[0], mid, 3)), np.full((img_shape[0], img_shape[1] - mid, 3), value)))
         else:
-            return np.hstack((np.zeros((img_shape[0], mid)), np.full((img_shape[0], img_shape[1] - mid), 255)))
+            return np.hstack((np.zeros((img_shape[0], mid)), np.full((img_shape[0], img_shape[1] - mid), value)))
     elif mask_type == 'bottom_up': #bottom up blending mask
         mid = img_shape[0] // 2
         if len(img_shape) == 3:
-            return np.hstack((np.zeros((mid, img_shape[1], 3)), np.full((img_shape[0] - mid, img_shape[1], 3), 255)))
+            return np.hstack((np.zeros((mid, img_shape[1], 3)), np.full((img_shape[0] - mid, img_shape[1], 3), value)))
         else:
-            return np.hstack((np.zeros((mid, img_shape[1])), np.full((img_shape[0] - mid, img_shape[1]), 255)))            
+            return np.hstack((np.zeros((mid, img_shape[1])), np.full((img_shape[0] - mid, img_shape[1]), value)))        
     elif mask_type == 'file': #load mask form an image
         return cv2.imread(mask_img_filename, 0)
     else:
@@ -38,7 +38,6 @@ def blending(img_a, img_b, mask, level = 2):
     mid = []
     for i in range(level - 1, -1, -1):
         mask = gp_mask.get(i)
-        print(lp_a.get(i).shape, lp_b.get(i).shape, mask.shape)
         joint = combine(lp_a.get(i), lp_b.get(i), mask)
         mid.append(joint)
     

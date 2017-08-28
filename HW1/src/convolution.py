@@ -19,7 +19,7 @@ def flip(kernel):
 
 def validate(img_shape, kernel_shape):
     if img_shape[0] < kernel_shape[0] or img_shape[1] < kernel_shape[1]:
-        exit('Error: kernel must be smaller')
+        exit('Error: kernel must be smaller' + str(img_shape) + ' ' + str(kernel_shape))
     if kernel_shape[0] % 2 == 0 or kernel_shape[1] % 2 == 0 or kernel_shape[0] != kernel_shape[1]:
         exit('Error: kernel dimensions must be odd and equal')
     return True
@@ -32,9 +32,8 @@ def norm(img):
 def convolve(img_input, kernel, padding_type = 'zero', padding_color = 0, normalize = False):
     convolved_img = np.empty(img_input.shape)
     if len(img_input.shape) == 3:
-        img_input[:, :, 0] = convolve(img_input[:, :, 0], kernel, padding_type, padding_color, normalize)
-        img_input[:, :, 1] = convolve(img_input[:, :, 1], kernel, padding_type, padding_color, normalize)
-        img_input[:, :, 2] = convolve(img_input[:, :, 2], kernel, padding_type, padding_color, normalize)
+        for depth in range(img_input.shape[2]):
+            img_input[:, :, depth] = convolve(img_input[:, :, depth], kernel, padding_type, padding_color, normalize)
         return img_input
     
     #    validate data
@@ -57,7 +56,10 @@ def convolve(img_input, kernel, padding_type = 'zero', padding_color = 0, normal
 
 def load_kernels():
     kernels = []
-    kernels.append(convolution.gaussian_kernel(0.3))
+    kernels.append(np.array([[-1,0,1],
+                            [-2,0,2],
+                            [-1,0,1]]).astype(np.float))
+    kernels.append(gaussian_kernel(0.3))
     return kernels
 
 if __name__ == "__main__":
