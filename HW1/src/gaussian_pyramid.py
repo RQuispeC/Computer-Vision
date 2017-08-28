@@ -92,8 +92,20 @@ class gaussian_pyramid:
     
 def load_kernels():
     kernels = []
+    #sobel
+    kernels.append(np.array([[-1,0,1],
+                            [-2,0,2],
+                            [-1,0,1]]).astype(np.float))
+    #gaussian 5x5
     kernels.append(convolution.gaussian_kernel(0.3))
-
+    #gaussian 7x7
+    kernels.append(np.array([[0, 0,   0,   5,   0,  0, 0],
+                            [0,  5,  18,  32,  18,  5, 0],
+                            [0, 18,  64, 100,  64, 18, 0],
+                            [5, 32, 100, 100, 100, 32, 5],
+                            [0, 18,  64, 100,  64, 18, 0],
+                            [0,  5,  18,  32,  18,  5, 0],
+                            [0,  0,   0,   5,   0,  0, 0]]).astype(np.float)/1068.0)
     return kernels
 
 if __name__ == "__main__":
