@@ -1,7 +1,5 @@
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
-from matplotlib import pylab
 import laplacian_pyramid as lp
 import blending
 
@@ -100,7 +98,7 @@ if __name__ == "__main__":
     image_names = ['input/p1-1-2.png', 'input/p1-1-3.png', 'input/p1-1-0.jpg', 'input/p1-1-1.jpg']
     name_it = 0
 
-    '''
+    
     flag_values = [False, True, True, True, True]
     selection_values = [1, 0.25, 0.5, 0.75, 1.0]
     print('Exploring Fourier Space')
@@ -141,7 +139,6 @@ if __name__ == "__main__":
             print(image_name, 'output/p1-3-1-' + str(name_it) + '.jpg')
             name_it += 1
         
-'''
 
     print('Frequency Blending')
     blend_strategies = ['left_right', 'bottom_up', 'centered', 'chessboard', 'sliding_rows', 'sliding_columns']

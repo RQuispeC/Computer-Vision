@@ -1,13 +1,11 @@
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
-from matplotlib import pylab
 import laplacian_pyramid as lp
 import blending
 
 def fromSpaceToFrequency(img):
     dft = cv2.dft(np.array(img).astype(np.float),flags = cv2.DFT_COMPLEX_OUTPUT)
-    dft_shift = np.fft.fftshift(dft)
+    dft_shift = np.fft.fftshift(dft)    
     return np.array(cv2.cartToPolar(dft_shift[:, :, 0], dft_shift[:, :, 1]))
 
 def change_dim(polar_img):
@@ -49,6 +47,7 @@ def lower_values(img, selection, isPercentage = True):
         lim = sorted_img[min((int)(len(sorted_img)*selection), len(sorted_img) -1)]
     #print('lim', lim)    
     img[img > lim] = 0
+    print(lim)
     return img
  
 def upper_values(img, selection, isPercentage = True):
@@ -63,7 +62,7 @@ def upper_values(img, selection, isPercentage = True):
     img[img < lim] = 0
     return img
     
-def frec_blending(fimg_first, fimg_second, strategy = 'left_right', width = 80, slide = 60):
+def frec_blending(fimg_first, fimg_second, strategy = 'left_right', width = 80, slide = 20):
     rows, cols = fimg_first.shape[1:]
     crow,ccol = rows//2 , cols//2
     if strategy == 'left_right':
@@ -96,10 +95,10 @@ def frec_blending(fimg_first, fimg_second, strategy = 'left_right', width = 80, 
     return fimg_first
 
 if __name__ == "__main__":
-    image_names = ['../input/p1-1-2.png', '../input/p1-1-3.png', 'input/p1-1-0.jpg', 'input/p1-1-1.jpg']
+    image_names = ['input/p1-1-2.png', 'input/p1-1-3.png', 'input/p1-1-0.jpg', 'input/p1-1-1.jpg']
     name_it = 0
 
-    '''
+    
     flag_values = [False, True, True, True, True]
     selection_values = [1, 0.25, 0.5, 0.75, 1.0]
     print('Exploring Fourier Space')
@@ -139,8 +138,7 @@ if __name__ == "__main__":
             cv2.imwrite('output/p1-3-1-' + str(name_it) + '.jpg', fromFrequencyToSpace(frec_tmp))
             print(image_name, 'output/p1-3-1-' + str(name_it) + '.jpg')
             name_it += 1
-    '''    
-
+        
 
     print('Frequency Blending')
     blend_strategies = ['left_right', 'bottom_up', 'centered', 'chessboard', 'sliding_rows', 'sliding_columns']

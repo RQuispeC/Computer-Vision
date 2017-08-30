@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2016/dev) (preloaded format=pdflatex 2017.2.24)  29 AUG 2017 20:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  29 AUG 2017 22:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**report.tex
+**report
 (./report.tex
-LaTeX2e <2015/01/01> patch level 2
-Babel <3.9m> and hyphenation patterns for 3 languages loaded.
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -24,19 +24,19 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2015/03/17 v1.2c Input encoding file
+Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
@@ -186,7 +186,7 @@ Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00B8 (decimal 184)
@@ -217,7 +217,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -241,18 +241,16 @@ Now handling font encoding U ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2015/08/03 3.9m The Babel package
+Package: babel 2013/12/03 3.9h The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2015/08/03 3.9m Babel common definitions
+File: babel.def 2013/12/03 3.9h Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
@@ -262,7 +260,7 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/charter.sty
 Package: charter 2005/04/12 PSNFSS-v9.2a (P.Dyballa) 
@@ -384,7 +382,7 @@ Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks21
 )
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
@@ -457,10 +455,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip46
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
@@ -468,7 +466,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 94.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -489,7 +487,7 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \bigstrutjot=\dimen120
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen121
 \extrarowheight=\dimen122
 \NC@list=\toks23
@@ -544,8 +542,8 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 )
 (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
-LaTeX Info: Redefining \nocite on input line 332.
-Package: cite 2015/02/27  v 5.5
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -562,7 +560,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks24
 )
-(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
@@ -594,15 +592,15 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 \lst@maxwidth=\dimen154
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 \c@lstnumber=\count128
 \lst@skipnumbers=\count129
 \lst@framebox=\box30
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2015/06/04 1.6 listings configuration
+File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
-Package: listings 2015/06/04 1.6 (Carsten Heinz)
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
  (./report.aux)
 \openout1 = `report.aux'.
 
@@ -746,7 +744,7 @@ Package pdftex.def Info: input/p1-1-3.png used on input line 24.
 (pdftex.def)             Requested size: 127.32603pt x 127.32626pt.
 )
 (./p1-2-1.tex (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
+File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 5.
@@ -854,8 +852,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1
 
-{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./input/p1-
-1-0.jpg> <./input/p1-1-1.jpg> <./input/p1-1-2.png> <./input/p1-1-3.png>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./input/p1-1-0.jpg> <./inp
+ut/p1-1-1.jpg> <./input/p1-1-2.png> <./input/p1-1-3.png>]
 
 LaTeX Warning: Text page 2 contains only floats.
 
@@ -866,7 +864,7 @@ jpg>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 111.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )) (./p1-2-2.tex
 
 Package Listings Warning: Text dropped after begin of listing on input line 5.
@@ -903,11 +901,11 @@ Package Listings Warning: Text dropped after begin of listing on input line 88.
 File: output/reconstructionImage.pdf Graphic file (type pdf)
 
 <use output/reconstructionImage.pdf>
-Package pdftex.def Info: output/reconstructionImage.pdf used on input line 145.
+Package pdftex.def Info: output/reconstructionImage.pdf used on input line 144.
 
 (pdftex.def)             Requested size: 560.23769pt x 383.50212pt.
 
-Overfull \hbox (24.59077pt too wide) in paragraph at lines 144--146
+Overfull \hbox (24.59077pt too wide) in paragraph at lines 143--145
 []  [] 
  []
 
@@ -922,230 +920,242 @@ Package Listings Warning: Text dropped after begin of listing on input line 5.
 Package Listings Warning: Text dropped after begin of listing on input line 11.
 
 
-[5]
 
 Package Listings Warning: Text dropped after begin of listing on input line 22.
 
 
+[5]
 
 Package Listings Warning: Text dropped after begin of listing on input line 32.
 
 
-<output/blendedOpenCV.jpg, id=245, 301.125pt x 323.2075pt>
+<output/blendedOpenCV.jpg, id=245, 300.12125pt x 303.1325pt>
 File: output/blendedOpenCV.jpg Graphic file (type jpg)
 
 <use output/blendedOpenCV.jpg>
-Package pdftex.def Info: output/blendedOpenCV.jpg used on input line 46.
-(pdftex.def)             Requested size: 134.45755pt x 144.32253pt.
+Package pdftex.def Info: output/blendedOpenCV.jpg used on input line 47.
+(pdftex.def)             Requested size: 134.45755pt x 135.80705pt.
 
 <output/blending1.jpg, id=248, 301.125pt x 301.125pt>
 File: output/blending1.jpg Graphic file (type jpg)
 
 <use output/blending1.jpg>
-Package pdftex.def Info: output/blending1.jpg used on input line 52.
+Package pdftex.def Info: output/blending1.jpg used on input line 53.
 (pdftex.def)             Requested size: 134.45755pt x 134.46198pt.
 
 <output/blending2.jpg, id=249, 301.125pt x 301.125pt>
 File: output/blending2.jpg Graphic file (type jpg)
 
 <use output/blending2.jpg>
-Package pdftex.def Info: output/blending2.jpg used on input line 58.
+Package pdftex.def Info: output/blending2.jpg used on input line 59.
 (pdftex.def)             Requested size: 134.45755pt x 134.46198pt.
+ <output/blending.jpg, id=250, 469.755pt x 835.12pt>
+File: output/blending.jpg Graphic file (type jpg)
+
+<use output/blending.jpg>
+Package pdftex.def Info: output/blending.jpg used on input line 65.
+(pdftex.def)             Requested size: 285.21016pt x 507.03954pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./p1-3-1.tex <output/magnitud_low_1.jpg, id=254, 401.5pt x 401.5pt>
+) (./p1-3-1.tex <output/magnitud_low_1.jpg, id=255, 401.5pt x 401.5pt>
 File: output/magnitud_low_1.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_1.jpg>
 Package pdftex.def Info: output/magnitud_low_1.jpg used on input line 9.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_25.jpg, id=255, 401.5pt x 401.5pt>
+<output/magnitud_low_25.jpg, id=256, 401.5pt x 401.5pt>
 File: output/magnitud_low_25.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_25.jpg>
 Package pdftex.def Info: output/magnitud_low_25.jpg used on input line 14.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_50.jpg, id=256, 401.5pt x 401.5pt>
+<output/magnitud_low_50.jpg, id=257, 401.5pt x 401.5pt>
 File: output/magnitud_low_50.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_50.jpg>
 Package pdftex.def Info: output/magnitud_low_50.jpg used on input line 19.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_75.jpg, id=257, 401.5pt x 401.5pt>
+<output/magnitud_low_75.jpg, id=258, 401.5pt x 401.5pt>
 File: output/magnitud_low_75.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_75.jpg>
 Package pdftex.def Info: output/magnitud_low_75.jpg used on input line 24.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_100.jpg, id=258, 401.5pt x 401.5pt>
+<output/magnitud_low_100.jpg, id=259, 401.5pt x 401.5pt>
 File: output/magnitud_low_100.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_100.jpg>
 Package pdftex.def Info: output/magnitud_low_100.jpg used on input line 29.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
- [6 <./output/reconstructionImage.pdf>]
-<output/magnitud_high_1.jpg, id=314, 401.5pt x 401.5pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./output/reconstructionImage.pdf>]
+<output/magnitud_high_1.jpg, id=320, 401.5pt x 401.5pt>
 File: output/magnitud_high_1.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_1.jpg>
 Package pdftex.def Info: output/magnitud_high_1.jpg used on input line 42.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_25.jpg, id=315, 401.5pt x 401.5pt>
+<output/magnitud_high_25.jpg, id=321, 401.5pt x 401.5pt>
 File: output/magnitud_high_25.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_25.jpg>
 Package pdftex.def Info: output/magnitud_high_25.jpg used on input line 47.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_50.jpg, id=316, 401.5pt x 401.5pt>
+<output/magnitud_high_50.jpg, id=322, 401.5pt x 401.5pt>
 File: output/magnitud_high_50.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_50.jpg>
 Package pdftex.def Info: output/magnitud_high_50.jpg used on input line 52.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_75.jpg, id=317, 401.5pt x 401.5pt>
+<output/magnitud_high_75.jpg, id=323, 401.5pt x 401.5pt>
 File: output/magnitud_high_75.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_75.jpg>
 Package pdftex.def Info: output/magnitud_high_75.jpg used on input line 57.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_100.jpg, id=318, 401.5pt x 401.5pt>
+<output/magnitud_high_100.jpg, id=324, 401.5pt x 401.5pt>
 File: output/magnitud_high_100.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_100.jpg>
 Package pdftex.def Info: output/magnitud_high_100.jpg used on input line 62.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_1.jpg, id=320, 401.5pt x 401.5pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./output/blendedOpenCV.jpg> <./output/blending1.jpg> <./output/blending2.jp
+g> <./output/blending.jpg>]
+<output/phase_low_1.jpg, id=331, 401.5pt x 401.5pt>
 File: output/phase_low_1.jpg Graphic file (type jpg)
 
 <use output/phase_low_1.jpg>
 Package pdftex.def Info: output/phase_low_1.jpg used on input line 75.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_25.jpg, id=321, 401.5pt x 401.5pt>
+<output/phase_low_25.jpg, id=332, 401.5pt x 401.5pt>
 File: output/phase_low_25.jpg Graphic file (type jpg)
 
 <use output/phase_low_25.jpg>
 Package pdftex.def Info: output/phase_low_25.jpg used on input line 80.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_50.jpg, id=322, 401.5pt x 401.5pt>
+<output/phase_low_50.jpg, id=333, 401.5pt x 401.5pt>
 File: output/phase_low_50.jpg Graphic file (type jpg)
 
 <use output/phase_low_50.jpg>
 Package pdftex.def Info: output/phase_low_50.jpg used on input line 85.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_75.jpg, id=323, 401.5pt x 401.5pt>
+<output/phase_low_75.jpg, id=334, 401.5pt x 401.5pt>
 File: output/phase_low_75.jpg Graphic file (type jpg)
 
 <use output/phase_low_75.jpg>
 Package pdftex.def Info: output/phase_low_75.jpg used on input line 90.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_100.jpg, id=324, 401.5pt x 401.5pt>
+<output/phase_low_100.jpg, id=335, 401.5pt x 401.5pt>
 File: output/phase_low_100.jpg Graphic file (type jpg)
 
 <use output/phase_low_100.jpg>
 Package pdftex.def Info: output/phase_low_100.jpg used on input line 95.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
- [7 <./output/blendedOpenCV.jpg> <./output/blending1.jpg> <./output/blending2.j
-pg> <./output/magnitud_low_1.jpg> <./output/magnitud_low_25.jpg> <./output/magn
-itud_low_50.jpg> <./output/magnitud_low_75.jpg> <./output/magnitud_low_100.jpg>
- <./output/magnitud_high_1.jpg> <./output/magnitud_high_25.jpg> <./output/magni
-tud_high_50.jpg> <./output/magnitud_high_75.jpg> <./output/magnitud_high_100.jp
-g> <./output/phase_low_1.jpg> <./output/phase_low_25.jpg> <./output/phase_low_5
-0.jpg> <./output/phase_low_75.jpg> <./output/phase_low_100.jpg>] <output/phase_
-high_1.jpg, id=335, 401.5pt x 401.5pt>
+
+<output/phase_high_1.jpg, id=337, 401.5pt x 401.5pt>
 File: output/phase_high_1.jpg Graphic file (type jpg)
 
 <use output/phase_high_1.jpg>
-Package pdftex.def Info: output/phase_high_1.jpg used on input line 109.
+Package pdftex.def Info: output/phase_high_1.jpg used on input line 108.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_25.jpg, id=336, 401.5pt x 401.5pt>
+<output/phase_high_25.jpg, id=338, 401.5pt x 401.5pt>
 File: output/phase_high_25.jpg Graphic file (type jpg)
 
 <use output/phase_high_25.jpg>
-Package pdftex.def Info: output/phase_high_25.jpg used on input line 114.
+Package pdftex.def Info: output/phase_high_25.jpg used on input line 113.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_50.jpg, id=337, 401.5pt x 401.5pt>
+<output/phase_high_50.jpg, id=339, 401.5pt x 401.5pt>
 File: output/phase_high_50.jpg Graphic file (type jpg)
 
 <use output/phase_high_50.jpg>
-Package pdftex.def Info: output/phase_high_50.jpg used on input line 119.
+Package pdftex.def Info: output/phase_high_50.jpg used on input line 118.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_75.jpg, id=338, 401.5pt x 401.5pt>
+<output/phase_high_75.jpg, id=340, 401.5pt x 401.5pt>
 File: output/phase_high_75.jpg Graphic file (type jpg)
 
 <use output/phase_high_75.jpg>
-Package pdftex.def Info: output/phase_high_75.jpg used on input line 125.
+Package pdftex.def Info: output/phase_high_75.jpg used on input line 124.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_100.jpg, id=339, 401.5pt x 401.5pt>
+<output/phase_high_100.jpg, id=341, 401.5pt x 401.5pt>
 File: output/phase_high_100.jpg Graphic file (type jpg)
 
 <use output/phase_high_100.jpg>
-Package pdftex.def Info: output/phase_high_100.jpg used on input line 130.
+Package pdftex.def Info: output/phase_high_100.jpg used on input line 129.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
-) (./p1-3-2.tex
+) (./p1-3-2.tex [8 <./output/magnitud_low_1.jpg> <./output/magnitud_low_25.jpg>
+ <./output/magnitud_low_50.jpg> <./output/magnitud_low_75.jpg> <./output/magnit
+ud_low_100.jpg> <./output/magnitud_high_1.jpg> <./output/magnitud_high_25.jpg> 
+<./output/magnitud_high_50.jpg> <./output/magnitud_high_75.jpg> <./output/magni
+tud_high_100.jpg> <./output/phase_low_1.jpg> <./output/phase_low_25.jpg> <./out
+put/phase_low_50.jpg> <./output/phase_low_75.jpg> <./output/phase_low_100.jpg> 
+<./output/phase_high_1.jpg> <./output/phase_high_25.jpg> <./output/phase_high_5
+0.jpg> <./output/phase_high_75.jpg> <./output/phase_high_100.jpg>]
 LaTeX Font Info:    Try loading font information for OMS+bch on input line 6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
 File: omsbch.fd 
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
 
-<output/left_right1.jpg, id=347, 301.125pt x 301.125pt>
+<output/left_right1.jpg, id=353, 301.125pt x 301.125pt>
 File: output/left_right1.jpg Graphic file (type jpg)
 
 <use output/left_right1.jpg>
 Package pdftex.def Info: output/left_right1.jpg used on input line 12.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/left_right2.jpg, id=348, 401.5pt x 401.5pt>
+<output/left_right2.jpg, id=354, 401.5pt x 401.5pt>
 File: output/left_right2.jpg Graphic file (type jpg)
 
 <use output/left_right2.jpg>
 Package pdftex.def Info: output/left_right2.jpg used on input line 17.
 (pdftex.def)             Requested size: 142.60236pt x 142.60394pt.
 
-<output/bottom_up1.jpg, id=350, 301.125pt x 301.125pt>
+<output/bottom_up1.jpg, id=356, 301.125pt x 301.125pt>
 File: output/bottom_up1.jpg Graphic file (type jpg)
 
 <use output/bottom_up1.jpg>
 Package pdftex.def Info: output/bottom_up1.jpg used on input line 30.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
- <output/bottom_up2.jpg, id=351, 401.5pt x 401.5pt>
+ <output/bottom_up2.jpg, id=357, 401.5pt x 401.5pt>
 File: output/bottom_up2.jpg Graphic file (type jpg)
 
 <use output/bottom_up2.jpg>
 Package pdftex.def Info: output/bottom_up2.jpg used on input line 35.
 (pdftex.def)             Requested size: 142.60236pt x 142.60394pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<output/centered1.jpg, id=353, 301.125pt x 301.125pt>
+<output/centered1.jpg, id=359, 301.125pt x 301.125pt>
 File: output/centered1.jpg Graphic file (type jpg)
 
 <use output/centered1.jpg>
 Package pdftex.def Info: output/centered1.jpg used on input line 48.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
- <output/centered2.jpg, id=354, 401.5pt x 401.5pt>
+ <output/centered2.jpg, id=360, 401.5pt x 401.5pt>
 File: output/centered2.jpg Graphic file (type jpg)
 
 <use output/centered2.jpg>
@@ -1155,48 +1165,47 @@ Package pdftex.def Info: output/centered2.jpg used on input line 53.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8 <./output/phase_high_1.jpg> <./output/phase_high_25.jpg> <./output/phase_hig
-h_50.jpg> <./output/phase_high_75.jpg> <./output/phase_high_100.jpg> <./output/
-left_right1.jpg> <./output/left_right2.jpg>]
-<output/chessboard1.jpg, id=363, 301.125pt x 301.125pt>
+<output/chessboard1.jpg, id=362, 301.125pt x 301.125pt>
 File: output/chessboard1.jpg Graphic file (type jpg)
 
 <use output/chessboard1.jpg>
 Package pdftex.def Info: output/chessboard1.jpg used on input line 66.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/chessboard2.jpg, id=364, 401.5pt x 401.5pt>
+<output/chessboard2.jpg, id=363, 401.5pt x 401.5pt>
 File: output/chessboard2.jpg Graphic file (type jpg)
 
 <use output/chessboard2.jpg>
 Package pdftex.def Info: output/chessboard2.jpg used on input line 71.
 (pdftex.def)             Requested size: 142.60236pt x 142.60394pt.
 
-<output/sliding_rows1.jpg, id=366, 301.125pt x 301.125pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9 <./output/left_right1.jpg> <./output/left_right2.jpg> <./output/bottom_up1.j
+pg> <./output/bottom_up2.jpg>]
+<output/sliding_rows1.jpg, id=374, 301.125pt x 301.125pt>
 File: output/sliding_rows1.jpg Graphic file (type jpg)
 
 <use output/sliding_rows1.jpg>
 Package pdftex.def Info: output/sliding_rows1.jpg used on input line 84.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/sliding_rows2.jpg, id=367, 401.5pt x 401.5pt>
+<output/sliding_rows2.jpg, id=375, 401.5pt x 401.5pt>
 File: output/sliding_rows2.jpg Graphic file (type jpg)
 
 <use output/sliding_rows2.jpg>
 Package pdftex.def Info: output/sliding_rows2.jpg used on input line 89.
 (pdftex.def)             Requested size: 142.60236pt x 142.60394pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<output/sliding_columns1.jpg, id=369, 301.125pt x 301.125pt>
+<output/sliding_columns1.jpg, id=377, 301.125pt x 301.125pt>
 File: output/sliding_columns1.jpg Graphic file (type jpg)
 
 <use output/sliding_columns1.jpg>
 Package pdftex.def Info: output/sliding_columns1.jpg used on input line 102.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/sliding_columns2.jpg, id=370, 401.5pt x 401.5pt>
+<output/sliding_columns2.jpg, id=378, 401.5pt x 401.5pt>
 File: output/sliding_columns2.jpg Graphic file (type jpg)
 
 <use output/sliding_columns2.jpg>
@@ -1206,60 +1215,66 @@ Package pdftex.def Info: output/sliding_columns2.jpg used on input line 107.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9 <./output/bottom_up1.jpg> <./output/bottom_up2.jpg> <./output/centered1.jpg>
- <./output/centered2.jpg> <./output/chessboard1.jpg> <./output/chessboard2.jpg>
-]
 File: output/blending1.jpg Graphic file (type jpg)
- <use output/blending1.jpg>
+<use output/blending1.jpg>
 Package pdftex.def Info: output/blending1.jpg used on input line 122.
 (pdftex.def)             Requested size: 229.18532pt x 229.19278pt.
 File: output/left_right1.jpg Graphic file (type jpg)
  <use output/left_right1.jpg>
 Package pdftex.def Info: output/left_right1.jpg used on input line 127.
 (pdftex.def)             Requested size: 229.18532pt x 229.19278pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
- [10 <./output/sliding_rows1.jpg> <./output/sliding_rows2.jpg> <./output/slidin
-g_columns1.jpg> <./output/sliding_columns2.jpg>]
+ [10 <./output/centered1.jpg> <./output/centered2.jpg> <./output/chessboard1.jp
+g> <./output/chessboard2.jpg> <./output/sliding_rows1.jpg> <./output/sliding_ro
+ws2.jpg>] [11 <./output/sliding_columns1.jpg> <./output/sliding_columns2.jpg>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
- (./report.aux)
+(./report.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 55.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 55.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 4B1E987F539CC65D684F5E5A74881091;349.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 55.
  ) 
 Here is how much of TeX's memory you used:
- 11533 strings out of 494968
- 166439 string characters out of 6180529
- 298705 words of memory out of 5000000
- 14387 multiletter control sequences out of 15000+600000
- 42559 words of font info for 63 fonts, out of 8000000 for 9000
- 34 hyphenation exceptions out of 8191
- 42i,14n,42p,782b,1892s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 11526 strings out of 493304
+ 166304 string characters out of 6139871
+ 300528 words of memory out of 5000000
+ 14597 multiletter control sequences out of 15000+600000
+ 44244 words of font info for 64 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 42i,14n,42p,773b,1892s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/
-texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-d
-ist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/font
-s/type1/bitstrea/charter/bchbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstre
-a/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on report.pdf (10 pages, 3137480 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fo
+nts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/typ
+e1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitst
+rea/charter/bchbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/cha
+rter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bch
+ri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sftt0800.pfb>
+Output written on report.pdf (11 pages, 3258610 bytes).
 PDF statistics:
- 460 PDF objects out of 1000 (max. 8388607)
- 334 compressed objects within 4 object streams
+ 466 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
  151 named destinations out of 1000 (max. 500000)
- 337 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 342 words of extra memory for PDF output out of 10000 (max. 10000000)
 

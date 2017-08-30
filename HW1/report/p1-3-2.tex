@@ -3,7 +3,7 @@
 In order to blend the images using the frequency domain, we convert the masked image to the frequency domain and focus on approaches to combine these frequency domains images. We consider 6 ideas of combination. 
 
 \begin{itemize}
-\item The first one	 is named "left-right", this method takes a left half of the first frequency domain image and the right half of the another. The results of this method are shown in figure \ref{fig:left-right}. These images shows a successful combination of the original images but the intersection point is not as smooth as it would be expected, this is because in the frequency domain it is not possible to smooth just a small part of the image (e.g. intersection points), the alternative of blurring (e.g. taking out low frequencies) before applying the left-right blend would yield in the same result but blurred in the whole image and not just the intersection points.
+\item The first one is named "left-right", this method takes a left half of the first frequency domain image and the right half of the another. The results of this method are shown in figure \ref{fig:left-right}. These images shows a successful combination of the original images but the intersection point is not as smooth as it would be expected, this is because in the frequency domain it is not possible to smooth just a small part of the image (e.g. intersection points), the alternative of blurring (e.g. taking out low frequencies) before applying the left-right blend would end up in the same result but blurred in the whole image and not just the intersection points.
 
 \begin{figure}[h!]
 \centering
@@ -21,7 +21,7 @@ In order to blend the images using the frequency domain, we convert the masked i
 \label{fig:left-right}
 \end{figure}
 
-\item The second method is named "bottom-up", this is similar to the "left\_right" approach but takes the up half of one image and the bottom half of the another. The results of this method are shown in figure \ref{fig:bottom_up}. As equal to the previous approach, the images were successfully joined but with a sharp change in the intersection. Different from previous approach, some vertical shadows appear (left-right had horizontal shadows), this highlights the intersection change.
+\item The second method is named "bottom-up", this is similar to the "left\_right" approach but takes the up half of one image and the bottom half of the another. The results of this method are shown in figure \ref{fig:bottom_up}. As equal to the previous approach, the images were successfully joined but with a sharp change in the intersection. Different from previous approach, some vertical shadows appear (left-right approach has horizontal shadows), this highlights the intersection change.
 
 \begin{figure}[h!]
 \centering
@@ -127,7 +127,7 @@ Comparing this results with the obtained in the space domain (figure~\ref{fig:co
   \includegraphics[width=0.9\linewidth]{output/left_right1.jpg}
   \caption{Frequency domain blending}
 \end{subfigure}%
-\caption{Sliding-columns blending}
+\caption{Blending comparison}
 \label{fig:comparison-blending}
 \end{figure}
 
