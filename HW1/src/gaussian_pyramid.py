@@ -4,10 +4,10 @@ import convolution
 
 class gaussian_pyramid:
     pyramid = []              
-    def __init__(self, img, levels, kernel = None, gauss_kernel_par= 0.3):
+    def __init__(self, img, levels, kernel = [], gauss_kernel_par= 0.3):
         self.img = img
         self.levels = levels
-        if kernel == None:
+        if kernel == []:
             self.kernel = convolution.gaussian_kernel(gauss_kernel_par)
         else:
             self.kernel = kernel    
@@ -47,7 +47,7 @@ class gaussian_pyramid:
         filtered_image=convolution.convolve(image, self.kernel, normalize=False, padding_type = padding_type, padding_color = padding_color)
         for i in range(0,(image.shape[0]-image.shape[0]%2),2):
             for j in range(0,(image.shape[1]-image.shape[1]%2),2):
-                new_image[i/2,j/2] = filtered_image[i,j]
+                new_image[i//2,j//2] = filtered_image[i,j]
         return new_image
 
     def down(self, level): #upsample the image

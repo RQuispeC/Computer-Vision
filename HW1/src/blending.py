@@ -8,7 +8,6 @@ def inverse(mask, value = 255):
     return np.full(mask.shape, value) - mask
 
 def change_dim(polar_img):
-    print(polar_img.shape)
     ans = np.empty((polar_img.shape[1], polar_img.shape[2], 3))
     for i in range(polar_img.shape[1]):
       for j in range(polar_img.shape[2]):
@@ -37,7 +36,6 @@ def set_mask(mask_type = 'left_right', img_shape = None, value = 255, mask_img_f
             mask.append(tmp_mask)
             mask.append(tmp_mask)
             mask=np.asarray(mask)
-            print(mask.shape)
             mask=change_dim(mask)
         return np.asarray(mask);
     else:
@@ -68,7 +66,7 @@ def blending(img_a, img_b, mask, level = 2):
 if __name__ == "__main__":
     image_names = ['input/p1-1-2.png', 'input/p1-1-3.png', 'input/p1-1-0.jpg', 'input/p1-1-1.jpg','input/p1-1-4.jpg','input/p1-1-5.jpg','input/p1-1-7.jpg']
     name_it = 0
-    '''
+    
     for i in range(3):
         image1 = cv2.imread(image_names[i], 1)
         image2 = cv2.imread(image_names[i+1], 1)
@@ -77,7 +75,7 @@ if __name__ == "__main__":
         cv2.imwrite('output/p1-2-4-' + str(name_it) + '.jpg', blending(image1, image2, mask, level = 6))
         print(image_names[i], image_names[i+1], 'output/p1-2-4-' + str(name_it) + '.jpg')
         name_it += 1
-    '''
+    
     image1 = cv2.imread(image_names[5], 1)
     image2 = cv2.imread(image_names[4], 1)
     image1 = cv2.resize(image1, (image2.shape[1],image2.shape[0]))

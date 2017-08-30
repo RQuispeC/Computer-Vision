@@ -47,7 +47,6 @@ def lower_values(img, selection, isPercentage = True):
         lim = sorted_img[min((int)(len(sorted_img)*selection), len(sorted_img) -1)]
     #print('lim', lim)    
     img[img > lim] = 0
-    print(lim)
     return img
  
 def upper_values(img, selection, isPercentage = True):

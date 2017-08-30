@@ -5,10 +5,10 @@ import gaussian_pyramid as gp
 
 class laplacian_pyramid:
     pyramid = []
-    def __init__(self, img, levels, kernel = None, gauss_kernel_par = 0.3):
+    def __init__(self, img, levels, kernel = [], gauss_kernel_par = 0.3):
         self.img = img
         self.levels = levels
-        if kernel == None:
+        if kernel == []:
             self.kernel = convolution.gaussian_kernel(gauss_kernel_par)
         else:
             self.kernel = kernel    
@@ -25,7 +25,7 @@ class laplacian_pyramid:
         if operation == '-':
             return cv2.subtract(gauss_cur, gauss_down)
         else:
-			return cv2.add(gauss_cur, gauss_down)
+            return cv2.add(gauss_cur, gauss_down)
 
     def up_sample(self, image, size):
         gaussian_pyramid = gp.gaussian_pyramid(image, 1)
@@ -79,7 +79,7 @@ class laplacian_pyramid:
 if __name__ == "__main__":
     image_names = ['input/p1-1-0.jpg', 'input/p1-1-1.jpg', 'input/p1-1-2.png', 'input/p1-1-3.png']
     name_it = 0
-    pyramid_levels = 7
+    pyramid_levels = 6
     for image_name in image_names:
         image = cv2.imread(image_name, 1)
         pyramid = laplacian_pyramid(image, levels = pyramid_levels)
