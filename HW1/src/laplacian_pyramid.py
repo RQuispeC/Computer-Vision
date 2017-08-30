@@ -79,7 +79,7 @@ class laplacian_pyramid:
 if __name__ == "__main__":
     image_names = ['input/p1-1-0.jpg', 'input/p1-1-1.jpg', 'input/p1-1-2.png', 'input/p1-1-3.png']
     name_it = 0
-    pyramid_levels = 5
+    pyramid_levels = 7
     for image_name in image_names:
         image = cv2.imread(image_name, 1)
         pyramid = laplacian_pyramid(image, levels = pyramid_levels)

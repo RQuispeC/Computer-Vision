@@ -60,7 +60,7 @@ def load_kernels():
     #horizontal line detector
     kernels.append(np.array([[-1, -1, -1],
                              [2,   2,  2],
-                             [-1, -1, -1]]).astype(np.float)/16.0)
+                             [-1, -1, -1]]).astype(np.float))
     
     #gaussian
     kernels.append(np.array([[0, 0,   0,   5,   0,  0, 0],
