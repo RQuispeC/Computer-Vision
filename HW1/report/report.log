@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  29 AUG 2017 23:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  31 AUG 2017 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,12 +710,8 @@ Package caption Info: End \AtBeginDocument code.
 
 \c@lstlisting=\count137
 (./p1-2-0.tex
-
-LaTeX Warning: Reference `fig:Input-images' on page 1 undefined on input line 3
-.
-
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 3.
@@ -723,25 +719,25 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<input/p1-1-0.jpg, id=4, 401.5pt x 401.5pt>
+<input/p1-1-0.jpg, id=33, 401.5pt x 401.5pt>
 File: input/p1-1-0.jpg Graphic file (type jpg)
  <use input/p1-1-0.jpg>
 Package pdftex.def Info: input/p1-1-0.jpg used on input line 11.
 (pdftex.def)             Requested size: 127.32603pt x 127.32472pt.
 
-<input/p1-1-1.jpg, id=5, 401.5pt x 401.5pt>
+<input/p1-1-1.jpg, id=34, 401.5pt x 401.5pt>
 File: input/p1-1-1.jpg Graphic file (type jpg)
  <use input/p1-1-1.jpg>
 Package pdftex.def Info: input/p1-1-1.jpg used on input line 16.
 (pdftex.def)             Requested size: 127.32603pt x 127.32472pt.
 
-<input/p1-1-2.png, id=6, 301.125pt x 301.125pt>
+<input/p1-1-2.png, id=35, 301.125pt x 301.125pt>
 File: input/p1-1-2.png Graphic file (type png)
  <use input/p1-1-2.png>
 Package pdftex.def Info: input/p1-1-2.png used on input line 21.
 (pdftex.def)             Requested size: 127.32603pt x 127.32626pt.
 
-<input/p1-1-3.png, id=8, 301.125pt x 301.125pt>
+<input/p1-1-3.png, id=37, 301.125pt x 301.125pt>
 File: input/p1-1-3.png Graphic file (type png)
  <use input/p1-1-3.png>
 Package pdftex.def Info: input/p1-1-3.png used on input line 26.
@@ -756,36 +752,32 @@ nput line 5.
 
 Package Listings Warning: Text dropped after begin of listing on input line 5.
 
-
-LaTeX Warning: Reference `fig:conv-kernels' on page 1 undefined on input line 9
-.
-
-<figs/sobel.png, id=9, 140.525pt x 143.53625pt>
+<figs/sobel.png, id=39, 140.525pt x 143.53625pt>
 File: figs/sobel.png Graphic file (type png)
  <use figs/sobel.png>
 Package pdftex.def Info: figs/sobel.png used on input line 15.
 (pdftex.def)             Requested size: 76.3964pt x 78.03406pt.
 
-<figs/line.png, id=10, 127.47626pt x 141.52875pt>
+<figs/line.png, id=40, 127.47626pt x 141.52875pt>
 File: figs/line.png Graphic file (type png)
  <use figs/line.png>
 Package pdftex.def Info: figs/line.png used on input line 20.
 (pdftex.def)             Requested size: 76.3964pt x 84.82071pt.
 
-<figs/laplacian-of-gaussian.png, id=11, 222.8325pt x 225.84375pt>
+<figs/laplacian-of-gaussian.png, id=41, 222.8325pt x 225.84375pt>
 File: figs/laplacian-of-gaussian.png Graphic file (type png)
 
 <use figs/laplacian-of-gaussian.png>
 Package pdftex.def Info: figs/laplacian-of-gaussian.png used on input line 25.
 (pdftex.def)             Requested size: 76.3964pt x 77.42682pt.
 
-<figs/gaussian.png, id=12, 361.35pt x 303.1325pt>
+<figs/gaussian.png, id=42, 361.35pt x 303.1325pt>
 File: figs/gaussian.png Graphic file (type png)
  <use figs/gaussian.png>
 Package pdftex.def Info: figs/gaussian.png used on input line 30.
 (pdftex.def)             Requested size: 137.51257pt x 115.35806pt.
 
-<figs/media.png, id=13, 678.535pt x 561.09625pt>
+<figs/media.png, id=43, 678.535pt x 561.09625pt>
 File: figs/media.png Graphic file (type png)
  <use figs/media.png>
 Package pdftex.def Info: figs/media.png used on input line 35.
@@ -794,37 +786,33 @@ Package pdftex.def Info: figs/media.png used on input line 35.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:conv-results' on page 1 undefined on input line 4
-2.
-
-<output/sobel.jpg, id=14, 401.5pt x 401.5pt>
+<output/sobel.jpg, id=45, 401.5pt x 401.5pt>
 File: output/sobel.jpg Graphic file (type jpg)
  <use output/sobel.jpg>
 Package pdftex.def Info: output/sobel.jpg used on input line 48.
 (pdftex.def)             Requested size: 137.51257pt x 137.51291pt.
 
-<output/horizontalLine.jpg, id=15, 401.5pt x 401.5pt>
+<output/horizontalLine.jpg, id=46, 401.5pt x 401.5pt>
 File: output/horizontalLine.jpg Graphic file (type jpg)
 
 <use output/horizontalLine.jpg>
 Package pdftex.def Info: output/horizontalLine.jpg used on input line 53.
 (pdftex.def)             Requested size: 137.51257pt x 137.51291pt.
 
-<output/laplasOfGaussi.jpg, id=16, 401.5pt x 401.5pt>
+<output/laplasOfGaussi.jpg, id=47, 401.5pt x 401.5pt>
 File: output/laplasOfGaussi.jpg Graphic file (type jpg)
 
 <use output/laplasOfGaussi.jpg>
 Package pdftex.def Info: output/laplasOfGaussi.jpg used on input line 58.
 (pdftex.def)             Requested size: 137.51257pt x 137.51291pt.
 
-<output/gaussian.jpg, id=17, 401.5pt x 401.5pt>
+<output/gaussian.jpg, id=48, 401.5pt x 401.5pt>
 File: output/gaussian.jpg Graphic file (type jpg)
  <use output/gaussian.jpg>
 Package pdftex.def Info: output/gaussian.jpg used on input line 63.
 (pdftex.def)             Requested size: 127.32603pt x 127.32472pt.
 
-<output/media.jpg, id=18, 401.5pt x 401.5pt>
+<output/media.jpg, id=49, 401.5pt x 401.5pt>
 File: output/media.jpg Graphic file (type jpg)
  <use output/media.jpg>
 Package pdftex.def Info: output/media.jpg used on input line 68.
@@ -833,30 +821,26 @@ Package pdftex.def Info: output/media.jpg used on input line 68.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:padding-strategy' on page 1 undefined on input li
-ne 75.
-
-<output/zero.jpg, id=19, 401.5pt x 401.5pt>
+<output/zero.jpg, id=51, 401.5pt x 401.5pt>
 File: output/zero.jpg Graphic file (type jpg)
  <use output/zero.jpg>
 Package pdftex.def Info: output/zero.jpg used on input line 85.
 (pdftex.def)             Requested size: 114.59265pt x 114.59409pt.
 
-<output/mirror.jpg, id=20, 401.5pt x 401.5pt>
+<output/mirror.jpg, id=52, 401.5pt x 401.5pt>
 File: output/mirror.jpg Graphic file (type jpg)
  <use output/mirror.jpg>
 Package pdftex.def Info: output/mirror.jpg used on input line 90.
 (pdftex.def)             Requested size: 114.59265pt x 114.59409pt.
 
-<output/constant128.jpg, id=21, 401.5pt x 401.5pt>
+<output/constant128.jpg, id=53, 401.5pt x 401.5pt>
 File: output/constant128.jpg Graphic file (type jpg)
 
 <use output/constant128.jpg>
 Package pdftex.def Info: output/constant128.jpg used on input line 95.
 (pdftex.def)             Requested size: 114.59265pt x 114.59409pt.
 
-<output/constant255.jpg, id=22, 401.5pt x 401.5pt>
+<output/constant255.jpg, id=54, 401.5pt x 401.5pt>
 File: output/constant255.jpg Graphic file (type jpg)
 
 <use output/constant255.jpg>
@@ -865,10 +849,6 @@ Package pdftex.def Info: output/constant255.jpg used on input line 100.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `tab:time_execution' on page 1 undefined on input line
- 109.
 
 [1
 
@@ -895,49 +875,29 @@ ut/constant255.jpg>]
 Package Listings Warning: Text dropped after begin of listing on input line 49.
 
 
-
-LaTeX Warning: Reference `fig:gaussian_pyramid' on page 4 undefined on input li
-ne 56.
-
-<output/gaussianPyramid.pdf, id=96, 466.74374pt x 191.71625pt>
+<output/gaussianPyramid.pdf, id=127, 466.74374pt x 191.71625pt>
 File: output/gaussianPyramid.pdf Graphic file (type pdf)
 
 <use output/gaussianPyramid.pdf>
 Package pdftex.def Info: output/gaussianPyramid.pdf used on input line 61.
 (pdftex.def)             Requested size: 458.37064pt x 188.28433pt.
-
-
-LaTeX Warning: Reference `fig:down-gauss-results' on page 4 undefined on input 
-line 66.
-
 File: input/p1-1-3.png Graphic file (type png)
-<use input/p1-1-3.png>
+ <use input/p1-1-3.png>
 Package pdftex.def Info: input/p1-1-3.png used on input line 72.
 (pdftex.def)             Requested size: 203.72244pt x 203.72845pt.
- <output/upSample.jpg, id=97, 301.125pt x 301.125pt>
-File: output/upSample.jpg Graphic file (type jpg)
 
-<use output/upSample.jpg>
+<output/upSample.jpg, id=129, 301.125pt x 301.125pt>
+File: output/upSample.jpg Graphic file (type jpg)
+ <use output/upSample.jpg>
 Package pdftex.def Info: output/upSample.jpg used on input line 77.
 (pdftex.def)             Requested size: 203.72244pt x 203.72845pt.
- [4 <./output/gaussianPyramid.pdf> <./output/upSample.jpg>]
+
+[4 <./output/gaussianPyramid.pdf> <./output/upSample.jpg>]
 
 Package Listings Warning: Text dropped after begin of listing on input line 88.
 
 
-
-LaTeX Warning: Reference `fig:reconstruction-laplace' on page 5 undefined on in
-put line 140.
-
-
-LaTeX Warning: Reference `fig:reconstruction-laplace' on page 5 undefined on in
-put line 140.
-
-
-LaTeX Warning: Reference `fig:reconstruction-laplace' on page 5 undefined on in
-put line 140.
-
-<output/reconstructionImage.pdf, id=143, 375.4025pt x 256.96pt>
+<output/reconstructionImage.pdf, id=179, 375.4025pt x 256.96pt>
 File: output/reconstructionImage.pdf Graphic file (type pdf)
 
 <use output/reconstructionImage.pdf>
@@ -969,43 +929,27 @@ Package Listings Warning: Text dropped after begin of listing on input line 22.
 Package Listings Warning: Text dropped after begin of listing on input line 32.
 
 
-
-LaTeX Warning: Reference `fig:blending-b' on page 6 undefined on input line 41.
-
-
-
-LaTeX Warning: Reference `fig:blending-c' on page 6 undefined on input line 41.
-
-
-
-LaTeX Warning: Reference `fig:blending-d' on page 6 undefined on input line 41.
-
-
-
-LaTeX Warning: Reference `fig:blending-a' on page 6 undefined on input line 41.
-
-
-<output/blendedOpenCV.jpg, id=207, 300.12125pt x 303.1325pt>
+<output/blendedOpenCV.jpg, id=245, 300.12125pt x 303.1325pt>
 File: output/blendedOpenCV.jpg Graphic file (type jpg)
 
 <use output/blendedOpenCV.jpg>
 Package pdftex.def Info: output/blendedOpenCV.jpg used on input line 47.
 (pdftex.def)             Requested size: 134.45755pt x 135.80705pt.
 
-<output/blending1.jpg, id=210, 301.125pt x 301.125pt>
+<output/blending1.jpg, id=248, 301.125pt x 301.125pt>
 File: output/blending1.jpg Graphic file (type jpg)
 
 <use output/blending1.jpg>
 Package pdftex.def Info: output/blending1.jpg used on input line 53.
 (pdftex.def)             Requested size: 134.45755pt x 134.46198pt.
 
-<output/blending2.jpg, id=211, 301.125pt x 301.125pt>
+<output/blending2.jpg, id=249, 301.125pt x 301.125pt>
 File: output/blending2.jpg Graphic file (type jpg)
 
 <use output/blending2.jpg>
 Package pdftex.def Info: output/blending2.jpg used on input line 59.
 (pdftex.def)             Requested size: 134.45755pt x 134.46198pt.
- <output/blending.jpg, id=212, 469.755pt x 835.12pt>
+ <output/blending.jpg, id=250, 469.755pt x 835.12pt>
 File: output/blending.jpg Graphic file (type jpg)
 
 <use output/blending.jpg>
@@ -1015,50 +959,35 @@ Package pdftex.def Info: output/blending.jpg used on input line 65.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./p1-3-1.tex
-
-LaTeX Warning: Reference `fig:low-magnitude' on page 6 undefined on input line 
-3.
-
-
-LaTeX Warning: Reference `fig:high-magnitude' on page 6 undefined on input line
- 3.
-
-
-LaTeX Warning: Reference `fig:high-phase' on page 6 undefined on input line 3.
-
-
-LaTeX Warning: Reference `fig:low-phase' on page 6 undefined on input line 3.
-
-<output/magnitud_low_1.jpg, id=213, 401.5pt x 401.5pt>
+) (./p1-3-1.tex <output/magnitud_low_1.jpg, id=255, 401.5pt x 401.5pt>
 File: output/magnitud_low_1.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_1.jpg>
 Package pdftex.def Info: output/magnitud_low_1.jpg used on input line 9.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_25.jpg, id=214, 401.5pt x 401.5pt>
+<output/magnitud_low_25.jpg, id=256, 401.5pt x 401.5pt>
 File: output/magnitud_low_25.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_25.jpg>
 Package pdftex.def Info: output/magnitud_low_25.jpg used on input line 14.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_50.jpg, id=215, 401.5pt x 401.5pt>
+<output/magnitud_low_50.jpg, id=257, 401.5pt x 401.5pt>
 File: output/magnitud_low_50.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_50.jpg>
 Package pdftex.def Info: output/magnitud_low_50.jpg used on input line 19.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_75.jpg, id=216, 401.5pt x 401.5pt>
+<output/magnitud_low_75.jpg, id=258, 401.5pt x 401.5pt>
 File: output/magnitud_low_75.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_75.jpg>
 Package pdftex.def Info: output/magnitud_low_75.jpg used on input line 24.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_low_100.jpg, id=217, 401.5pt x 401.5pt>
+<output/magnitud_low_100.jpg, id=259, 401.5pt x 401.5pt>
 File: output/magnitud_low_100.jpg Graphic file (type jpg)
 
 <use output/magnitud_low_100.jpg>
@@ -1068,40 +997,36 @@ Package pdftex.def Info: output/magnitud_low_100.jpg used on input line 29.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:low-magnitude' on page 6 undefined on input line 
-36.
-
 [6 <./output/reconstructionImage.pdf>]
-<output/magnitud_high_1.jpg, id=273, 401.5pt x 401.5pt>
+<output/magnitud_high_1.jpg, id=320, 401.5pt x 401.5pt>
 File: output/magnitud_high_1.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_1.jpg>
 Package pdftex.def Info: output/magnitud_high_1.jpg used on input line 42.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_25.jpg, id=274, 401.5pt x 401.5pt>
+<output/magnitud_high_25.jpg, id=321, 401.5pt x 401.5pt>
 File: output/magnitud_high_25.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_25.jpg>
 Package pdftex.def Info: output/magnitud_high_25.jpg used on input line 47.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_50.jpg, id=275, 401.5pt x 401.5pt>
+<output/magnitud_high_50.jpg, id=322, 401.5pt x 401.5pt>
 File: output/magnitud_high_50.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_50.jpg>
 Package pdftex.def Info: output/magnitud_high_50.jpg used on input line 52.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_75.jpg, id=276, 401.5pt x 401.5pt>
+<output/magnitud_high_75.jpg, id=323, 401.5pt x 401.5pt>
 File: output/magnitud_high_75.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_75.jpg>
 Package pdftex.def Info: output/magnitud_high_75.jpg used on input line 57.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/magnitud_high_100.jpg, id=277, 401.5pt x 401.5pt>
+<output/magnitud_high_100.jpg, id=324, 401.5pt x 401.5pt>
 File: output/magnitud_high_100.jpg Graphic file (type jpg)
 
 <use output/magnitud_high_100.jpg>
@@ -1111,110 +1036,77 @@ Package pdftex.def Info: output/magnitud_high_100.jpg used on input line 62.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:high-magnitude' on page 7 undefined on input line
- 69.
-
 [7 <./output/blendedOpenCV.jpg> <./output/blending1.jpg> <./output/blending2.jp
 g> <./output/blending.jpg>]
-<output/phase_low_1.jpg, id=284, 401.5pt x 401.5pt>
+<output/phase_low_1.jpg, id=331, 401.5pt x 401.5pt>
 File: output/phase_low_1.jpg Graphic file (type jpg)
 
 <use output/phase_low_1.jpg>
 Package pdftex.def Info: output/phase_low_1.jpg used on input line 75.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_25.jpg, id=285, 401.5pt x 401.5pt>
+<output/phase_low_25.jpg, id=332, 401.5pt x 401.5pt>
 File: output/phase_low_25.jpg Graphic file (type jpg)
 
 <use output/phase_low_25.jpg>
 Package pdftex.def Info: output/phase_low_25.jpg used on input line 80.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_50.jpg, id=286, 401.5pt x 401.5pt>
+<output/phase_low_50.jpg, id=333, 401.5pt x 401.5pt>
 File: output/phase_low_50.jpg Graphic file (type jpg)
 
 <use output/phase_low_50.jpg>
 Package pdftex.def Info: output/phase_low_50.jpg used on input line 85.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_75.jpg, id=287, 401.5pt x 401.5pt>
+<output/phase_low_75.jpg, id=334, 401.5pt x 401.5pt>
 File: output/phase_low_75.jpg Graphic file (type jpg)
 
 <use output/phase_low_75.jpg>
 Package pdftex.def Info: output/phase_low_75.jpg used on input line 90.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_low_100.jpg, id=288, 401.5pt x 401.5pt>
+<output/phase_low_100.jpg, id=335, 401.5pt x 401.5pt>
 File: output/phase_low_100.jpg Graphic file (type jpg)
 
 <use output/phase_low_100.jpg>
 Package pdftex.def Info: output/phase_low_100.jpg used on input line 95.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-
-LaTeX Warning: Reference `fig:low-phase' on page 8 undefined on input line 102.
-
-
-<output/phase_high_1.jpg, id=289, 401.5pt x 401.5pt>
+<output/phase_high_1.jpg, id=337, 401.5pt x 401.5pt>
 File: output/phase_high_1.jpg Graphic file (type jpg)
 
 <use output/phase_high_1.jpg>
 Package pdftex.def Info: output/phase_high_1.jpg used on input line 108.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_25.jpg, id=290, 401.5pt x 401.5pt>
+<output/phase_high_25.jpg, id=338, 401.5pt x 401.5pt>
 File: output/phase_high_25.jpg Graphic file (type jpg)
 
 <use output/phase_high_25.jpg>
 Package pdftex.def Info: output/phase_high_25.jpg used on input line 113.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_50.jpg, id=291, 401.5pt x 401.5pt>
+<output/phase_high_50.jpg, id=339, 401.5pt x 401.5pt>
 File: output/phase_high_50.jpg Graphic file (type jpg)
 
 <use output/phase_high_50.jpg>
 Package pdftex.def Info: output/phase_high_50.jpg used on input line 118.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_75.jpg, id=292, 401.5pt x 401.5pt>
+<output/phase_high_75.jpg, id=340, 401.5pt x 401.5pt>
 File: output/phase_high_75.jpg Graphic file (type jpg)
 
 <use output/phase_high_75.jpg>
 Package pdftex.def Info: output/phase_high_75.jpg used on input line 124.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
 
-<output/phase_high_100.jpg, id=293, 401.5pt x 401.5pt>
+<output/phase_high_100.jpg, id=341, 401.5pt x 401.5pt>
 File: output/phase_high_100.jpg Graphic file (type jpg)
 
 <use output/phase_high_100.jpg>
 Package pdftex.def Info: output/phase_high_100.jpg used on input line 129.
 (pdftex.def)             Requested size: 96.76599pt x 96.7663pt.
-
-
-LaTeX Warning: Reference `fig:high-phase' on page 8 undefined on input line 135
-.
-
-
-LaTeX Warning: Reference `fig:high-phase-c' on page 8 undefined on input line 1
-35.
-
-
-LaTeX Warning: Reference `fig:low-magnitude' on page 8 undefined on input line 
-137.
-
-
-LaTeX Warning: Reference `fig:low-phase' on page 8 undefined on input line 137.
-
-
-
-LaTeX Warning: Reference `fig:high-magnitude' on page 8 undefined on input line
- 137.
-
-
-LaTeX Warning: Reference `fig:high-phase' on page 8 undefined on input line 137
-.
-
 ) (./p1-3-2.tex [8 <./output/magnitud_low_1.jpg> <./output/magnitud_low_25.jpg>
  <./output/magnitud_low_50.jpg> <./output/magnitud_low_75.jpg> <./output/magnit
 ud_low_100.jpg> <./output/magnitud_high_1.jpg> <./output/magnitud_high_25.jpg> 
@@ -1224,56 +1116,46 @@ put/phase_low_50.jpg> <./output/phase_low_75.jpg> <./output/phase_low_100.jpg>
 <./output/phase_high_1.jpg> <./output/phase_high_25.jpg> <./output/phase_high_5
 0.jpg> <./output/phase_high_75.jpg> <./output/phase_high_100.jpg>]
 LaTeX Font Info:    Try loading font information for OMS+bch on input line 6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
 File: omsbch.fd 
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
 
-
-LaTeX Warning: Reference `fig:left-right' on page 9 undefined on input line 6.
-
-<output/left_right1.jpg, id=302, 301.125pt x 301.125pt>
+<output/left_right1.jpg, id=353, 301.125pt x 301.125pt>
 File: output/left_right1.jpg Graphic file (type jpg)
 
 <use output/left_right1.jpg>
 Package pdftex.def Info: output/left_right1.jpg used on input line 12.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/left_right2.jpg, id=303, 401.5pt x 401.5pt>
+<output/left_right2.jpg, id=354, 401.5pt x 401.5pt>
 File: output/left_right2.jpg Graphic file (type jpg)
 
 <use output/left_right2.jpg>
 Package pdftex.def Info: output/left_right2.jpg used on input line 17.
 (pdftex.def)             Requested size: 142.60236pt x 142.60394pt.
 
-
-LaTeX Warning: Reference `fig:bottom_up' on page 9 undefined on input line 24.
-
-<output/bottom_up1.jpg, id=304, 301.125pt x 301.125pt>
+<output/bottom_up1.jpg, id=356, 301.125pt x 301.125pt>
 File: output/bottom_up1.jpg Graphic file (type jpg)
 
 <use output/bottom_up1.jpg>
 Package pdftex.def Info: output/bottom_up1.jpg used on input line 30.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
- <output/bottom_up2.jpg, id=305, 401.5pt x 401.5pt>
+ <output/bottom_up2.jpg, id=357, 401.5pt x 401.5pt>
 File: output/bottom_up2.jpg Graphic file (type jpg)
 
 <use output/bottom_up2.jpg>
 Package pdftex.def Info: output/bottom_up2.jpg used on input line 35.
 (pdftex.def)             Requested size: 142.60236pt x 142.60394pt.
 
-
-LaTeX Warning: Reference `fig:centered' on page 9 undefined on input line 42.
-
-<output/centered1.jpg, id=306, 301.125pt x 301.125pt>
+<output/centered1.jpg, id=359, 301.125pt x 301.125pt>
 File: output/centered1.jpg Graphic file (type jpg)
 
 <use output/centered1.jpg>
 Package pdftex.def Info: output/centered1.jpg used on input line 48.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
- <output/centered2.jpg, id=307, 401.5pt x 401.5pt>
+ <output/centered2.jpg, id=360, 401.5pt x 401.5pt>
 File: output/centered2.jpg Graphic file (type jpg)
 
 <use output/centered2.jpg>
@@ -1283,18 +1165,14 @@ Package pdftex.def Info: output/centered2.jpg used on input line 53.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:chessboard' on page 9 undefined on input line 60.
-
-
-<output/chessboard1.jpg, id=308, 301.125pt x 301.125pt>
+<output/chessboard1.jpg, id=362, 301.125pt x 301.125pt>
 File: output/chessboard1.jpg Graphic file (type jpg)
 
 <use output/chessboard1.jpg>
 Package pdftex.def Info: output/chessboard1.jpg used on input line 66.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/chessboard2.jpg, id=309, 401.5pt x 401.5pt>
+<output/chessboard2.jpg, id=363, 401.5pt x 401.5pt>
 File: output/chessboard2.jpg Graphic file (type jpg)
 
 <use output/chessboard2.jpg>
@@ -1304,38 +1182,30 @@ Package pdftex.def Info: output/chessboard2.jpg used on input line 71.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:sliding-rows' on page 9 undefined on input line 7
-8.
-
 [9 <./output/left_right1.jpg> <./output/left_right2.jpg> <./output/bottom_up1.j
 pg> <./output/bottom_up2.jpg>]
-<output/sliding_rows1.jpg, id=317, 301.125pt x 301.125pt>
+<output/sliding_rows1.jpg, id=374, 301.125pt x 301.125pt>
 File: output/sliding_rows1.jpg Graphic file (type jpg)
 
 <use output/sliding_rows1.jpg>
 Package pdftex.def Info: output/sliding_rows1.jpg used on input line 84.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/sliding_rows2.jpg, id=318, 401.5pt x 401.5pt>
+<output/sliding_rows2.jpg, id=375, 401.5pt x 401.5pt>
 File: output/sliding_rows2.jpg Graphic file (type jpg)
 
 <use output/sliding_rows2.jpg>
 Package pdftex.def Info: output/sliding_rows2.jpg used on input line 89.
 (pdftex.def)             Requested size: 142.60236pt x 142.60394pt.
 
-
-LaTeX Warning: Reference `fig:sliding-columns' on page 10 undefined on input li
-ne 96.
-
-<output/sliding_columns1.jpg, id=319, 301.125pt x 301.125pt>
+<output/sliding_columns1.jpg, id=377, 301.125pt x 301.125pt>
 File: output/sliding_columns1.jpg Graphic file (type jpg)
 
 <use output/sliding_columns1.jpg>
 Package pdftex.def Info: output/sliding_columns1.jpg used on input line 102.
 (pdftex.def)             Requested size: 142.60236pt x 142.60854pt.
 
-<output/sliding_columns2.jpg, id=320, 401.5pt x 401.5pt>
+<output/sliding_columns2.jpg, id=378, 401.5pt x 401.5pt>
 File: output/sliding_columns2.jpg Graphic file (type jpg)
 
 <use output/sliding_columns2.jpg>
@@ -1344,10 +1214,6 @@ Package pdftex.def Info: output/sliding_columns2.jpg used on input line 107.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `fig:comparison-blending' on page 10 undefined on inpu
-t line 116.
 
 File: output/blending1.jpg Graphic file (type jpg)
 <use output/blending1.jpg>
@@ -1370,28 +1236,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
 (./report.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 55.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 55.
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  4B1E987F539CC65D684F5E5A74881091;349.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 4B1E987F539CC65D684F5E5A74881091;349.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 55.
  ) 
 Here is how much of TeX's memory you used:
- 11518 strings out of 493304
- 166225 string characters out of 6139871
- 298889 words of memory out of 5000000
- 14589 multiletter control sequences out of 15000+600000
+ 11526 strings out of 493304
+ 166304 string characters out of 6139871
+ 300571 words of memory out of 5000000
+ 14597 multiletter control sequences out of 15000+600000
  44244 words of font info for 64 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,14n,42p,773b,1892s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1414,10 +1267,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sftt0800.pfb>
-Output written on report.pdf (11 pages, 3258173 bytes).
+Output written on report.pdf (11 pages, 3258744 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 282 compressed objects within 3 object streams
+ 466 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
  151 named destinations out of 1000 (max. 500000)
- 286 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 342 words of extra memory for PDF output out of 10000 (max. 10000000)
 
