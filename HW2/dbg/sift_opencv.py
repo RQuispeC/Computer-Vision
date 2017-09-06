@@ -9,6 +9,7 @@ print(gray.shape, img.shape)
 sift = cv2.xfeatures2d.SIFT_create()
 kp, des = sift.detectAndCompute(gray,None)
 
+print('kpt', len(kp))
 cv2.drawKeypoints(gray, kp, img, flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
 print(des)
