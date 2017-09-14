@@ -90,14 +90,34 @@ def convert_opencv_keypoint_format(kpts):
     return kpts_ans
 
 def opencv_kpts_des(img, kpt_method, des_method):
-    fast = cv2.FastFeatureDetector_create()
-    sift = cv2.xfeatures2d.SIFT_create()
-    orb = cv2.ORB_create()
+    fast_opencv = cv2.FastFeatureDetector_create()
+    sift_opencv = cv2.xfeatures2d.SIFT_create()
+    orb_opencv = cv2.ORB_create()
 
     if kpt_method == 'orb':
-        kpt = orb.detect(img, None)
+        kpt = orb_opencv.detect(img, None)
     elif kpt_method == 'fast':
-        kpt = fast.detect(img, None)    
+        kpt = fast_opencv.detect(img, None)    
+    else:
+        exit('Invalid opencv kpt method')
+    
+    if des_method == 'sift':
+        kpt, des = sift_opencv.compute(img, kpt)
+    elif des_method == 'orb':
+        kpt, des = orb_opencv.compute(img, kpt)
+    else:
+        exit('Invalid opencv des method')
+    
+    kpt = convert_opencv_keypoint_format(kpt)
+    
+    return kpt, des
+
+def find_keypoints_descriptors(img, kpt_method, des_method):
+    
+    if kpt_method == 'orb':
+        kpt = orb.detect(img)
+    elif kpt_method == 'fast':
+        kpt = fast.detect(img, None)
     else:
         exit('Invalid opencv kpt method')
     
@@ -107,10 +127,6 @@ def opencv_kpts_des(img, kpt_method, des_method):
         kpt, des = orb.compute(img, kpt)
     else:
         exit('Invalid opencv des method')
-    
-    kpt = convert_opencv_keypoint_format(kpt)
-    
-    return kpt, des
     
 def perf_match_images(file_name_fst, file_name_scnd): #evaluation using opencv methods
     img_a = cv2.imread(file_name_fst)

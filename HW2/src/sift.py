@@ -237,8 +237,7 @@ def detect(img, sigma = 1.5):
 
     return key_points, pyramid
 
-def sift_feature(img, kpt, sigma = 1.5, threshold_histogram_maxima = 0.3, threshold_kpt_direction = 0.8, hist_bin = 8, cell_len = 4, block_len = 16):
-    #find keypoint direction
+def keypoint_orientation(img, kpt, sigma = 1.5, threshold_kpt_direction = 0.8):
     hist = np.zeros((36))
     gaussian_kernel = np.dot(gaussian((int)(sigma*1.5), std = sigma*1.5), gaussian((int)(sigma*1.5), std = sigma*1.5))
     gaussian_kernel /= gaussian_kernel.sum()
@@ -249,9 +248,9 @@ def sift_feature(img, kpt, sigma = 1.5, threshold_histogram_maxima = 0.3, thresh
             offset_r = i - cent_r
             offset_c = j - cent_c
             #print(i, j, img.shape, kpt, kpt[0] + offset_r, kpt[1] + offset_c)
-            if kpt[0] + offset_r - 1>=0 and kpt[0] + offset_r + 1< img.shape[0] and kpt[1] + offset_c - 1>=0 and kpt[1] + offset_c + 1< img.shape[1] and img[kpt[0] + 1 + offset_r, kpt[1] + offset_c] != img[kpt[0] - 1 + offset_r, kpt[1] + offset_c]:
+            if kpt[0] + offset_r - 1>=0 and kpt[0] + offset_r + 1< img.shape[0] and kpt[1] + offset_c - 1>=0 and kpt[1] + offset_c + 1< img.shape[1] and img[kpt[0] + offset_r, kpt[1] + offset_c + 1] != img[kpt[0] + offset_r, kpt[1] + offset_c - 1]:
                 mag = np.sqrt((0.0 + img[kpt[0] + offset_r + 1, kpt[1] + offset_c] - img[kpt[0] - 1 + offset_r, kpt[1] + offset_c])**2 + (0.0 + img[kpt[0] + offset_r, kpt[1] + 1 + offset_c] - img[kpt[0] + offset_r, kpt[1] - 1 + offset_c])**2)
-                ang = np.arctan2((img[kpt[0] + offset_r, kpt[1] + 1 + offset_c]*1.0 - img[kpt[0] + offset_r, kpt[1] - 1 + offset_c]*1.0), (img[kpt[0] + 1 + offset_r, kpt[1]+offset_c]*1.0 - 1.0*img[kpt[0] - 1 + offset_r, kpt[1] + offset_c])*1.0)
+                ang = np.arctan2((img[kpt[0] + 1 + offset_r, kpt[1]+offset_c]*1.0 - 1.0*img[kpt[0] - 1 + offset_r, kpt[1] + offset_c])*1.0, (img[kpt[0] + offset_r, kpt[1] + 1 + offset_c]*1.0 - img[kpt[0] + offset_r, kpt[1] - 1 + offset_c]*1.0))
                 if ang < 0.0 :
                     ang = (ang + 2 * np.pi)
                 ang = (ang*180.0) / np.pi
@@ -265,23 +264,33 @@ def sift_feature(img, kpt, sigma = 1.5, threshold_histogram_maxima = 0.3, thresh
     for i in range(len(hist)):
         if hist[i] >= threshold_kpt_direction * max_gradient:
             gradient_directions.append(i * 10 + 5)
+    return gradient_directions
 
+def compute(img, kpt_list, kpt_orientation_list):
+    features = []
+    for kpt, orientation in zip(kpt_list, kpt_orientation_list):
+        feature = sift_feature(img, kpt, orientation)
+        features.append(feature)
+    return feature
+
+def sift_feature(img, kpt, kpt_orientation, sigma = 1.5, threshold_histogram_maxima = 0.3, threshold_kpt_direction = 0.8, hist_bin = 8, cell_len = 4, block_len = 16):
+    #find keypoint direction
     gaussian_kernel = np.outer(gaussian(cell_len, std = 0.5*block_len), gaussian(cell_len, std = 0.5*block_len))
     gaussian_kernel /= gaussian_kernel.sum()
     cell_cnt = 0
     features = []
-    for direction in gradient_directions:
+    for direction in kpt_orientation:
         hist = np.zeros((cell_len**2 * hist_bin))
         for i in range(-block_len//2, block_len //2):
             for j in range(-block_len//2, block_len //2):
-                if kpt[0] + i  - 1>=0  and kpt[0] + i  + 1< img.shape[0] and kpt[1] + j - 1>=0  and kpt[1] + j  + 1< img.shape[1] and img[kpt[0] + 1 + i, kpt[1] + j] != img[kpt[0] - 1 + i, kpt[1] + j]:
+                if kpt[0] + i - 1>=0  and kpt[0] + i + 1< img.shape[0] and kpt[1] + j - 1>=0  and kpt[1] + j  + 1< img.shape[1] and img[kpt[0] + i, kpt[1] + j + 1] != img[kpt[0] + i, kpt[1] + j - 1]:
                     pi = i + block_len//2
                     pj = j + block_len//2
                     i_cell = pi % cell_len
                     j_cell = pj % cell_len
-                    cell_num = (pi // cell_len) * (cell_len) + (pj//cell_len)
+                    cell_num = (pi // cell_len) * (block_len // cell_len) + (pj//cell_len)
                     mag = np.sqrt((0.0 + img[kpt[0] + 1 + i, kpt[1] + j] - img[kpt[0] - 1 + i, kpt[1] + j])**2 + (0.0 + img[kpt[0] + i, kpt[1] + 1 + j] - img[kpt[0] + i, kpt[1] - 1 + j])**2)
-                    ang = np.arctan2((img[kpt[0] + i, kpt[1] + 1 + j]*1.0 - img[kpt[0] + i, kpt[1] - 1 + j]*1.0), (img[kpt[0] + 1 + i, kpt[1] + j]*1.0 - 1.0*img[kpt[0] - 1 + i, kpt[1] + j])*1.0)
+                    ang = np.arctan2((img[kpt[0] + 1 + i, kpt[1] + j]*1.0 - 1.0*img[kpt[0] - 1 + i, kpt[1] + j])*1.0, (img[kpt[0] + i, kpt[1] + 1 + j]*1.0 - img[kpt[0] + i, kpt[1] - 1 + j]*1.0))
                     if ang < 0.0 :
                         ang = (ang + 2 * np.pi)
                     ang = ((ang*180.0) / np.pi) - direction
@@ -289,26 +298,31 @@ def sift_feature(img, kpt, sigma = 1.5, threshold_histogram_maxima = 0.3, thresh
                         ang += 360.0
                     # print(pi, pj, i_cell, j_cell, cell_num, ang, (int)(ang/(360.0 / hist_bin)), cell_num * hist_bin + (int)(ang/(360.0 / hist_bin)))
                     hist[cell_num * hist_bin + (int)(ang/(360.0 / hist_bin))] += mag * gaussian_kernel[i_cell, j_cell]
+                
+                else:
+                    print('SIFT features for point', kpt, ' get out of image bounds', img.shape)
         
         #normalize to unit vertor
-        hist /= hist.sum()
+        hist /= np.sqrt((hist * hist).sum())
         #remove large responses
         for i in range(len(hist)):
             if hist[i] >= threshold_histogram_maxima:
                 hist[i] = 0
         #normalize again
-        hist /= hist.sum()
+        hist /= np.sqrt((hist * hist).sum())
 
         features.append(hist)
+    if len(features) == 0:
+        exit('Sift feature vector was not calculated')
+    elif len(features) == 1:
+        return features[0]
     return features
-    #describe keypoint neighbourhood
-
 
 def describe(key_points, pyramid, pyramid_sigma):
     descriptor = []
     for i in range(len(pyramid)): #for each octave
         for kpt in key_points[i]:
-            descriptor += sift_feature(pyramid[i][kpt[2]], kpt, sigma = pyramid_sigma[i][kpt[2]])
+            descriptor += sift_feature(pyramid[i][kpt[2]], kpt, keypoint_orientation(pyramid[i][kpt[2]], kpt, sigma = pyramid_sigma[i][kpt[2]]), sigma = pyramid_sigma[i][kpt[2]])
     return np.array(descriptor)
 
 def draw_key_points(img, key_points, pyramid):
