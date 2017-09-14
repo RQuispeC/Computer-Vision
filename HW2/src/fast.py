@@ -1,12 +1,12 @@
 import numpy as np
 import random
 import cv2
-import pandas as pd
+#import pandas as pd
 import matplotlib.pyplot as plt
 
 dx=[-3,-3,-2,-1,0,1,2,3,3,3,2,1,0,-1,-2,-3]
 dy=[0,1,2,3,3,3,2,1,0,-1,-2,-3,-3,-3,-2,-1]
-
+'''
 def training_set(images_names, threshold = 10, N = 12):
   IP=[]
   for index in range(0, len(images_names)) :
@@ -17,7 +17,7 @@ def training_set(images_names, threshold = 10, N = 12):
   df = pd.DataFrame(P)
   df.to_csv('RF.csv', index=False,header=False)
   return subset(interest_point)
-
+'''
 def subset(interest_point):
 	P,P_d,P_s,P_b=[],[],[],[]
 	# shuffle x
@@ -43,7 +43,7 @@ def interest_points(image, threshold = 10, N = 12):
     for col in range(3, image.shape[1]-3,2) :
       flag = is_interest_point(image, row, col, threshold, N)
       if flag:
-				keyPoints.append((col,row))
+        keyPoints.append((col,row))
 
   suppressionPoints = non_maximal_suppression(image,keyPoints,threshold)
   print ('=====> {0:2d} Interest Point without non-Maximal Supression'.format(len(keyPoints)))
@@ -60,35 +60,35 @@ def non_maximal_suppression(image, keyPoints, threshold) :
   score=np.zeros(image.shape)
 
   for i in range(0,len(keyPoints)):
-		scoreDark, scoreBrig = 0,0
-		intensity = image[keyPoints[i][1],keyPoints[i][0]]
-		for index in range(0, len(dx)):
-			new_row = keyPoints[i][1]+dx[index]
-			new_col = keyPoints[i][0]+dy[index]
-			if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]):
-				new_intensity=image[new_row,new_col]
-				state = state_pixel(intensity, new_intensity, threshold)
-				difference = abs(int(intensity)-int(new_intensity))
-				if state == 'd':
-					scoreDark = scoreDark + difference
-				else :
-					if state == 'b':
-						scoreBrig = scoreBrig + difference
-		score[keyPoints[i][1],keyPoints[i][0]] = max(scoreDark,scoreBrig)
+    scoreDark, scoreBrig = 0,0
+    intensity = image[keyPoints[i][1],keyPoints[i][0]]
+    for index in range(0, len(dx)):
+      new_row = keyPoints[i][1]+dx[index]
+      new_col = keyPoints[i][0]+dy[index]
+      if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]):
+        new_intensity=image[new_row,new_col]
+        state = state_pixel(intensity, new_intensity, threshold)
+        difference = abs(int(intensity)-int(new_intensity))
+        if state == 'd':
+          scoreDark = scoreDark + difference
+        else :
+          if state == 'b':
+            scoreBrig = scoreBrig + difference
+    score[keyPoints[i][1],keyPoints[i][0]] = max(scoreDark,scoreBrig)
 
   for i in range(0,len(keyPoints)):
-		row = keyPoints[i][1]
-		col = keyPoints[i][0]
-		maximoScore=score[row,col]
-		for k in range(0,16):
-			new_row = row + dx[k]
-			new_col = col + dy[k]
-			if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]) and score[new_row,new_col]>maximoScore : 
-				maximoScore = score[new_row,new_col]
-				break
+    row = keyPoints[i][1]
+    col = keyPoints[i][0]
+    maximoScore=score[row,col]
+    for k in range(0,16):
+      new_row = row + dx[k]
+      new_col = col + dy[k]
+      if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]) and score[new_row,new_col]>maximoScore : 
+        maximoScore = score[new_row,new_col]
+        break
 
-		if maximoScore == score[row,col] :
-			keyPointsNMX.append(cv2.KeyPoint(col,row,5))
+    if maximoScore == score[row,col] :
+      keyPointsNMX.append(cv2.KeyPoint(col,row,5))
 
   return keyPointsNMX
 
@@ -151,18 +151,18 @@ def is_interest_point(image,row, col, threshold, N) :
 '''
 def state_pixel(intensity, new_intensity, threshold):
   if new_intensity <= intensity-threshold :
-		return 'd' # darker
+    return 'd' # darker
   else :
-		if intensity - threshold < new_intensity and new_intensity < intensity + threshold :
-			return 's' # similar
-		else :
-			if intensity + threshold <= new_intensity :
-				return 'b' # brighter
+    if intensity - threshold < new_intensity and new_intensity < intensity + threshold :
+      return 's' # similar
+    else :
+      if intensity + threshold <= new_intensity :
+        return 'b' # brighter
   return 's'
 
 if __name__ == "__main__":
-	images_names = ['input/fumar.jpg']
-	image = cv2.imread(images_names[0], 0)
-	keyPoints=interest_points(image, threshold = 30, N = 8)
-	plt.imshow(cv2.drawKeypoints(image, keyPoints, color=(0,255,0), flags=0))
-	plt.show()
+  images_names = ['input/fumar.jpg']
+  image = cv2.imread(images_names[0], 0)
+  keyPoints=interest_points(image, threshold = 30, N = 8)
+  plt.imshow(cv2.drawKeypoints(image, keyPoints, color=(0,255,0), flags=0))
+  plt.show()

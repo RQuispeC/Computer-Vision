@@ -239,7 +239,7 @@ def detect(img, sigma = 1.5):
 
 def keypoint_orientation(img, kpt, sigma = 1.5, threshold_kpt_direction = 0.8):
     hist = np.zeros((36))
-    gaussian_kernel = np.dot(gaussian((int)(sigma*1.5), std = sigma*1.5), gaussian((int)(sigma*1.5), std = sigma*1.5))
+    gaussian_kernel = np.outer(gaussian((int)(sigma*1.5), std = sigma*1.5), gaussian((int)(sigma*1.5), std = sigma*1.5))
     gaussian_kernel /= gaussian_kernel.sum()
     r, c = gaussian_kernel.shape
     cent_r, cent_c = (int)(np.ceil(r/2)), (int)(np.ceil(c/2))
@@ -271,7 +271,7 @@ def compute(img, kpt_list, kpt_orientation_list):
     for kpt, orientation in zip(kpt_list, kpt_orientation_list):
         feature = sift_feature(img, kpt, orientation)
         features.append(feature)
-    return feature
+    return features
 
 def sift_feature(img, kpt, kpt_orientation, sigma = 1.5, threshold_histogram_maxima = 0.3, threshold_kpt_direction = 0.8, hist_bin = 8, cell_len = 4, block_len = 16):
     #find keypoint direction
@@ -279,7 +279,7 @@ def sift_feature(img, kpt, kpt_orientation, sigma = 1.5, threshold_histogram_max
     gaussian_kernel /= gaussian_kernel.sum()
     cell_cnt = 0
     features = []
-    for direction in kpt_orientation:
+    for direction in [kpt_orientation]:
         hist = np.zeros((cell_len**2 * hist_bin))
         for i in range(-block_len//2, block_len //2):
             for j in range(-block_len//2, block_len //2):
@@ -299,8 +299,8 @@ def sift_feature(img, kpt, kpt_orientation, sigma = 1.5, threshold_histogram_max
                     # print(pi, pj, i_cell, j_cell, cell_num, ang, (int)(ang/(360.0 / hist_bin)), cell_num * hist_bin + (int)(ang/(360.0 / hist_bin)))
                     hist[cell_num * hist_bin + (int)(ang/(360.0 / hist_bin))] += mag * gaussian_kernel[i_cell, j_cell]
                 
-                else:
-                    print('SIFT features for point', kpt, ' get out of image bounds', img.shape)
+                #else:
+                #    print('SIFT features for point', kpt, ' get out of image bounds', img.shape)
         
         #normalize to unit vertor
         hist /= np.sqrt((hist * hist).sum())

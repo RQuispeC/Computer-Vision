@@ -5,6 +5,9 @@ from scipy.spatial.distance import hamming
 import sys
 from random import randint
 import time
+import fast
+import ORB
+import sift
 
 def similarity(first_feature, first_pos, second_feature, second_pos, distance_metric = 'l2-norm', spacial_weighting = 0.0):
     if distance_metric == 'l1-norm':
@@ -88,7 +91,14 @@ def convert_opencv_keypoint_format(kpts):
     for i in kpts:
         kpts_ans.append(((int)(i.pt[1]), (int)(i.pt[0])))
     return kpts_ans
-
+def convert_opencv_keypoint_format_angle(kpts):
+    kpts_ans = []
+    or_list = []
+    for i in kpts:
+        kpts_ans.append(((int)(i.pt[1]), (int)(i.pt[0])))
+        or_list.append(i.angle)
+    return kpts_ans, or_list
+    
 def opencv_kpts_des(img, kpt_method, des_method):
     fast_opencv = cv2.FastFeatureDetector_create()
     sift_opencv = cv2.xfeatures2d.SIFT_create()
@@ -96,13 +106,17 @@ def opencv_kpts_des(img, kpt_method, des_method):
 
     if kpt_method == 'orb':
         kpt = orb_opencv.detect(img, None)
+        #kpt = fast.interest_points(img, 20, 8)
+        #kpt = ORB.harris_measure_and_orientation(img, kpt, min(500, len(kpt)))
+        kpt, angles = convert_opencv_keypoint_format_angle(kpt)
     elif kpt_method == 'fast':
         kpt = fast_opencv.detect(img, None)    
     else:
         exit('Invalid opencv kpt method')
     
     if des_method == 'sift':
-        kpt, des = sift_opencv.compute(img, kpt)
+        des = sift.compute(img, kpt, angles)
+        #kpt, des = sift_opencv.compute(img, kpt)
     elif des_method == 'orb':
         kpt, des = orb_opencv.compute(img, kpt)
     else:
@@ -115,18 +129,23 @@ def opencv_kpts_des(img, kpt_method, des_method):
 def find_keypoints_descriptors(img, kpt_method, des_method):
     
     if kpt_method == 'orb':
-        kpt = orb.detect(img)
+        kpt = fast.interest_points(img, 20, 8)
+        kpt = ORB.harris_measure_and_orientation(img, kpt, min(500, len(kpt)))
+        kpt, angles = convert_opencv_keypoint_format_angle(kpt)
     elif kpt_method == 'fast':
-        kpt = fast.detect(img, None)
+        kpt = fast.interest_points(img, 20, 8)
     else:
         exit('Invalid opencv kpt method')
     
     if des_method == 'sift':
-        kpt, des = sift.compute(img, kpt)
-    elif des_method == 'orb':
-        kpt, des = orb.compute(img, kpt)
+    
+        des = sift.compute(img, kpt, angles)
+    #elif des_method == 'orb':
+     #   kpt, des = orb.compute(img, kpt)
     else:
         exit('Invalid opencv des method')
+    
+    return kpt, des
     
 def perf_match_images(file_name_fst, file_name_scnd): #evaluation using opencv methods
     img_a = cv2.imread(file_name_fst)

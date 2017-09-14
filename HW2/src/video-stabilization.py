@@ -102,6 +102,8 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
     for i in range(1, len(video)):
         kpt_cur, des_cur = matching.opencv_kpts_des(video[i], 'orb', 'sift')
         kpt_prev, des_prev = matching.opencv_kpts_des(video[i - 1], 'orb', 'sift')
+        #kpt_cur, des_cur = matching.find_keypoints_descriptors(video[i], 'orb', 'sift')
+        #kpt_prev, des_prev = matching.find_keypoints_descriptors(video[i - 1], 'orb', 'sift')
 
         #kpt_cur, des_cur, kpt_prev, des_prev =  kpt_cur[200:250], des_cur[200:250], kpt_prev[200:250], des_prev[200:250]
         ''' 
@@ -118,7 +120,7 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
             print('WE COUNT FIND INTEREST POINTS AT FRAME ', i-1)
             exit()
         matches = matching.find_matches(des_cur, kpt_cur, des_prev, kpt_prev, hard_match = True, distance_metric = 'cosine', spacial_weighting = 0.0, threshold = 0.9)
-        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/' + transformat + '_' + save_name + '_{}-{}.jpg'.format(i-1, i))
+        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/our_' + transformat + '_' + save_name + '_{}-{}.jpg'.format(i-1, i))
         video_kpt.append(img_kpt)
         print(i, len(matches), '-------------------------------------------------')
         best_fit, params = transformation.ransac(kpt_cur, kpt_prev, matches, threshold = 2, S = 140, transformation = transformat)
@@ -138,7 +140,7 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
 
 if __name__ == '__main__':
     frame_per_sec = 10
-    file_name = 'p2-1-0'
+    file_name = 'p2-1-2'
     transformat = 'affine' #projective or affine
 
     load_filename = 'input/' + file_name  + '.mp4'
