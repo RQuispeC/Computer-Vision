@@ -1,4 +1,5 @@
 all:
+	pip3 install scikit-learn
 	@echo "Running experiments"
 	python src/fast_video.py
 	
