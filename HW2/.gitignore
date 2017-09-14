@@ -1,0 +1,5 @@
+*.zip
+src/*.pyc
+report/*~
+report/.nfs*
+dbg/*.jpg
