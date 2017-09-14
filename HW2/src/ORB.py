@@ -65,9 +65,10 @@ def orientation(image, interest_points):
   for index in range(0, 8) :
     new_row = row + dx[index]
     new_col = col + dy[index]
-    m01 = m01 + new_row * image[new_row,new_col]
-    m10 = m10 + new_col * image[new_row,new_col]
-
+    if new_row >= 0 and new_row < image.shape[0] and new_col >= 0 and new_col < image.shape[1]:
+      m01 = m01 + new_row * image[new_row,new_col]
+      m10 = m10 + new_col * image[new_row,new_col]
+      
   return math.atan2(m01,m10)
 
 '''
