@@ -3,3 +3,4 @@ src/*.pyc
 report/*~
 report/.nfs*
 dbg/*.jpg
+src/*.py~
