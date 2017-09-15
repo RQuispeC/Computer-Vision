@@ -11,7 +11,7 @@ while(cap.isOpened()):
 
 		keyPoints = fast.interest_points(gray,threshold=30,N=8)
 		keyPoints = ORB.harris_measure_and_orientation(gray, keyPoints, 300)
-		cv2.imshow("Interest Point",cv2.drawKeypoints(frame, keyPoints, color=(0,255,0), flags=0))
+		#cv2.imshow("Interest Point",cv2.drawKeypoints(frame, keyPoints, color=(0,255,0), flags=0))
 		cont = cont + 1
 		
 		if cv2.waitKey(1) & 0xFF == ord('q'):

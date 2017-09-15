@@ -10,12 +10,12 @@ from scipy.signal import gaussian
 '''
 def harris_score(sobelx, sobely, row, col, gaussian_kernel, N=5):
   M = [[0,0],[0,0]]
-  new_row = row - (N-1)/2
-  new_col = col - (N-1)/2
+  row = (int)(row - (N-1)/2)
+  col = (int)(col - (N-1)/2)
   for i in range(0,N):
-    new_row = new_row + i
+    new_row = (int)(row + i)
     for j in range(0,N):
-        new_col = new_col + j
+        new_col = (int)(col + j)
         if new_row < 0 or new_row >= sobelx.shape[0] or new_col < 0 or new_col >= sobelx.shape[1]:
             return -1
         if row!= new_row or col!=new_col:
@@ -66,13 +66,13 @@ def harris_measure_and_orientation(image, interest_points, N):
 '''
 def orientation(image, interest_points, gaussian_kernel, size=5):
   hist = np.zeros((36))
-  new_row = int(interest_points.pt[1]) - (size-1)/2
-  new_col = int(interest_points.pt[0]) - (size-1)/2
+  row = int(interest_points.pt[1]) - (size-1)//2
+  col = int(interest_points.pt[0]) - (size-1)//2
   for i in range(0,size):
-    new_row = new_row + i
+    new_row = row + i
     flag = True
     for j in range(0,size):
-        new_col = new_col + j
+        new_col = col + j
         if new_row < 0 or new_row >= image.shape[0] or new_col < 0 or new_col >= image.shape[1]:
             flag = False
         mag = np.sqrt((image[new_row + 1, new_col]*1.0-image[new_row-1,new_col]*1.0)**2 + (image[new_row,new_col+1]*1.0 - image[new_row,new_col-1]*1.0)**2)
@@ -109,3 +109,4 @@ if __name__ == "__main__":
 
   plt.imshow(cv2.drawKeypoints(image, keyPoints, color=(0,255,0), flags=0))
   plt.show()
+
