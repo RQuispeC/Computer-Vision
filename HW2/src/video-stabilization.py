@@ -21,6 +21,32 @@ def load_video(file_name = 'input/p2-1-1.mp4', fps = 30, original_fps = 30):
         success, img = vidcap.read()
     return video, video_grayscale
 
+
+def apply_kpt_transformation(kpt, des, img_shape, params, trans_meth = 'affine'):
+    rows, cols = img_shape[:2]
+    kpt_transformed = []
+    des_transformed = []
+    for i in range(len(des)):
+        y, x = kpt[i]
+        if trans_meth == 'affine':
+            x_p = params[0] * x + params[1] * y + params[2]
+            y_p = params[3] * x + params[4] * y + params[5]
+        elif trans_meth == 'projective':
+            den = params[6] * x + params[7] * y + 1
+            if den == 0.0:
+                continue
+            x_p = (params[0] * x + params[1] * y + params[2]) / den
+            y_p = (params[3] * x + params[4] * y + params[5]) / den
+        else:
+            exit('Error apply_transformation: Invalid transformation')
+        if x_p >= 0 and y_p >= 0 and x_p < cols and y_p < rows:
+            y_p = (int)(y_p)
+            x_p = (int)(x_p)
+            kpt_transformed.append((y_p, x_p))
+            des_transformed.append(des[i])
+    print(len(kpt), len(kpt_transformed))
+    return kpt_transformed, des_transformed
+    
 def apply_transformation(frame_rgb, frame_gray, params, trans_meth = 'affine'):
     rows, cols = frame_rgb.shape[:2]
     trans_frame_rgb = np.full(frame_rgb.shape, -1)
@@ -99,11 +125,11 @@ def joint_video(file_name_or, file_name_sta, save_file_name, fps):
 def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed_frame'):
     last = 0
     video_kpt = []
+    #kpt_prev, des_prev = matching.opencv_kpts_des(video[0], 'orb', 'sift')
+    kpt_prev, des_prev = matching.find_keypoints_descriptors(video[0], 'orb', 'sift')
     for i in range(1, len(video)):
-        kpt_cur, des_cur = matching.opencv_kpts_des(video[i], 'orb', 'sift')
-        kpt_prev, des_prev = matching.opencv_kpts_des(video[i - 1], 'orb', 'sift')
-        #kpt_cur, des_cur = matching.find_keypoints_descriptors(video[i], 'orb', 'sift')
-        #kpt_prev, des_prev = matching.find_keypoints_descriptors(video[i - 1], 'orb', 'sift')
+        #kpt_cur, des_cur = matching.opencv_kpts_des(video[i], 'orb', 'sift')
+        kpt_cur, des_cur = matching.find_keypoints_descriptors(video[i], 'orb', 'sift')
 
         #kpt_cur, des_cur, kpt_prev, des_prev =  kpt_cur[200:250], des_cur[200:250], kpt_prev[200:250], des_prev[200:250]
         ''' 
@@ -120,7 +146,7 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
             print('WE COUNT FIND INTEREST POINTS AT FRAME ', i-1)
             exit()
         matches = matching.find_matches(des_cur, kpt_cur, des_prev, kpt_prev, hard_match = True, distance_metric = 'cosine', spacial_weighting = 0.0, threshold = 0.9)
-        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/our_' + transformat + '_' + save_name + '_{}-{}.jpg'.format(i-1, i))
+        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/' + transformat + '_' + save_name + '_{}-{}.jpg'.format(i-1, i))
         video_kpt.append(img_kpt)
         print(i, len(matches), '-------------------------------------------------')
         best_fit, params = transformation.ransac(kpt_cur, kpt_prev, matches, threshold = 2, S = 140, transformation = transformat)
@@ -135,6 +161,7 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
         if params_complete == []: #avoid runtime error
             params_complete = np.array(params)
         video_rgb[i], video[i] = apply_transformation(video_rgb[i], video[i], params_complete, trans_meth = transformat)
+        kpt_prev, des_prev= apply_kpt_transformation(kpt_cur, des_cur, video[i].shape, params_complete, trans_meth = transformat)
         #cv2.imwrite(('dbg/sol%d.jpg') % i, video_rgb[i])
     return video_rgb, video_kpt
 
