@@ -122,7 +122,7 @@ def opencv_kpts_des(img, kpt_method, des_method):
     else:
         exit('Invalid opencv des method')
     
-    kpt = convert_opencv_keypoint_format(kpt)
+    #kpt = convert_opencv_keypoint_format(kpt)
     
     return kpt, des
 
