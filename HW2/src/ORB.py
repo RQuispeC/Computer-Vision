@@ -33,13 +33,10 @@ def harris_score(sobelx, sobely, row, col, gaussian_kernel, N=5):
 '''
   Harris corner measure, because FAST does not produce a measure of cornerness
 '''
-def harris_measure_and_orientation(image, interest_points, N):
+def harris_measure_and_orientation(image, interest_points, N, size=7):
   score,new_interest_points=[],[]
-  gaussian_array0 = gaussian((int)(5), std = 0.5)
-  gaussian_array1=[]
-  for index in range(len(gaussian_array0)):
-    gaussian_array1.append([gaussian_array0[index]])
-  gaussian_kernel = np.multiply(gaussian_array0, gaussian_array1)
+ 
+  gaussian_kernel = np.outer(gaussian((int)(size), std = 0.5), gaussian((int)(size), std = 0.5))
 
   gaussian_kernel /= gaussian_kernel.sum()
   sobelx = cv2.Sobel(image,cv2.CV_64F,1,0,ksize=3)
@@ -47,17 +44,17 @@ def harris_measure_and_orientation(image, interest_points, N):
   for index in range(0,len(interest_points)):
      row = int(interest_points[index].pt[1])
      col = int(interest_points[index].pt[0])
-     score_ = harris_score(sobelx, sobely, row, col, gaussian_kernel)
+     score_ = harris_score(sobelx, sobely, row, col, gaussian_kernel, size)
      if score_ != -1:
         score.append((score_,index))  
         
-  score.sort()
+  score.sort(reverse = True)
   for index in range(0,N):
     if index>=len(score):
       break
     new_index=score[index][1]
     new_interest_points.append(interest_points[new_index])
-    new_interest_points[index].angle = orientation(image, new_interest_points[index], gaussian_kernel, 5)
+    new_interest_points[index].angle = orientation(image, new_interest_points[index], gaussian_kernel, size)
 
   return new_interest_points    
 
@@ -73,14 +70,15 @@ def orientation(image, interest_points, gaussian_kernel, size=5):
     flag = True
     for j in range(0,size):
         new_col = col + j
-        if new_row < 0 or new_row >= image.shape[0] or new_col < 0 or new_col >= image.shape[1]:
-            flag = False
+        if new_row - 1 < 0 or new_row + 1>= image.shape[0] or new_col - 1 < 0 or new_col + 1>= image.shape[1]:
+            continue
         mag = np.sqrt((image[new_row + 1, new_col]*1.0-image[new_row-1,new_col]*1.0)**2 + (image[new_row,new_col+1]*1.0 - image[new_row,new_col-1]*1.0)**2)
         ang = np.arctan2((image[new_row,new_col+1]*1.0-image[new_row, new_col-1]*1.0), (image[new_row + 1, new_col]*1.0-image[new_row-1,new_col]*1.0))
+        
         if ang < 0.0 :
             ang = (ang + 2 * np.pi) 
-            ang = (ang*180.0) / np.pi
-    if flag:
+        ang = (ang*180.0) / np.pi
+        
         hist[(int)(ang/10.0)] += gaussian_kernel[i,j]*mag
   angle = hist.max()
 

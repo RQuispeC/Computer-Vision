@@ -39,17 +39,19 @@ def subset(interest_point):
 '''
 def interest_points(image, threshold = 10, N = 12):
   keyPoints=[]
-  for row in range(3,image.shape[0]-3,2) :
-    for col in range(3, image.shape[1]-3,2) :
+  for row in range(3,image.shape[0]-3,1) :
+    for col in range(3, image.shape[1]-3,1) :
       flag = is_interest_point(image, row, col, threshold, N)
       if flag:
-        keyPoints.append((col,row))
+        keyPoints.append(cv2.KeyPoint(col,row, 5))
 
-  suppressionPoints = non_maximal_suppression(image,keyPoints,threshold)
+  #suppressionPoints = non_maximal_suppression(image,keyPoints,threshold)
+  suppressionPoints = []
   print ('=====> {0:2d} Interest Point without non-Maximal Supression'.format(len(keyPoints)))
-  print ('=====> {0:2d} Interest Point with non-Maximal Supression'.format(len(suppressionPoints)))
+  #print ('=====> {0:2d} Interest Point with non-Maximal Supression'.format(len(suppressionPoints)))
 
-  return suppressionPoints
+  return keyPoints
+  #return suppressionPoints
 
 '''
 	Non-Maximal Suppression over interest points

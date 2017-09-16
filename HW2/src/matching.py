@@ -8,6 +8,7 @@ import time
 import fast
 import ORB
 import sift
+from sklearn.neighbors import KNeighborsClassifier
 
 def similarity(first_feature, first_pos, second_feature, second_pos, distance_metric = 'l2-norm', spacial_weighting = 0.0):
     if distance_metric == 'l1-norm':
@@ -30,7 +31,7 @@ def similarity(first_feature, first_pos, second_feature, second_pos, distance_me
 
     return distance
 
-def find_matches(firsts_feature, firsts_pos, seconds_feature, seconds_pos, threshold = 0.8, distance_metric = 'l2-norm', spacial_weighting = 0.0, hard_match = False):
+def brute_force_matching(firsts_feature, firsts_pos, seconds_feature, seconds_pos, threshold = 0.8, distance_metric = 'l2-norm', spacial_weighting = 0.0, hard_match = False):
     matches = []
     hard_matches = []
     invalid_matches = 0
@@ -59,6 +60,39 @@ def find_matches(firsts_feature, firsts_pos, seconds_feature, seconds_pos, thres
         print('Using hard matching')
         return hard_matches
     return matches
+
+def knn_matching(firsts_feature, seconds_feature):
+    #firsts_feature = np.array(firsts_feature).reshape(1, -1)
+    #seconds_feature = np.array(seconds_feature).reshape(1, -1)    
+    for i in range(len(firsts_feature)):
+        firsts_feature[i] =  np.array(firsts_feature[i]).reshape(-1, 1)
+        print(firsts_feature[i].shape)
+    
+    for i in range(len(seconds_feature)):
+        seconds_feature[i] =  np.array(seconds_feature[i]).reshape(-1, 1)
+    
+    knn_first = KNeighborsClassifier(n_neighbors = 1)
+    knn_second = KNeighborsClassifier(n_neighbors = 1)
+    y_fir = np.arange(len(firsts_feature))
+    y_sec = np.arange(len(seconds_feature))
+    knn_first.fit(firsts_feature, y_fir)
+    knn_second.fit(seconds_feature, y_sec)
+    matches = []
+    for i in range(len(firsts_feature)):
+        right_pred = knn_second.predict(firsts_feature[i].reshape(-1, 1))
+        if knn_first.predict(seconds_feature[right_pred].reshape(-1, 1)) == i:
+            matches.append(right_pred)
+        else:
+            matches.append(-1)
+    return matches
+
+def find_matches(firsts_feature, seconds_feature, firsts_pos = [], seconds_pos = [], threshold = 0.8, distance_metric = 'l2-norm', spacial_weighting = 0.0, hard_match = False, approach = 'brute_force'):
+    if approach == 'brute_force':
+        return brute_force_matching(firsts_feature, firsts_pos, seconds_feature, seconds_pos, threshold, distance_metric, spacial_weighting , hard_match)
+    elif approach == 'knn':
+        return knn_matching(firsts_feature, seconds_feature)
+    else:
+        exit('Error: invalid approach for find_matches')
 
 def joint_matches(img_fst, first_pos, img_scd, second_pos, match, file_name = 'matches', plot = True):
     if len(img_fst.shape)==2 or (len(img_fst.shape)==3 and img_fst.shape[2] == 1):
@@ -105,35 +139,35 @@ def opencv_kpts_des(img, kpt_method, des_method):
     orb_opencv = cv2.ORB_create()
 
     if kpt_method == 'orb':
-        kpt = orb_opencv.detect(img, None)
-        #kpt = fast.interest_points(img, 20, 8)
-        #kpt = ORB.harris_measure_and_orientation(img, kpt, min(500, len(kpt)))
-        kpt, angles = convert_opencv_keypoint_format_angle(kpt)
+        #kpt = orb_opencv.detect(img, None)
+        kpt = fast.interest_points(img, 30, 8)
+        kpt = ORB.harris_measure_and_orientation(img, kpt, min(500, len(kpt)))
+        #kpt, angles = convert_opencv_keypoint_format_angle(kpt)
     elif kpt_method == 'fast':
         kpt = fast_opencv.detect(img, None)    
     else:
         exit('Invalid opencv kpt method')
     
     if des_method == 'sift':
-        des = sift.compute(img, kpt, angles)
-        #kpt, des = sift_opencv.compute(img, kpt)
+        #des = sift.compute(img, kpt, angles)
+        kpt, des = sift_opencv.compute(img, kpt)
     elif des_method == 'orb':
         kpt, des = orb_opencv.compute(img, kpt)
     else:
         exit('Invalid opencv des method')
     
-    #kpt = convert_opencv_keypoint_format(kpt)
+    kpt = convert_opencv_keypoint_format(kpt)
     
     return kpt, des
 
 def find_keypoints_descriptors(img, kpt_method, des_method):
     
     if kpt_method == 'orb':
-        kpt = fast.interest_points(img, 20, 8)
+        kpt = fast.interest_points(img, 30, 8)
         kpt = ORB.harris_measure_and_orientation(img, kpt, min(500, len(kpt)))
         kpt, angles = convert_opencv_keypoint_format_angle(kpt)
     elif kpt_method == 'fast':
-        kpt = fast.interest_points(img, 20, 8)
+        kpt = fast.interest_points(img, 30, 8)
     else:
         exit('Invalid opencv kpt method')
     
