@@ -107,3 +107,4 @@ if __name__ == "__main__":
 
   plt.imshow(cv2.drawKeypoints(image, keyPoints, color=(0,255,0), flags=0))
   plt.show()
+
