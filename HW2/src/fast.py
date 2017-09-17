@@ -37,21 +37,25 @@ def subset(interest_point):
 '''
 	FAST: estract the interest points with Features from Accelerated Segment Test
 '''
-def interest_points(image, threshold = 10, N = 12):
-  keyPoints=[]
-  for row in range(3,image.shape[0]-3,1) :
-    for col in range(3, image.shape[1]-3,1) :
-      flag = is_interest_point(image, row, col, threshold, N)
-      if flag:
-        keyPoints.append(cv2.KeyPoint(col,row, 5))
+def interest_points(image, threshold = 10, N = 12, supression = False):
+	keyPoints=[]
+	skip = 1
+	if supression :
+		skip = 2
+	for row in range(3,image.shape[0]-3,skip) :
+		for col in range(3, image.shape[1]-3,skip) :
+			flag = is_interest_point(image, row, col, threshold, N)
+			if flag:
+				keyPoints.append(cv2.KeyPoint(col,row, 5))
 
-  #suppressionPoints = non_maximal_suppression(image,keyPoints,threshold)
-  suppressionPoints = []
-  print ('=====> {0:2d} Interest Point without non-Maximal Supression'.format(len(keyPoints)))
-  #print ('=====> {0:2d} Interest Point with non-Maximal Supression'.format(len(suppressionPoints)))
-
-  return keyPoints
-  #return suppressionPoints
+	if supression:
+		supressionPoints = []
+		supressionPoints = non_maximal_suppression(image,keyPoints,threshold)
+		print ('=====> {0:2d} Interest Point with non-Maximal Supression'.format(len(supressionPoints)))
+		return supressionPoints
+	else :
+		print ('=====> {0:2d} Interest Point without non-Maximal Supression'.format(len(keyPoints)))
+		return keyPoints
 
 '''
 	Non-Maximal Suppression over interest points
@@ -62,25 +66,27 @@ def non_maximal_suppression(image, keyPoints, threshold) :
   score=np.zeros(image.shape)
 
   for i in range(0,len(keyPoints)):
-    scoreDark, scoreBrig = 0,0
-    intensity = image[keyPoints[i][1],keyPoints[i][0]]
-    for index in range(0, len(dx)):
-      new_row = keyPoints[i][1]+dx[index]
-      new_col = keyPoints[i][0]+dy[index]
-      if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]):
-        new_intensity=image[new_row,new_col]
-        state = state_pixel(intensity, new_intensity, threshold)
-        difference = abs(int(intensity)-int(new_intensity))
-        if state == 'd':
-          scoreDark = scoreDark + difference
-        else :
-          if state == 'b':
-            scoreBrig = scoreBrig + difference
-    score[keyPoints[i][1],keyPoints[i][0]] = max(scoreDark,scoreBrig)
+		scoreDark, scoreBrig = 0,0
+		row = int(keyPoints[i].pt[1])
+		col = int(keyPoints[i].pt[0])
+		intensity = image[row,col]
+		for index in range(0, len(dx)):
+			new_row = row + dx[index]
+			new_col = col + dy[index]
+			if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]):
+				new_intensity=image[new_row,new_col]
+				state = state_pixel(intensity, new_intensity, threshold)
+				difference = abs(int(intensity)-int(new_intensity))
+				if state == 'd':
+					scoreDark = scoreDark + difference
+				else :
+					if state == 'b':
+						scoreBrig = scoreBrig + difference
+		score[row,col] = max(scoreDark,scoreBrig)
 
   for i in range(0,len(keyPoints)):
-    row = keyPoints[i][1]
-    col = keyPoints[i][0]
+    row = int(keyPoints[i].pt[1])
+    col = int(keyPoints[i].pt[0])
     maximoScore=score[row,col]
     for k in range(0,16):
       new_row = row + dx[k]
@@ -163,8 +169,8 @@ def state_pixel(intensity, new_intensity, threshold):
   return 's'
 
 if __name__ == "__main__":
-  images_names = ['input/fumar.jpg']
+  images_names = ['../input/fumar.jpg']
   image = cv2.imread(images_names[0], 0)
-  keyPoints=interest_points(image, threshold = 30, N = 8)
+  keyPoints=interest_points(image, threshold = 30, N = 8, supression=True)
   plt.imshow(cv2.drawKeypoints(image, keyPoints, color=(0,255,0), flags=0))
   plt.show()
