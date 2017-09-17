@@ -267,17 +267,20 @@ def keypoint_orientation(img, kpt, sigma = 1.5, threshold_kpt_direction = 0.8):
     return gradient_directions
 
 def compute(img, kpt_list, kpt_orientation_list):
+    init_sigma = np.sqrt(max(1.6 * 1.6 - 0.5 * 0.5 *  4, 0.01))
+    print(init_sigma)
+    cv2.imwrite('blurred.jpg', img)
+    img = cv2.GaussianBlur(img, (0, 0), init_sigma, init_sigma)
     features = []
     for kpt, orientation in zip(kpt_list, kpt_orientation_list):
         feature = sift_feature(img, kpt, orientation)
         features.append(feature)
     return features
 
-def sift_feature(img, kpt, kpt_orientation, sigma = 1.5, threshold_histogram_maxima = 0.3, threshold_kpt_direction = 0.8, hist_bin = 8, cell_len = 4, block_len = 16):
+def sift_feature(img, kpt, kpt_orientation, sigma = 1.5, threshold_histogram_maxima = 0.2, threshold_kpt_direction = 0.8, hist_bin = 8, cell_len = 4, block_len = 16):
     #find keypoint direction
-    gaussian_kernel = np.outer(gaussian(cell_len, std = 0.5*block_len), gaussian(cell_len, std = 0.5*block_len))
+    gaussian_kernel = np.outer(gaussian(block_len, std = 0.5*block_len), gaussian(block_len, std = 0.5*block_len))
     gaussian_kernel /= gaussian_kernel.sum()
-    cell_cnt = 0
     features = []
     for direction in [kpt_orientation]:
         hist = np.zeros((cell_len**2 * hist_bin))
@@ -292,23 +295,29 @@ def sift_feature(img, kpt, kpt_orientation, sigma = 1.5, threshold_histogram_max
                     mag = np.sqrt((0.0 + img[kpt[0] + 1 + i, kpt[1] + j] - img[kpt[0] - 1 + i, kpt[1] + j])**2 + (0.0 + img[kpt[0] + i, kpt[1] + 1 + j] - img[kpt[0] + i, kpt[1] - 1 + j])**2)
                     ang = np.arctan2((img[kpt[0] + 1 + i, kpt[1] + j]*1.0 - 1.0*img[kpt[0] - 1 + i, kpt[1] + j])*1.0, (img[kpt[0] + i, kpt[1] + 1 + j]*1.0 - img[kpt[0] + i, kpt[1] - 1 + j]*1.0))
                     if ang < 0.0 :
-                        ang = (ang + 2 * np.pi)
+                        ang = (ang + 2.0 * np.pi)
                     ang = ((ang*180.0) / np.pi) - direction
                     if ang < 0.0 :
                         ang += 360.0
                     # print(pi, pj, i_cell, j_cell, cell_num, ang, (int)(ang/(360.0 / hist_bin)), cell_num * hist_bin + (int)(ang/(360.0 / hist_bin)))
-                    hist[cell_num * hist_bin + (int)(ang/(360.0 / hist_bin))] += mag * gaussian_kernel[i_cell, j_cell]
+                    hist[cell_num * hist_bin + (int)(ang/(360.0 / hist_bin))] += mag * gaussian_kernel[pi, pj]
                 
                 #else:
                 #    print('SIFT features for point', kpt, ' get out of image bounds', img.shape)
         
         #normalize to unit vertor
-        hist /= np.sqrt((hist * hist).sum())
+        norm = np.sqrt((hist * hist).sum())
+        hist /= norm
+        fact = 0
         #remove large responses
         for i in range(len(hist)):
-            if hist[i] >= threshold_histogram_maxima:
-                hist[i] = 0
+            #if hist[i] >= threshold_histogram_maxima * norm:
+            hist[i] = min(hist[i], threshold_histogram_maxima * norm)
+            fact += hist[i] * hist[i]
         #normalize again
+        #hist /= np.sqrt((hist * hist).sum())
+        fact = max(fact, 1e-20)
+        hist *= 512.0/fact
         hist /= np.sqrt((hist * hist).sum())
 
         features.append(hist)

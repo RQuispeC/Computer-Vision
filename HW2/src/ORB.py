@@ -70,7 +70,7 @@ def orientation(image, interest_points, gaussian_kernel, size=5):
     flag = True
     for j in range(0,size):
         new_col = col + j
-        if new_row - 1 < 0 or new_row + 1>= image.shape[0] or new_col - 1 < 0 or new_col + 1>= image.shape[1]:
+        if new_row - 1 < 0 or new_row + 1>= image.shape[0] or new_col - 1 < 0 or new_col + 1>= image.shape[1] or image[new_row + 1, new_col] == image[new_row-1,new_col]:
             continue
         mag = np.sqrt((image[new_row + 1, new_col]*1.0-image[new_row-1,new_col]*1.0)**2 + (image[new_row,new_col+1]*1.0 - image[new_row,new_col-1]*1.0)**2)
         ang = np.arctan2((image[new_row,new_col+1]*1.0-image[new_row, new_col-1]*1.0), (image[new_row + 1, new_col]*1.0-image[new_row-1,new_col]*1.0))

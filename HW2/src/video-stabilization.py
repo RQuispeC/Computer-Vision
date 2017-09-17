@@ -131,31 +131,20 @@ def clean_keypoints(kpts, matches):
             cleaned_matches.append(matches[i])
     return cleaned_kpts, cleaned_matches
 
-def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed_frame'):
+def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed_frame', ransac_S = 200, match_dist_metr = 'cosine', orb_thr = 30, orb_N = 8):
     last = 0
     video_kpt = []
-    kpt_prev, des_prev = matching.opencv_kpts_des(video[0], 'orb', 'sift')
-    #kpt_prev, des_prev = matching.find_keypoints_descriptors(video[0], 'orb', 'sift')
+    kpt_prev, des_prev = matching.find_keypoints_descriptors(video[0], 'orb', 'sift')
     for i in range(1, len(video)):
-        kpt_cur, des_cur = matching.opencv_kpts_des(video[i], 'orb', 'sift')
-        #kpt_cur, des_cur = matching.find_keypoints_descriptors(video[i], 'orb', 'sift')
+        kpt_cur, des_cur = matching.find_keypoints_descriptors(video[i], 'orb', 'sift')
 
-        #kpt_cur, des_cur, kpt_prev, des_prev =  kpt_cur[200:250], des_cur[200:250], kpt_prev[200:250], des_prev[200:250]
-        ''' 
-        print('+++++++++++++++', i, '+++++++++++++++', len(kpt_cur), len(kpt_prev))
-        left_cur, right_cur = max(len(kpt_cur)//2 - 25, 0), min(len(kpt_cur)//2 + 25, len(kpt_cur))
-        left_prev, right_prev = max(len(kpt_prev)//2 - 25, 0), min(len(kpt_prev)//2 + 25, len(kpt_prev))
-        kpt_cur = kpt_cur[left_cur: right_cur]
-        des_cur = des_cur[left_cur: right_cur]
-        kpt_prev = kpt_prev[left_prev: right_prev]
-        des_prev = des_prev[left_prev: right_prev] '''
         #compute transformation frame to frame
         print('+++++++++++++++', i, '+++++++++++++++', len(kpt_cur), len(kpt_prev))
         if len(kpt_prev) == 0:
             print('WE COUNT FIND INTEREST POINTS AT FRAME ', i-1)
             exit()
         matches = matching.find_matches(des_cur, des_prev, kpt_cur, kpt_prev, hard_match = True, distance_metric = 'cosine', spacial_weighting = 0.0, threshold = 0.9, approach = 'brute_force')
-        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/our_' + transformat + '_' + save_name + '_{}-{}.jpg'.format(i-1, i))
+        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/' + transformat + '_' + save_name + '_{}-{}.jpg'.format(i-1, i))
         video_kpt.append(img_kpt)
         print(i, len(matches), ' before -------------------------------------------------')
         kpt_cur, matches = clean_keypoints(kpt_cur, matches)
@@ -177,11 +166,11 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
     return video_rgb, video_kpt
 
 if __name__ == '__main__':
-    frame_per_sec = 15
-    file_name = 'p2-1-2'
+    frame_per_sec = 10
+    file_name = 'p2-1-0'
     transformat = 'affine' #projective or affine
 
-    load_filename = 'input/' + file_name  + '.mp4'
+    load_filename = 'input/' + file_name  + '.avi'
     original_save_filename = 'output/' + transformat + '_' + file_name + '_ori.avi'
     stabilized_save_filename = 'output/' + transformat + '_' + file_name + '_sta.avi'
     joint_file_name = 'output/' + transformat + '_' + file_name + '_joint.avi'
