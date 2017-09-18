@@ -118,14 +118,22 @@ def joint_matches(img_fst, first_pos, img_scd, second_pos, match, file_name = 'm
         cv2.imwrite(file_name, img_final)
     return img_final
 
-def find_keypoints_descriptors(img, kpt_method, des_method):
+def unpack_kpts_angle(kpts):
+    kpts_ans = []
+    or_list = []
+    for i in kpts:
+        kpts_ans.append(((int)(i.pt[1]), (int)(i.pt[0])))
+        or_list.append(i.angle)
+    return kpts_ans, or_list
+
+def find_keypoints_descriptors(img, kpt_method, des_method, orb_thr = 30, orb_N = 8, orb_nms = False):
     
     if kpt_method == 'orb':
-        kpt = fast.interest_points(img, 30, 8)
+        kpt = fast.interest_points(img, orb_thr, orb_N, orb_nms)
         kpt = ORB.harris_measure_and_orientation(img, kpt, min(500, len(kpt)))
-        kpt, angles = convert_opencv_keypoint_format_angle(kpt)
+        kpt, angles = unpack_kpts_angle(kpt)
     elif kpt_method == 'fast':
-        kpt = fast.interest_points(img, 30, 8)
+        kpt = fast.interest_points(img, orb_thr, orb_N, orb_nms)
     else:
         exit('Invalid opencv kpt method')
     

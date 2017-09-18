@@ -61,12 +61,12 @@ def interest_points(image, threshold = 10, N = 12, supression = False):
 	Non-Maximal Suppression over interest points
 '''
 def non_maximal_suppression(image, keyPoints, threshold) :
-  cont=0
-  keyPointsNMX=[]
-  score=np.zeros(image.shape)
+	cont=0
+	keyPointsNMX=[]
+	score=np.zeros(image.shape)
 
-  for i in range(0,len(keyPoints)):
-		scoreDark, scoreBrig = 0,0
+	for i in range(0,len(keyPoints)):
+		scoreDark, scoreBrig = 0, 0
 		row = int(keyPoints[i].pt[1])
 		col = int(keyPoints[i].pt[0])
 		intensity = image[row,col]
@@ -84,21 +84,21 @@ def non_maximal_suppression(image, keyPoints, threshold) :
 						scoreBrig = scoreBrig + difference
 		score[row,col] = max(scoreDark,scoreBrig)
 
-  for i in range(0,len(keyPoints)):
-    row = int(keyPoints[i].pt[1])
-    col = int(keyPoints[i].pt[0])
-    maximoScore=score[row,col]
-    for k in range(0,16):
-      new_row = row + dx[k]
-      new_col = col + dy[k]
-      if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]) and score[new_row,new_col]>maximoScore : 
-        maximoScore = score[new_row,new_col]
-        break
+	for i in range(0,len(keyPoints)):
+		row = int(keyPoints[i].pt[1])
+		col = int(keyPoints[i].pt[0])
+		maximoScore=score[row,col]
+		for k in range(0,16):
+			new_row = row + dx[k]
+			new_col = col + dy[k]
+			if (new_row>=0 and new_row<score.shape[0] and new_col>=0 and new_col<score.shape[1]) and score[new_row,new_col]>maximoScore : 
+				maximoScore = score[new_row,new_col]
+				break
 
-    if maximoScore == score[row,col] :
-      keyPointsNMX.append(cv2.KeyPoint(col,row,5))
+		if maximoScore == score[row,col] :
+			keyPointsNMX.append(cv2.KeyPoint(col,row,5))
 
-  return keyPointsNMX
+	return keyPointsNMX
 
 '''
 	Detect if a pixel is or is not a interest point
