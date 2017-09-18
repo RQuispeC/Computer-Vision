@@ -10,25 +10,43 @@ Figure \ref{fig:diff-l2-cosine} shows the different result comparing \textit{L2 
 	\centering
 	\begin{subfigure}{0.5\textwidth}
 	  \centering
-	  \includegraphics[width=0.8\linewidth]{figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg}
+	  \includegraphics[width=0.9\linewidth]{figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg}
 	  \caption{Match hypotesis with cosine distance}
 	\end{subfigure}%
 	\begin{subfigure}{0.5\textwidth}
 	  \centering
-	  \includegraphics[width=0.8\linewidth]{figs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg}
+	  \includegraphics[width=0.9\linewidth]{figs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg}
 	  \caption{Match hypotesis with l2-norm distance}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics[width=0.8\linewidth]{figs/affine_100_cosine_30_8_False_p2-1-1_139-140.jpg}
+        \includegraphics[width=0.9\linewidth]{figs/affine_100_cosine_30_8_False_p2-1-1_139-140.jpg}
         \caption{Match hypotesis with cosine distance}
       \end{subfigure}%
       \begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics[width=0.8\linewidth]{figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg}
+        \includegraphics[width=0.9\linewidth]{figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg}
         \caption{Match hypotesis with l2-norm distance}
       \end{subfigure}%
        \caption{Comparison of match hypothesis with cosine and l2-norm}
 	\label{fig:diff-l2-cosine}
 \end{figure}
 
+We can see in figure ~\ref{fig:diff-l2-cosine} that the result of the experiment are very similar because there is not such a extreme difference between the performance of these metrics. There is an interesting difference in the execution time, as shown in table~\ref{table:dis-time}. L2-norm is slithly faster. 
+
+\begin{table}[H]
+\centering
+\label{my-label}
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Name}}} & \multicolumn{2}{c|}{\textbf{Time per frame}} \\ \cline{2-3} 
+\multicolumn{1}{|c|}{} & \textbf{L2-norm} & \textbf{Cosine} \\ \hline
+p2-1-0.avi & 54.446 & 64.327 \\ \hline
+p2-2-0.av & 37.321 & 42.982 \\ \hline
+p2-2-0.avi & 54.446 & 45.262 \\ \hline
+\end{tabular}
+\label{table:dis-time}
+\caption{Execution time comparison.}
+\end{table}
+
+We use \textit{cosine} distance as main similarity metric.

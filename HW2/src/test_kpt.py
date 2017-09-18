@@ -43,8 +43,8 @@ if __name__ == '__main__':
     gray_a = cv2.cvtColor(img_a, cv2.COLOR_BGR2GRAY)
     gray_b = cv2.cvtColor(img_b, cv2.COLOR_BGR2GRAY)
   
-    fast_kpt_a = fast.interest_points(gray_a, 50, 10)
-    fast_kpt_b = fast.interest_points(gray_b, 50, 10)
+    fast_kpt_a = fast.interest_points(gray_a, 40, 9,True)
+    fast_kpt_b = fast.interest_points(gray_b, 40, 9,True)
   
     print(len(fast_kpt_a), len(fast_kpt_b))
   
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     #print_kpts(kpts_b, des_b)
 
     matches = matching.find_matches(des_a, des_b, pos_a[0], pos_b[0], hard_match = True, distance_metric = 'cosine', spacial_weighting = 0.0, threshold = 0.9, approach = 'brute_force')
-    matching.joint_matches(gray_a, pos_a[0], gray_b, pos_b[0], matches, file_name = 'sift_match.jpg')
+    matching.joint_matches(gray_a, pos_a[0], gray_b, pos_b[0], matches, file_name = 'match-40-9-true.jpg')
 
     
     kpts_a, des_a = sift_opencv.compute(gray_a, kpts_a)
