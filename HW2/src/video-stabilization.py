@@ -2,6 +2,7 @@ import cv2
 import numpy as np 
 import matching
 import transformation
+import time
 
 def load_video(file_name = 'input/p2-1-1.mp4', fps = 30, original_fps = 30):
     if fps > original_fps or fps < 1:
@@ -131,58 +132,91 @@ def clean_keypoints(kpts, matches):
             cleaned_matches.append(matches[i])
     return cleaned_kpts, cleaned_matches
 
-def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed_frame', ransac_S = 200, match_dist_metr = 'cosine', orb_thr = 30, orb_N = 8):
+def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed_frame', ransac_S = 200, match_dist_metr = 'cosine', orb_thr = 30, orb_N = 8, orb_nms = False, methadata = ''):
     last = 0
     video_kpt = []
-    kpt_prev, des_prev = matching.find_keypoints_descriptors(video[0], 'orb', 'sift')
+    kpt_prev, des_prev = matching.find_keypoints_descriptors(video[0], 'orb', 'sift', orb_thr, orb_N, orb_nms)
+    mse = 0 #mean square error matric
+    time_ac = 0
     for i in range(1, len(video)):
-        kpt_cur, des_cur = matching.find_keypoints_descriptors(video[i], 'orb', 'sift')
+        #get keypoints and descriptor
+        start_time = time.time()
+        kpt_cur, des_cur = matching.find_keypoints_descriptors(video[i], 'orb', 'sift', orb_thr, orb_N, orb_nms)
 
         #compute transformation frame to frame
-        print('+++++++++++++++', i, '+++++++++++++++', len(kpt_cur), len(kpt_prev))
+        print('Frame', i, '+++++++++ of', len(video), ' ===> ', len(kpt_cur), len(kpt_prev))
         if len(kpt_prev) == 0:
             print('WE COUNT FIND INTEREST POINTS AT FRAME ', i-1)
             exit()
-        matches = matching.find_matches(des_cur, des_prev, kpt_cur, kpt_prev, hard_match = True, distance_metric = 'cosine', spacial_weighting = 0.0, threshold = 0.9, approach = 'brute_force')
-        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/' + transformat + '_' + save_name + '_{}-{}.jpg'.format(i-1, i))
+        
+        #find matches
+        matches = matching.find_matches(des_cur, des_prev, kpt_cur, kpt_prev, hard_match = True, distance_metric = match_dist_metr, spacial_weighting = 0.0, threshold = 0.9, approach = 'brute_force')
+        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/' + methadata + save_name + '_{}-{}.jpg'.format(i-1, i))
         video_kpt.append(img_kpt)
-        print(i, len(matches), ' before -------------------------------------------------')
+        print(i, len(matches), ' before --')
         kpt_cur, matches = clean_keypoints(kpt_cur, matches)
-        print(i, len(matches), ' after  -------------------------------------------------')
-        best_fit, params = transformation.ransac(kpt_cur, kpt_prev, matches, threshold = 2, S = 200, transformation = transformat)
+        print(i, len(matches), ' after  --')
+        
+        #compute RANSAC
+        best_fit, params = transformation.ransac(kpt_cur, kpt_prev, matches, threshold = 2, S = ransac_S, transformation = transformat)
         if best_fit == []: #ransac has not reach a solution
             print('RANSAC CANNOT REACH AN INITIAL TRANSFORAMTION AT FRAME', i)
-            best_fit, params = transformation.ransac(kpt_cur, kpt_prev, matches, threshold = 10, S = 200, transformation = transformat)
+            best_fit, params = transformation.ransac(kpt_cur, kpt_prev, matches, threshold = 10, S = ransac_S, transformation = transformat)
         if best_fit == []:
             print('RANSAC CANNOT REACH A TRANSFORAMTION MATRIX AT FRAME ', i)
             exit()
         print(i, len(best_fit))
+
+        #refit with more points
         params_complete = transformation.least_square(kpt_cur, kpt_prev, matches, best_fit, transformation = transformat)
         if params_complete == []: #avoid runtime error
             params_complete = np.array(params)
+        
+        #apply transformation
         video_rgb[i], video[i] = apply_transformation(video_rgb[i], video[i], params_complete, trans_meth = transformat)
         kpt_prev, des_prev= apply_kpt_transformation(kpt_cur, des_cur, video[i].shape, params_complete, trans_meth = transformat)
-        #cv2.imwrite(('dbg/sol%d.jpg') % i, video_rgb[i])
+        
+        #compute MSE
+        diff = np.array(video[i]).astype(np.float) - np.array(video[i - 1]).astype(np.float)
+        mse += (diff * diff).sum()
+        print('MSE for ', methadata, 'is', mse/i)
+
+        #profiling
+        end_time = time.time()
+        time_ac += end_time - start_time
+        print('Frame time', end_time - start_time, 'so far', time_ac, 'media', time_ac/i)
+
     return video_rgb, video_kpt
 
 if __name__ == '__main__':
     frame_per_sec = 10
-    file_name = 'p2-1-0'
-    transformat = 'affine' #projective or affine
+    file_name = 'p2-1-2'
 
+    #parameters to set
+    transformat = 'projective'      #projective or affine
+    ransac_S = 200              #36, 100, 200
+    match_dist_metr = 'cosine'  #cosine, l2-norm
+    orb_thr = 30                #30
+    orb_N = 8                   #8, 12
+    orb_nms = False             #True, False
+    methadata = transformat + '_' + str(ransac_S) + '_' + match_dist_metr + '_' + str(orb_thr) + '_' + str(orb_N) +'_' + str(orb_nms) + '_'
+
+    #set filenames for output videos
     load_filename = 'input/' + file_name  + '.avi'
-    original_save_filename = 'output/' + transformat + '_' + file_name + '_ori.avi'
-    stabilized_save_filename = 'output/' + transformat + '_' + file_name + '_sta.avi'
-    joint_file_name = 'output/' + transformat + '_' + file_name + '_joint.avi'
-    kpt_file_name = 'output/' + transformat + '_' + file_name + '_kpt.avi'
+    original_save_filename = 'output/' + file_name + '_original.avi'
+    stabilized_save_filename = 'output/' + methadata + file_name + '_stabilized.avi'
+    joint_file_name = 'output/' + methadata + file_name + '_joint.avi'
+    kpt_file_name = 'output/' + methadata + file_name + '_keypoints.avi'
 
+    #read video
     video, video_grayscale = load_video(load_filename, fps = frame_per_sec) #original video has 30
     save_video(video, original_save_filename, fps = frame_per_sec)
     print('Video has ', len(video), 'frames')
     
-    video, video_kpt = stabilize(video, video_grayscale, transformat, file_name)
+    #stabilize video
+    video, video_kpt = stabilize(video, video_grayscale, transformat, file_name, ransac_S, match_dist_metr, orb_thr, orb_N, orb_nms, methadata = methadata)
     save_video(video, stabilized_save_filename, fps = frame_per_sec)
     
-    #save_video(video, 'dbg/', by_frame = True)
+    #outputs side to side video
     joint_video(original_save_filename, stabilized_save_filename, joint_file_name, frame_per_sec)
     save_video(video_kpt, kpt_file_name, fps = frame_per_sec)
