@@ -14,10 +14,43 @@ Originaly, FAST uses non-maximal suppression for removing adjacent corners and m
 
 FAST does not produce a measure of cornerness (it has large responses along edges). As similar to the original implementation of ORB we employ a Harris corner measure to order and select $N$ keypoints. Another limitaton of FAST is that it does not produce orientation. To compensate this issue we use a approach similar to SIFT(ORB use moments of the patch around the keypoint). This technique take a window around of each keypoint and collect gradient directions and magnitudes. Then, a histogram is created for this and the amount that is added to the bin of the histogram is proportional to the magnitud of gradient at each points. Also, we used a gaussian weighting function, this function is multiplied by the magnitude. The farther away, the lesser the magnitude added.
 
-Figure xxx shows results with different parameter settings.
+Figure~\ref{fig:keypoints} shows results with different parameter settings.
 
-
-To do: poner ejemplos con diferentes configuraciones de parametros.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{figs/20-8-false-987.jpg}
+  \caption{(20, 8, False). 987 keypoints detected}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{figs/20-8-true-185.jpg}
+  \caption{(20, 8, True). 185 keypoints detected}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{figs/30-8-false-328.jpg}
+  \caption{(30, 8, False). 328 keypoints detected}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{figs/30-8-true-68.jpg}
+  \caption{(30, 8, True). 68 keypoints detected}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{figs/40-9-false-24.jpg}
+  \caption{(40, 9, False). 24 keypoints detected}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{figs/40-9-true-5.jpg}
+  \caption{(40, 9, False). 6 keypoints detected}
+\end{subfigure}
+ \caption{Results of experiment with different parameter settings. The label of each subfigure follows the following format: \textit{(threshold, N, Non-maximal suppression)} and the number of keypoints detected.}
+\label{fig:keypoints}
+\end{figure}
 
 
 \subsection{Keypoints Descriptor}
