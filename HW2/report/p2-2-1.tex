@@ -1,0 +1,29 @@
+\section{Keypoints Detector and Descriptor}
+
+The algorithms that we implemented are based on the ORB to detect and SIFT to describe keypoints, it has slithly modification that were done based in experimental results and requested task.
+
+\subsection{Keypoints Detector} 
+We used ORB like interest point detector. The original approach uses FAST(Features from Accelerated Segment Test) to detect interests points and assings an orientation based in the intensity centroid. 
+
+Originaly, FAST uses non-maximal suppression for removing adjacent corners and machine learning to improve the performance of the algorithm. In our implementation we do not use machine learning because the explanation is not clear. Our implementation and experiment consider three parameters : 
+\begin{itemize}
+	\item \textit{Threshold}: this parameter define if the sixteen neighbors point are lighter, darker or similar to reference point.
+	\item \textit{N} : condition to determine if a point is a keypoint(at least N consecutive neighbors must be lighter or darker to reference point).
+	\item \textit{Non-Maximal Suppression}: this parameter removes adjacent corners that are too close between them.
+\end{itemize}
+
+FAST does not produce a measure of cornerness (it has large responses along edges). As similar to the original implementation of ORB we employ a Harris corner measure to order and select $N$ keypoints. Another limitaton of FAST is that it does not produce orientation. To compensate this issue we use a approach similar to SIFT(ORB use moments of the patch around the keypoint). This technique take a window around of each keypoint and collect gradient directions and magnitudes. Then, a histogram is created for this and the amount that is added to the bin of the histogram is proportional to the magnitud of gradient at each points. Also, we used a gaussian weighting function, this function is multiplied by the magnitude. The farther away, the lesser the magnitude added.
+
+Figure xxx shows results with different parameter settings.
+
+
+To do: poner ejemplos con diferentes configuraciones de parametros.
+
+
+\subsection{Keypoints Descriptor}
+
+The original SIFT considers a pyramid in order to be invariant to scale, the keypoint descriptor is then computed from a specific level of this pyramid. Analysing the data it is easy to see that the scale differents between adjacent frame are negligibles. Thus, in our implementation ignores this stage in order to improve the performance of the algorithm.
+
+Figure xxx shows results of the implementation.
+
+To do: poner ejemplos con diferentes configuraciones de parametros.

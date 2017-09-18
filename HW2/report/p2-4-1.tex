@@ -1,0 +1,125 @@
+\section{Affine Tranformation Fitting}
+
+Our implementation considers \textbf{Affine and Projective} tranformation.
+
+The number of iteration of RANSAC has been determinated experimentaly, our implementation has the following modules:
+
+\begin{lstlisting}[language=python][H]
+def least_square(src, dst, matches, k_points, transformation = 'affine'):
+def evaluate_transformation(src, dst, matches, trans_params, threshold = 1, evaluation_method = 'ramsac', transformation = 'affine'):
+def ransac(src, dst, matches, k = 3, S = 35, threshold = 1, transformation = 'affine'):
+\end{lstlisting}
+
+\begin{itemize}
+	\item \textit{least\_square}: this funtion creates the matrix $X,A$ and $Y$, depending of the parameter $transformation$. Given $N$ points $x_i, y_i (1\leq i\leq N ) $, in case of affine transformation, the matrix $X$ and $Y$ has to rows for each point:  
+\[
+X = 
+\begin{bmatrix}
+    x_{1}       & y_{1} & 1 & 0 & 0 & 0 \\
+    0       & 0 & 0 & x_1 & y_1 & 1 \\
+    x_{2}       & y_{2} & 1 & 0 & 0 & 0 \\
+    0       & 0 & 0 & x_2 & y_2 & 1 \\
+  \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+
+    x_{N}       & y_{N} & 1 & 0 & 0 & 0 \\
+    0       & 0 & 0 & x_N & y_N & 1 
+\end{bmatrix}
+%
+Y = 
+\begin{bmatrix}
+    x'_{1} \\
+    y'_{1} \\
+    x'_{2}      \\
+    y'_{2}   \\
+ \vdots \\
+    x'_{N}      \\
+    y'_{N}   
+\end{bmatrix}
+\]
+
+The parameters we want to find are defined for matrix $A$, in this case at least three points are needed and the transformation is computed using equation~\ref{eq:affine}.
+\begin{equation}
+\begin{split}
+x'= ax+by+c \\
+y'= dx+ey+f
+\end{split}
+\label{eq:affine}
+\end{equation}
+
+\[
+A = 
+\begin{bmatrix}
+    a \\
+    b \\
+    c      \\
+    d   \\ 
+    e      \\
+    f   
+\end{bmatrix}
+\]
+
+In the case of the projective transformation, the matrix $X$ and $Y$ are defined by:
+
+\[
+X = 
+\begin{bmatrix}
+    x_{1}       & y_{1} & 1 & 0 & 0 & 0 & -x'_1x_1 & -x'_1y_1\\
+    0       & 0 & 0 & x_1 & y_1 & 1 & -y'_1x_1 & -y'_1y_1\\
+    x_{2}       & y_{2} & 1 & 0 & 0 & 0 & -x'_2x_2 & -x'_2y_2\\
+    0       & 0 & 0 & x_2 & y_2 & 1 & -y'_2x_2 & -y'_2y_2 \\
+  \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+
+    x_{N}       & y_{N} & 1 & 0 & 0 & 0 & -x'_Nx_N & -x'_Ny_N\\
+    0       & 0 & 0 & x_N & y_N & 1 & -y'_Nx_N & -y'_Ny_N 
+\end{bmatrix}
+%
+Y = 
+\begin{bmatrix}
+    x'_{1} \\
+    y'_{1} \\
+    x'_{2}      \\
+    y'_{2}   \\
+ \vdots \\
+    x'_{N}      \\
+    y'_{N}   
+\end{bmatrix}
+\]
+The parameters we want to find are defined for matrix $A$, in this case at least four points are needed and the transformation is computed using equation~\ref{eq:projective}.
+
+\begin{equation}
+\begin{split}
+x'= ax+by+c-gx'x-hx'y\\
+y'= dx+ey+f -gy'x-hy'y 
+\end{split}
+\label{eq:projective}
+\end{equation}
+
+\[
+A = 
+\begin{bmatrix}
+    a \\
+    b \\
+    c      \\
+    d   \\ 
+    e      \\
+    f   \\
+    g\\
+    h
+\end{bmatrix}
+\]
+
+Matriz $A$ in both cases can be computed using least square. We use $numpy$ for easy implementation, sometimes the inverse does not exists, thus we return and empty vector.
+\begin{lstlisting}[language=python][H]
+x_transpose = np.matrix.transpose(X)
+A = np.dot(x_transpose, X)
+if np.linalg.det(A) == 0:
+  print('Points', k_points, 'are not suitable for the transformation')
+  return []
+A = np.dot(np.linalg.inv(A), np.dot(x_transpose, Y))
+return A
+\end{lstlisting}
+
+	\item \textit{evaluate\_transformation}: this function evaluates how many points fit correctly the compute transformation based on a threshold. The book suggests it to be between one and three. In our implementation we consider a value of two because our matches in the previous step are not perfect and we want to avoid missfitting because of outliers. The output of this function are the indexes of the points that fit the given parameters.
+
+	\item \textit{ransac}: this function computes the RANSAC algorithm iterating $S$ times picking $k$ aleatory points. Our main assumptions is that least there is one valid solution that can be reached in $S$ iterations. The parameter $k$ is set to three for affine and four for proyective transformation.
+\end{itemize}

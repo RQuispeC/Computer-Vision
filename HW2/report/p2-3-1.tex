@@ -1,0 +1,7 @@
+\section{Match hypothesis}
+
+Our implementation considers a simple match algorithm(brute force). For each keypoints of frame $i$ we find the closest match in the frame $i+1$. We compare \textit{L2 Norm} and \textit{cosine} metrics to measure the similarity. Note that this implementation can generate the same match for two different keypoints yielding an outlier.
+
+And idea of improvement of performance of this algorithm is to use \textit{KNN(K-Nearest Neighbors)}. For real time aplication this may be a good option because its complexity is $O(n\log n)$, while our approach is $O(n^2)$ ($n$ is the number of keypoints).
+
+Figure xxx shows the different result comparing \textit{L2 Norm} and \textit{cosine} metrics.
