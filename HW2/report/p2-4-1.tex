@@ -1,17 +1,26 @@
 \section{Affine Tranformation Fitting}
 
-Our implementation considers \textbf{Affine and Projective} tranformation.
+Our implementation considers \textbf{Affine and Projective} transformation.
 
-The number of iteration of RANSAC has been determinated experimentaly, our implementation has the following modules:
+The number of iteration of RANSAC has been determined experimentally, our implementation has the following modules:
 
 \begin{lstlisting}[language=python][H]
+'''
+    Computes least square
+'''
 def least_square(src, dst, matches, k_points, transformation = 'affine'):
+'''
+    Evaluates a transformation parameters
+'''
 def evaluate_transformation(src, dst, matches, trans_params, threshold = 1, transformation = 'affine'):
+'''
+    Computes RANSAC
+'''
 def ransac(src, dst, matches, k = 3, S = 35, threshold = 1, transformation = 'affine'):
 \end{lstlisting}
 
 \begin{itemize}
-	\item \textit{least\_square}: this funtion creates the matrix $X,A$ and $Y$, depending of the parameter $transformation$. Given $N$ points $x_i, y_i (1\leq i\leq N ) $, in case of affine transformation, the matrix $X$ and $Y$ have to rows for each point:  
+	\item \textit{least\_square}: this function creates the matrix $X,A$ and $Y$, depending of the parameter $transformation$. Given $N$ points $x_i, y_i (1\leq i\leq N ) $, in case of affine transformation, the matrix $X$ and $Y$ have to rows for each point:  
 \[
 X = 
 \begin{bmatrix}
@@ -108,7 +117,7 @@ A =
 \end{bmatrix}
 \]
 
-Matriz $A$ in both cases can be computed using least square. We use $numpy$ for easy implementation, sometimes the inverse does not exists, thus we return and empty vector.
+Matrix $A$ in both cases can be computed using least square. We use $numpy$ for easy implementation, sometimes the inverse does not exists, thus we return and empty vector.
 \begin{lstlisting}[language=python][H]
 x_transpose = np.matrix.transpose(X)
 A = np.dot(x_transpose, X)
@@ -119,7 +128,7 @@ A = np.dot(np.linalg.inv(A), np.dot(x_transpose, Y))
 return A
 \end{lstlisting}
 
-	\item \textit{evaluate\_transformation}: this function evaluates how many points fit correctly the compute transformation based on a threshold. The book suggests it to be between one and three. In our implementation we consider a value of two because our matches in the previous step are not perfect and we want to avoid missfitting because of outliers. The output of this function are the indexes of the points that fit the given parameters.
+	\item \textit{evaluate\_transformation}: this function evaluates how many points fit correctly the compute transformation based on a threshold. The book suggests it to be between one and three. In our implementation we consider a value of two because our matches in the previous step are not perfect and we want to avoid wrong fittings because of outliers. The output of this function are the indexes of the points that fit the given parameters.
 
-	\item \textit{ransac}: this function computes the RANSAC algorithm iterating $S$ times picking $k$ aleatory points. Our main assumptions is that at least there is one valid solution that can be reached in $S$ iterations. The parameter $k$ is set to three for affine and four for proyective transformation.
+	\item \textit{ransac}: this function computes the RANSAC algorithm, iterating $S$ times, picking $k$ aleatory points. Our main assumptions is that at least there is one valid solution that can be reached in $S$ iterations. The parameter $k$ is set to three for affine and four for projective transformation.
 \end{itemize}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ziped_dir="p1-192617-192618"
+ziped_dir="p2-192617-192618"
 
 rm -rf $ziped_dir
 rm -f "$ziped_dir.zip"

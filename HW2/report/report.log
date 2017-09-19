@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  18 SEP 2017 17:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  19 SEP 2017 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,11 +609,7 @@ File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
 Package: listings 2013/08/26 1.5b (Carsten Heinz)
- (./report.aux
-
-LaTeX Warning: Label `my-label' multiply defined.
-
-)
+ (./report.aux)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
@@ -631,7 +627,7 @@ LaTeX Font Info:    ... okay on input line 37.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
 LaTeX Font Info:    Try loading font information for T1+bch on input line 37.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1bch.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1bch.fd
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 )
 \AtBeginShipoutBox=\box33
@@ -723,61 +719,61 @@ Package caption Info: End \AtBeginDocument code.
 
 \c@lstlisting=\count138
 (./p2-2-0.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 10.
+LaTeX Font Info:    Try loading font information for U+msa on input line 8.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 10.
+LaTeX Font Info:    Try loading font information for U+msb on input line 8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) (./p2-2-1.tex
-LaTeX Font Info:    Try loading font information for OMS+bch on input line 10.
+LaTeX Font Info:    Try loading font information for OMS+bch on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
 File: omsbch.fd 
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
 
 <figs/20-8-false-987.jpg, id=55, 481.8pt x 642.4pt>
 File: figs/20-8-false-987.jpg Graphic file (type jpg)
 
 <use figs/20-8-false-987.jpg>
-Package pdftex.def Info: figs/20-8-false-987.jpg used on input line 23.
+Package pdftex.def Info: figs/20-8-false-987.jpg used on input line 24.
 (pdftex.def)             Requested size: 127.32603pt x 169.76468pt.
 
 <figs/20-8-true-185.jpg, id=56, 481.8pt x 642.4pt>
 File: figs/20-8-true-185.jpg Graphic file (type jpg)
 
 <use figs/20-8-true-185.jpg>
-Package pdftex.def Info: figs/20-8-true-185.jpg used on input line 28.
+Package pdftex.def Info: figs/20-8-true-185.jpg used on input line 29.
 (pdftex.def)             Requested size: 127.32603pt x 169.76468pt.
 
 <figs/30-8-false-328.jpg, id=57, 481.8pt x 642.4pt>
 File: figs/30-8-false-328.jpg Graphic file (type jpg)
 
 <use figs/30-8-false-328.jpg>
-Package pdftex.def Info: figs/30-8-false-328.jpg used on input line 33.
+Package pdftex.def Info: figs/30-8-false-328.jpg used on input line 34.
 (pdftex.def)             Requested size: 127.32603pt x 169.76468pt.
 
 <figs/30-8-true-68.jpg, id=58, 481.8pt x 642.4pt>
 File: figs/30-8-true-68.jpg Graphic file (type jpg)
  <use figs/30-8-true-68.jpg>
-Package pdftex.def Info: figs/30-8-true-68.jpg used on input line 38.
+Package pdftex.def Info: figs/30-8-true-68.jpg used on input line 39.
 (pdftex.def)             Requested size: 127.32603pt x 169.76468pt.
 
 <figs/40-9-false-24.jpg, id=59, 481.8pt x 642.4pt>
 File: figs/40-9-false-24.jpg Graphic file (type jpg)
 
 <use figs/40-9-false-24.jpg>
-Package pdftex.def Info: figs/40-9-false-24.jpg used on input line 43.
+Package pdftex.def Info: figs/40-9-false-24.jpg used on input line 44.
 (pdftex.def)             Requested size: 127.32603pt x 169.76468pt.
  <figs/40-9-true-5.jpg, id=60, 481.8pt x 642.4pt>
 File: figs/40-9-true-5.jpg Graphic file (type jpg)
 
 <use figs/40-9-true-5.jpg>
-Package pdftex.def Info: figs/40-9-true-5.jpg used on input line 48.
+Package pdftex.def Info: figs/40-9-true-5.jpg used on input line 49.
 (pdftex.def)             Requested size: 127.32603pt x 169.76468pt.
 
 
@@ -787,101 +783,93 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figs/match-20-8-false.jpg Graphic file (type jpg)
 
 <use figs/match-20-8-false.jpg>
-Package pdftex.def Info: figs/match-20-8-false.jpg used on input line 70.
+Package pdftex.def Info: figs/match-20-8-false.jpg used on input line 71.
 (pdftex.def)             Requested size: 229.18532pt x 114.59409pt.
 
 <figs/match-20-8-true.jpg, id=64, 803.0pt x 401.5pt>
 File: figs/match-20-8-true.jpg Graphic file (type jpg)
 
 <use figs/match-20-8-true.jpg>
-Package pdftex.def Info: figs/match-20-8-true.jpg used on input line 75.
+Package pdftex.def Info: figs/match-20-8-true.jpg used on input line 76.
 (pdftex.def)             Requested size: 229.18532pt x 114.59409pt.
 
 <figs/match-30-8-false.jpg, id=65, 803.0pt x 401.5pt>
 File: figs/match-30-8-false.jpg Graphic file (type jpg)
 
 <use figs/match-30-8-false.jpg>
-Package pdftex.def Info: figs/match-30-8-false.jpg used on input line 80.
+Package pdftex.def Info: figs/match-30-8-false.jpg used on input line 81.
 (pdftex.def)             Requested size: 229.18532pt x 114.59409pt.
 
 <figs/match-30-8-true.jpg, id=66, 803.0pt x 401.5pt>
 File: figs/match-30-8-true.jpg Graphic file (type jpg)
 
 <use figs/match-30-8-true.jpg>
-Package pdftex.def Info: figs/match-30-8-true.jpg used on input line 85.
+Package pdftex.def Info: figs/match-30-8-true.jpg used on input line 86.
 (pdftex.def)             Requested size: 229.18532pt x 114.59409pt.
 
 <figs/match-40-9-false.jpg, id=67, 803.0pt x 401.5pt>
 File: figs/match-40-9-false.jpg Graphic file (type jpg)
 
 <use figs/match-40-9-false.jpg>
-Package pdftex.def Info: figs/match-40-9-false.jpg used on input line 90.
+Package pdftex.def Info: figs/match-40-9-false.jpg used on input line 91.
 (pdftex.def)             Requested size: 229.18532pt x 114.59409pt.
 
 <figs/match-40-9-true.jpg, id=68, 803.0pt x 401.5pt>
 File: figs/match-40-9-true.jpg Graphic file (type jpg)
 
 <use figs/match-40-9-true.jpg>
-Package pdftex.def Info: figs/match-40-9-true.jpg used on input line 95.
+Package pdftex.def Info: figs/match-40-9-true.jpg used on input line 96.
 (pdftex.def)             Requested size: 229.18532pt x 114.59409pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./p2-3-1.tex [1
+[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg, id=85, 1284.8pt x 481.8pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./p2-3-1.tex [2 <./figs/
+20-8-false-987.jpg> <./figs/20-8-true-185.jpg> <./figs/30-8-false-328.jpg> <./f
+igs/30-8-true-68.jpg> <./figs/40-9-false-24.jpg> <./figs/40-9-true-5.jpg>]
+<figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg, id=89, 1284.8pt x 481.8pt>
 File: figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg Graphic file (type jpg)
 
 <use figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg>
 Package pdftex.def Info: figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg used 
-on input line 13.
+on input line 14.
 (pdftex.def)             Requested size: 229.18532pt x 85.94098pt.
 
-<figs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg, id=86, 1284.8pt x 481.8pt>
+<figs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg, id=90, 1284.8pt x 481.8pt>
 File: figs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg Graphic file (type jpg)
 
 
 <use figs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg>
 Package pdftex.def Info: figs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg used
- on input line 18.
+ on input line 19.
 (pdftex.def)             Requested size: 229.18532pt x 85.94098pt.
 
-<figs/affine_100_cosine_30_8_False_p2-1-1_139-140.jpg, id=87, 1284.8pt x 481.8p
+<figs/affine_100_cosine_30_8_False_p2-1-1_139-140.jpg, id=91, 1284.8pt x 481.8p
 t>
 File: figs/affine_100_cosine_30_8_False_p2-1-1_139-140.jpg Graphic file (type j
 pg)
  <use figs/affine_100_cosine_30_8_False_p2-1-1_139-140.jpg>
 Package pdftex.def Info: figs/affine_100_cosine_30_8_False_p2-1-1_139-140.jpg u
-sed on input line 23.
+sed on input line 24.
 (pdftex.def)             Requested size: 229.18532pt x 85.94098pt.
 
-<figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg, id=88, 1284.8pt x 481.8
+<figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg, id=92, 1284.8pt x 481.8
 pt>
 File: figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg Graphic file (type 
 jpg)
  <use figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg>
 Package pdftex.def Info: figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg 
-used on input line 28.
+used on input line 29.
 (pdftex.def)             Requested size: 229.18532pt x 85.94098pt.
- [2 <./figs/20-8-false-987.jpg> <./figs/20-8-true-185.jpg> <./figs/30-8-false-3
-28.jpg> <./figs/30-8-true-68.jpg> <./figs/40-9-false-24.jpg> <./figs/40-9-true-
-5.jpg>]
-
-Package caption Warning: \label without proper \caption on input line 48.
-See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:dis-time' on page 3 undefined on input line 35.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-[3 <./figs/match-20-8-false.jpg> <./figs/match-20-8-true.jpg> <./figs/match-30-
-8-false.jpg> <./figs/match-30-8-true.jpg> <./figs/match-40-9-false.jpg> <./figs
-/match-40-9-true.jpg> <./figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg> <./f
-igs/affine_200_l2-norm_30_8_False_p2-1-1_6-7.jpg> <./figs/affine_100_cosine_30_
-8_False_p2-1-1_139-140.jpg> <./figs/affine_200_l2-norm_30_8_False_p2-1-1_139-14
-0.jpg>]) (./p2-4-1.tex
+) (./p2-4-1.tex [3 <./figs/match-20-8-false.jpg> <./figs/match-20-8-true.jpg> <
+./figs/match-30-8-false.jpg> <./figs/match-30-8-true.jpg> <./figs/match-40-9-fa
+lse.jpg> <./figs/match-40-9-true.jpg>]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
@@ -891,32 +879,37 @@ nput line 7.
 
 Package Listings Warning: Text dropped after begin of listing on input line 7.
 
-[4]
+[4 <./figs/affine_100_cosine_30_8_False_p2-1-1_6-7.jpg> <./figs/affine_200_l2-n
+orm_30_8_False_p2-1-1_6-7.jpg> <./figs/affine_100_cosine_30_8_False_p2-1-1_139-
+140.jpg> <./figs/affine_200_l2-norm_30_8_False_p2-1-1_139-140.jpg>]
 
-Package Listings Warning: Text dropped after begin of listing on input line 112
+Package Listings Warning: Text dropped after begin of listing on input line 121
 .
 
-) (./p2-5-1.tex <figs/mistrans01.jpg, id=119, 963.6pt x 642.4pt>
+) (./p2-5-1.tex <figs/mistrans01.jpg, id=127, 963.6pt x 642.4pt>
 File: figs/mistrans01.jpg Graphic file (type jpg)
 
 <use figs/mistrans01.jpg>
 Package pdftex.def Info: figs/mistrans01.jpg used on input line 20.
 (pdftex.def)             Requested size: 183.34544pt x 122.2239pt.
- <figs/mistrans02.jpg, id=120, 1284.8pt x 481.8pt>
+ <figs/mistrans02.jpg, id=128, 1284.8pt x 481.8pt>
 File: figs/mistrans02.jpg Graphic file (type jpg)
 
 <use figs/mistrans02.jpg>
 Package pdftex.def Info: figs/mistrans02.jpg used on input line 24.
 (pdftex.def)             Requested size: 275.02516pt x 103.12917pt.
- [5 <./figs/mistrans01.jpg> <./figs/mistrans02.jpg>]
-<figs/without-interpolation.jpg, id=142, 1284.8pt x 481.8pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5] <figs/without-interpolation.jpg, id=150, 1284.8pt x 481.8pt>
 File: figs/without-interpolation.jpg Graphic file (type jpg)
 
 <use figs/without-interpolation.jpg>
 Package pdftex.def Info: figs/without-interpolation.jpg used on input line 48.
 (pdftex.def)             Requested size: 229.18532pt x 85.94098pt.
 
-<figs/with-interpolation.jpg, id=143, 1284.8pt x 481.8pt>
+<figs/with-interpolation.jpg, id=151, 1284.8pt x 481.8pt>
 File: figs/with-interpolation.jpg Graphic file (type jpg)
 
 <use figs/with-interpolation.jpg>
@@ -928,40 +921,33 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 5.
 
 
-Overfull \hbox (27.57487pt too wide) in paragraph at lines 27--28
-\T1/bch/m/n/10 For ex-per-i-ment with this pa-ram-e-ter we set: $\OML/cmm/m/it/
-10 non \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 maximun suppression \OT1/cmr/m/n/1
-0 = \OML/cmm/m/it/10 False; distance metric \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 
-cosine; ORB setting \OT1/cmr/m/n/10 =
+Overfull \hbox (32.15666pt too wide) in paragraph at lines 27--28
+\T1/bch/m/n/10 For ex-per-i-ment with this pa-ram-e-ter, we set: $\OML/cmm/m/it
+/10 non \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 maximum suppression \OT1/cmr/m/n/
+10 = \OML/cmm/m/it/10 False; distance metric \OT1/cmr/m/n/10 = \OML/cmm/m/it/10
+ cosine; ORB setting \OT1/cmr/m/n/10 =
  []
 
-[6 <./figs/without-interpolation.jpg> <./figs/with-interpolation.jpg>])
+[6 <./figs/mistrans01.jpg> <./figs/mistrans02.jpg> <./figs/without-interpolatio
+n.jpg> <./figs/with-interpolation.jpg>] [7])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 57.
-
-[7]
+ [8]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 57.
  (./report.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 57.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 57.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 28185C5CF8CE80778489E6D3D65408CE;717.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
+(rerunfilecheck)             Checksum: F3CC9BDD32A809AF8EAE8BC613B9434E;718.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 57.
  ) 
 Here is how much of TeX's memory you used:
- 11205 strings out of 493304
- 160171 string characters out of 6139871
- 283526 words of memory out of 5000000
- 14420 multiletter control sequences out of 15000+600000
+ 11214 strings out of 493304
+ 160301 string characters out of 6139871
+ 284473 words of memory out of 5000000
+ 14419 multiletter control sequences out of 15000+600000
  30306 words of font info for 39 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,15n,42p,799b,1282s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,15n,42p,794b,1322s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fon
@@ -972,10 +958,10 @@ fonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report.pdf (7 pages, 2753405 bytes).
+Output written on report.pdf (8 pages, 2754582 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 57 named destinations out of 1000 (max. 500000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
+ 67 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

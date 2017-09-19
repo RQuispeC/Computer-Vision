@@ -1,16 +1,16 @@
 \section{Experiments}
 
-In order to messure tha stabilization, we use MSE(min squeare error). We make experiments changing the parameters show in table~\ref{table:setting-parameters}:
+In order to measure the stabilization, we use MSE(mean square error). We make experiments changing the parameters show in table~\ref{table:setting-parameters}:
 
 \begin{table}[]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
 \textbf{Parameters} & \textbf{Definition} & \textbf{Values} \\ \hline
-\multirow{3}{*}{S} & \multirow{3}{*}{\# of iteracion of RANSAC} & 36 \\ \cline{3-3} 
+\multirow{3}{*}{S} & \multirow{3}{*}{\# of iterations of RANSAC} & 36 \\ \cline{3-3} 
  &  & 100 \\ \cline{3-3} 
  &  & 200 \\ \hline
-\multirow{2}{*}{Non maximun suppression} & \multirow{2}{*}{remove close keypoints} & TRUE \\ \cline{3-3} 
+\multirow{2}{*}{Non maximum suppression} & \multirow{2}{*}{remove close keypoints} & TRUE \\ \cline{3-3} 
  &  & FALSE \\ \hline
 \multirow{2}{*}{Distance metric} & \multirow{2}{*}{similarity between keypoints} & L2-norm \\ \cline{3-3} 
  &  & cosine \\ \hline
@@ -24,15 +24,15 @@ In order to messure tha stabilization, we use MSE(min squeare error). We make ex
 
 \subsection{S}
 
-For experiment with this parameter we set: $non-maximun~suppression=False, distance~metric=cosine, ORB~ setting = (30,8)$, because this configuration is the best based on previous sections.
+For experiment with this parameter, we set: $non-maximum~suppression=False, distance~metric=cosine, ORB~ setting = (30,8)$, because this configuration is the best based on previous sections.
 
-The result of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-S}
+The results of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-S}
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Name} & \textbf{S} & \textbf{MSE} & \textbf{Execution Time} & \textbf{Succesfull} \\ \hline
+\textbf{Name} & \textbf{S} & \textbf{MSE} & \textbf{Execution Time} & \textbf{Successful} \\ \hline
 \multirow{3}{*}{p2-1-0.avi} & 36 & 25921522.78 & 62.324 & Yes \\ \cline{2-5} 
  & 100 & 24672510.21 & 64.327 & Yes \\ \cline{2-5} 
  & 200 & 24540916.12 & 62.691 & Yes \\ \hline
@@ -47,21 +47,21 @@ The result of MSE and execution time(mean per frame) are shown in table~\ref{tab
 \label{table:comparison-S}
 \end{table}
 
-The book suggest to set $S=36$, but in two cases this generates unsuccesfull stabilization, because the number of outlier is high a bigger number of iteration is needed.
+The book suggest to set $S=36$, but in two cases this generates unsuccessful stabilization because the number of outlier is high and a bigger number of iteration is needed.
 
-In general setting a bigger value for $S$, results in lower MSE, moreover, when this value is duplicated the execution time grows just a little. Due to this analysis, we consider $S=200$ as best parameter.
+In general setting a bigger value for $S$ results in lower MSE, moreover, when this value is duplicated the execution time grows just a little. Due to this analysis, we consider $S=200$ as best parameter.
 
-\subsection{Non-Maximun Suppression}
+\subsection{Non-Maximum Suppression}
 
 For experiment with this parameter we set: $S=200, distance~metric=cosine, ORB~ setting = (30,8)$.
 
-The result of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-NMS}
+The results of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-NMS}
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Name} & \textbf{Non-maximun suppression} & \textbf{MSE} & \textbf{Execution Time} & \textbf{Succesfull} \\ \hline
+\textbf{Name} & \textbf{Non-maximum suppression} & \textbf{MSE} & \textbf{Execution Time} & \textbf{Succesfull} \\ \hline
 \multirow{2}{*}{p2-1-0.avi} & True & 42818733.94 & 15.791 & No \\ \cline{2-5} 
  & False & 24540916.12 & 62.691 & Yes \\ \hline
 \multirow{2}{*}{p2-1-1.avi} & True & 2531291808.00 & 16.917 & No \\ \cline{2-5} 
@@ -69,17 +69,17 @@ The result of MSE and execution time(mean per frame) are shown in table~\ref{tab
 \multirow{2}{*}{p2-1-2.avi} & True & 194895992.71 & 13.706 & No \\ \cline{2-5} 
  & False & 28768129.31 & 45.623 & Yes \\ \hline
 \end{tabular}
-\caption{Results for paratemer \textit{Non-maximun suppression}.}
+\caption{Results for paratemer \textit{Non-maximum suppression}.}
 \label{table:comparison-NMS}
 \end{table}
 
-We can see that the use Non-maximo suppression has a big impact, using its create to little keypoints and the stabilization is not possible. Thus we consider not to use Non-maximo suppression.
+We can see that the use Non-maximo suppression has a big impact, using it creates too little keypoints and the stabilization is not possible. Thus we consider not to use Non-maximum suppression.
 
-\subsection{Ditance metric}
+\subsection{Distance metric}
 
-For experiment with this parameter we set: $non-maximun~suppression=False, S=200, ORB~ setting = (30,8)$.
+For experiment with this parameter we set: $non-maximum~suppression=False, S=200, ORB~ setting = (30,8)$.
 
-The result of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-DM}
+The results of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-DM}
 
 \begin{table}[H]
 \centering
@@ -97,13 +97,13 @@ The result of MSE and execution time(mean per frame) are shown in table~\ref{tab
 \label{table:comparison-DM}
 \end{table}
 
-From the result is seems that $L2-norm$ is far much better than $cosine$, but considering that one shift of pixels location in the transformed frame can generate an error cost of 307200, this difference turns smaller. We decided use $cosine$.
+From the results it seems that $L2-norm$ is far much better than $cosine$, but considering that one shift of pixels location in the transformed frame can generate an error cost of 307200, this difference turns smaller. We decided use $cosine$.
 
 \subsection{ORB setting(threshold, N)}
 
-For experiment with this parameter we set: $non-maximun~suppression=False, distance~metric=cosine, S = 200$.
+For experiment with this parameter we set: $non-maximum~suppression=False, distance~metric=cosine, S = 200$.
 
-The result of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-ORB}
+The results of MSE and execution time(mean per frame) are shown in table~\ref{table:comparison-ORB}
 
 \begin{table}[H]
 \centering
@@ -121,5 +121,5 @@ The result of MSE and execution time(mean per frame) are shown in table~\ref{tab
 \label{table:comparison-ORB}
 \end{table}
 
-Similar to the Non-maximun suppresion parameter, try to generate less keypoints yields in unsuccesfull stabilization.
+Similar to the Non-maximum suppression parameter, try to generate less keypoints yields in unsuccessful stabilization.
 
