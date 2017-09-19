@@ -190,10 +190,10 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
 
 if __name__ == '__main__':
     frame_per_sec = 10
-    file_name = 'p2-1-2'
+    file_name = 'p2-1-1'
 
     #parameters to set
-    transformat = 'projective'      #projective or affine
+    transformat = 'affine'      #projective or affine
     ransac_S = 200              #36, 100, 200
     match_dist_metr = 'cosine'  #cosine, l2-norm
     orb_thr = 30                #30
