@@ -1,5 +1,6 @@
 *.zip
 src/*.pyc
+src/__pycache__
 report/*~
 report/.nfs*
 dbg/*.jpg
