@@ -268,7 +268,6 @@ def keypoint_orientation(img, kpt, sigma = 1.5, threshold_kpt_direction = 0.8):
 
 def compute(img, kpt_list, kpt_orientation_list):
     init_sigma = np.sqrt(max(1.6 * 1.6 - 0.5 * 0.5 *  4, 0.01))
-    cv2.imwrite('blurred.jpg', img)
     img = cv2.GaussianBlur(img, (0, 0), init_sigma, init_sigma)
     features = []
     for kpt, orientation in zip(kpt_list, kpt_orientation_list):

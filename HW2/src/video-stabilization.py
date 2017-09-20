@@ -151,7 +151,7 @@ def stabilize(video_rgb, video, transformat = 'affine', save_name = 'new_changed
         
         #find matches
         matches = matching.find_matches(des_cur, des_prev, kpt_cur, kpt_prev, hard_match = True, distance_metric = match_dist_metr, spacial_weighting = 0.0, threshold = 0.9, approach = 'brute_force')
-        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'dbg/' + methadata + save_name + '_{}-{}.jpg'.format(i-1, i), plot = False)
+        img_kpt = matching.joint_matches(video[i], kpt_cur, video[i-1], kpt_prev, matches, file_name = 'output/' + methadata + save_name + '_{}-{}.jpg'.format(i-1, i), plot = True)
         video_kpt.append(img_kpt)
         print(i, len(matches), ' before --')
         kpt_cur, matches = clean_keypoints(kpt_cur, matches)
