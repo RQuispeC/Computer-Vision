@@ -27,17 +27,17 @@ def plot_flow(video, kpt, trans_params, file_name = 'dbg/flow_'):
         if len(video[i].shape)==2 or (len(video[i].shape)==3 and video[i].shape[2] == 1):
             video[i] = cv2.cvtColor(video[i], cv2.COLOR_GRAY2RGB)
         for j in range(len(kpts[i])):
-            if trans_params[i][j] == []:
-              continue
             kpt = kpts[i][j]
             point_left = ((int)(kpt.pt[0]), (int)(kpt.pt[1]))
+            mask = cv2.circle(mask, point_left, 1, thickness = 5, color = (randint(0, 255), randint(0, 255), randint(0, 255)))
+            if trans_params[i][j] == []:
+              continue
             point_right = ((int)(kpt.pt[0]) + (int)(np.ceil(trans_params[i][j][0])), (int)(kpt.pt[1]) + (int)(np.ceil(trans_params[i][j][1])))
-            
             if point_left != point_right:
                 print(point_left, point_right, ' ----------------')
             #else:
                 #print(point_left, point_right)
-            #cv2.circle(video[i], point_left, 1, thickness = 1, color = (randint(0, 255), randint(0, 255), randint(0, 255)))
+            
             mask = cv2.line(mask, point_left, point_right, thickness = 2, color = colors[i].tolist())
         
         print(mask.shape , ' -- ', video[i].shape)
@@ -87,6 +87,13 @@ def keyPoints(video, method = 'harris', harris_block_sz = 2, harris_aperture_sz 
         elif method == 'sift':
             sift = cv2.xfeatures2d.SIFT_create()
             kpt = sift.detect(frame.astype('u1'), None)
+        elif method == 'shiTomosi' :
+            # params for ShiTomasi corner detection
+            feature_params = dict( maxCorners = 100, qualityLevel = 0.3, minDistance = 7, blockSize = 7 )
+            kpt_aux = cv2.goodFeaturesToTrack(frame, mask = None, **feature_params)
+            kpt = []
+            for index in range(len(kpt_aux)):
+                kpt.append(cv2.KeyPoint(kpt_aux[index][0][0], kpt_aux[index][0][1], 10))   
         else:
             exit('Error: Invalid method for keypoints')
         kpts.append(kpt)
@@ -110,8 +117,10 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15):
         space = (neigh_size-1)//2
         for i in range(0,space):
             new_row = row + i
-            for j in range(space):              
+            for j in range(space):          
                 new_col = col + j
+                if new_row<=neigh_size or new_col<=neigh_size or new_row+neigh_size>curr_img.shape[0] or new_col+neigh_size>curr_img.shape[1]:
+                    break     
                 S_Ixx = S_Ixx + Ix[new_row][new_col] * Ix[new_row][new_col]
                 S_Iyy = S_Iyy + Iy[new_row][new_col] * Iy[new_row][new_col]
                 S_Ixy = S_Ixy + Ix[new_row][new_col] * Iy[new_row][new_col]
@@ -127,7 +136,9 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15):
           print('Points', curr_kpts[index].pt, 'are not suitable for the transformation')
           opt_flow.append([])
         else:
+         
           A = np.dot(np.linalg.inv(A), np.dot(x_transpose, Y))
+          A = np.array([A[0][0],A[1][0]])
           if A[0]**2 + A[1]**2 > 25:
             opt_flow.append([])
           else:
@@ -145,9 +156,9 @@ def structureFromMotion(video, kpts, trans_params):
     print('con fe!')
 
 if __name__ == '__main__':
-    file_name = 'input/p2-1-1.avi'
-    neigh_size = 3
-    kpts_method = 'harris'
+    file_name = 'input/rodo.mp4'
+    neigh_size = 15
+    kpts_method = 'shiTomosi'
     frame_per_sec = 30
      
     video = load_video(file_name, frame_per_sec)
