@@ -186,6 +186,63 @@ def obtaining_pyramid(video,level=1):
         pyramid.append(frame)    
     return pyramid
 
+def g_t(a_f, b_f):
+    return np.array([a_f[0]*b_f[0], a_f[0]*b_f[1] + a_f[1]*b_f[0], a_f[0]*b_f[2] + a_f[2]*b_f[0], a_f[1]*b_f[1], a_f[1]*b_f[2] + a_f[2]*b_f[1], a_f[2]*b_f[2] ])
+
+
+def structure_from_motion(kpts):
+    P = len(kpts[0])
+    F = len(kpts)
+    #compute w
+    X = []
+    Y = []
+    for frame in kpts:
+        centroit = [(float)(frame[:, 0].sum()), (float)(frame[:, 1].sum())]/ P
+        if X == []:
+            X = np.array(frame[:, 0] - centroit[0])
+            Y = np.array(frame[:, 1] - centroit[1])
+        else:
+            X = np.vstack((X, np.array(frame[:, 0] - centroit[0])))
+            Y = np.vstack((Y, np.array(frame[:, 1] - centroit[1])))
+    W = np.vstack((X, Y))
+    print(W.shape)
+    
+    #apply SVD
+    U, SIG, V_T = np.linalg.svd(W)
+    print(U.shape, SIG.shape, V_T.shape)
+    
+    M_hat = U
+    S_hat = np.dot(SIG, V_T)
+    
+    #compute A
+    c = np.append(np.ones(2 * F), np.zeros(F))
+    G_ii = []
+    G_jj = []
+    G_ij = []
+    for i in range(F):
+        if G == []:
+            Gii = g_t(M_hat[i], M_hat[i])
+            Gjj = g_t(M_hat[i + F], M_hat[i + F])
+            Gij = g_t(M_hat[i], M_hat[i + F])
+        else:
+            Gii = np.vstack((Gii, g_t(M_hat[i], M_hat[i])))
+            Gjj = np.vstack((Gjj, g_t(M_hat[i + F], M_hat[i + F])))
+            Gij = np.vstack((Gij, g_t(M_hat[i], M_hat[i + F])))
+    G = np.vstack((G_ii, G_jj, G_ij))
+    G_trans = np.matrix.transpose(G)
+    G_t_G = np.dot(G_trans, G)
+    if np.linalg.det(A) == 0:
+          exit('Matrix G_t_G i not invertible')
+    l = np.dot(np.linalg.inv(G_t_G), np.dot(G_trans, c))
+    print(l.shape)
+    l = l.ravel()
+    A = np.array([[l[0], l[1], l[2]], [l[3], l[4], l[5]], [l[6], l[7], l[8]]])
+    
+    M = np.dot(M_hat, A)
+    S = np.dot(np.linalg.inv(A), S_hat)
+    
+    return M, S
+
 if __name__ == '__main__':
     file_name = 'input/rodo3.mp4'
     neigh_size = 15
