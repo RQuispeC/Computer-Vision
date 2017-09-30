@@ -55,7 +55,7 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15, isfirst=True):
     
     opt_flow=[]
     for index in range(len(curr_kpts)):
-        if curr_kpts[index]==[]:
+        if curr_kpts[index][0]==-100:
             opt_flow.append([])
             continue
         S_Ixx,S_Iyy,S_Ixy,S_Iyx = 0,0,0,0
@@ -99,10 +99,6 @@ def computeTransformation(video, kpts, neigh_size = 15):
         trans_params.append(parameters(video[i], video[i+1], kpts[i], neigh_size))
     return trans_params
 
-#Structure from motion 
-def structureFromMotion(video, kpts, trans_params):
-    print('con fe!')
-
 #find keypoints 
 def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_aperture_sz = 3, harris_k = 0.04):
     kpt=[]
@@ -127,31 +123,27 @@ def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_apertu
         
     return kpt
 
-def validate_points(key_points):
-    for index in range(0,len(key_points)):
-        for i in range(0, len(key_points[index])):
-            if key_points[index][i]==[]:
-                for j in range(0, len(key_points)):
-                    key_points[j][i]=[]
-    
+def validate_points(key_points,status,level=1):
     new_keypoints=[]
+    factor = pow(2,level)
     for index in range(0,len(key_points)):
         aux=[]
         for i in range(0, len(key_points[index])):
-            if key_points[index][i]!=[]:
-                aux.append(key_points[index][i])
-        new_keypoints.append(aux)
+            if status[i]==True:
+                aux.append(np.array([factor*key_points[index][i][0], factor*key_points[index][i][1]]))
+        new_keypoints.append(np.array(aux))
         
-    return new_keypoints
+    return np.array(new_keypoints)
     
 def optical_flow(video, level=2,max_keypoints=100, file_name = 'dbg/flow_'):
     keypoints=[]
     pyramid = obtaining_pyramid(video,level)
     kpts = interest_point(pyramid[0], kpts_method)[0:max_keypoints]
+    status=[True for i in range(len(kpts))]
     mask = np.zeros((video[0].shape[0], video[0].shape[1], 3))
     color = np.random.randint(0,255,(max_keypoints,3))
-    for index in range(1, len(pyramid)-1):
-        keypoints.append(kpts)
+    for index in range(1, len(pyramid)):
+        keypoints.append(np.array(kpts))
         frame = video[index]
         frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
         print("frame: ", index)
@@ -170,11 +162,13 @@ def optical_flow(video, level=2,max_keypoints=100, file_name = 'dbg/flow_'):
                 kpts[i][0] = kpts[i][0] + flow[i][0]
                 kpts[i][1] = kpts[i][1] + flow[i][1]
             else :
-                kpts[i]=[]
+                status[i]=False
+                kpts[i]=[-100,-100]
         mask_prev=mask.copy()
         img = cv2.add(frame.astype('u1'),mask.astype('u1'))
         cv2.imwrite(file_name + str(index) + '.jpg', img)
-    return validate_points(keypoints)
+        
+    return validate_points(keypoints,status,level)
     
 def obtaining_pyramid(video,level=1):
     pyramid=[]
@@ -197,7 +191,7 @@ def structure_from_motion(kpts):
     X = []
     Y = []
     for frame in kpts:
-        centroit = [(float)(frame[:, 0].sum()), (float)(frame[:, 1].sum())]/ P
+        centroit = np.array([(float)(frame[:, 0].sum()), (float)(frame[:, 1].sum())])/ P
         if X == []:
             X = np.array(frame[:, 0] - centroit[0])
             Y = np.array(frame[:, 1] - centroit[1])
@@ -205,22 +199,25 @@ def structure_from_motion(kpts):
             X = np.vstack((X, np.array(frame[:, 0] - centroit[0])))
             Y = np.vstack((Y, np.array(frame[:, 1] - centroit[1])))
     W = np.vstack((X, Y))
-    print(W.shape)
     
     #apply SVD
     U, SIG, V_T = np.linalg.svd(W)
-    print(U.shape, SIG.shape, V_T.shape)
+    U=U[:,:3]
+
+    SIG=np.diag(SIG[:3])
+    V_T=V_T[:,V_T.shape[1]-3:]
+    V_T = np.matrix.transpose(V_T)
+
     
     M_hat = U
-    S_hat = np.dot(SIG, V_T)
-    
+    S_hat = np.dot(SIG,V_T)
     #compute A
     c = np.append(np.ones(2 * F), np.zeros(F))
-    G_ii = []
-    G_jj = []
-    G_ij = []
+    Gii = []
+    Gjj = []
+    Gij = []
     for i in range(F):
-        if G == []:
+        if Gii == []:
             Gii = g_t(M_hat[i], M_hat[i])
             Gjj = g_t(M_hat[i + F], M_hat[i + F])
             Gij = g_t(M_hat[i], M_hat[i + F])
@@ -228,26 +225,29 @@ def structure_from_motion(kpts):
             Gii = np.vstack((Gii, g_t(M_hat[i], M_hat[i])))
             Gjj = np.vstack((Gjj, g_t(M_hat[i + F], M_hat[i + F])))
             Gij = np.vstack((Gij, g_t(M_hat[i], M_hat[i + F])))
-    G = np.vstack((G_ii, G_jj, G_ij))
+    G = np.vstack((Gii, Gjj, Gij))
     G_trans = np.matrix.transpose(G)
     G_t_G = np.dot(G_trans, G)
-    if np.linalg.det(A) == 0:
+    if np.linalg.det(G_t_G) == 0:
           exit('Matrix G_t_G i not invertible')
     l = np.dot(np.linalg.inv(G_t_G), np.dot(G_trans, c))
-    print(l.shape)
     l = l.ravel()
-    A = np.array([[l[0], l[1], l[2]], [l[3], l[4], l[5]], [l[6], l[7], l[8]]])
-    
+    L = np.array([[l[0], l[1], l[2]], [l[1], l[3], l[4]], [l[2], l[4], l[5]]])
+    A = np.linalg.cholesky(L) 
     M = np.dot(M_hat, A)
-    S = np.dot(np.linalg.inv(A), S_hat)
-    
+    S = np.dot(np.linalg.inv(A),S_hat)
+    print(M.shape, S.shape)
+    print(M)
+    print(S)
     return M, S
 
 if __name__ == '__main__':
-    file_name = 'input/rodo3.mp4'
+    file_name = 'input/room.mp4'
     neigh_size = 15
     kpts_method = 'shiTomosi'
     frame_per_sec = 30 
-    video = load_video(file_name, frame_per_sec)
-    print(len(video))
-    a = optical_flow(video, level=1)
+    video = load_video(file_name, frame_per_sec)[0:50]
+    keypoints = optical_flow(video, level=1)
+    
+    M,S = structure_from_motion(keypoints)
+    
