@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{wang2015deep}
+Chuan Wang, Hua Zhang, Liang Yang, Si~Liu, and Xiaochun Cao.
+\newblock Deep people counting in extremely dense crowds.
+\newblock In {\em Proceedings of the 23rd ACM international conference on
+  Multimedia}, pages 1299--1302. ACM, 2015.
+
+\bibitem{zhang2016single}
+Yingying Zhang, Desen Zhou, Siqin Chen, Shenghua Gao, and Yi~Ma.
+\newblock Single-image crowd counting via multi-column convolutional neural
+  network.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 589--597, 2016.
+
+\bibitem{shang2016end}
+Chong Shang, Haizhou Ai, and Bo~Bai.
+\newblock End-to-end crowd counting via joint learning local and global count.
+\newblock In {\em Image Processing (ICIP), 2016 IEEE International Conference
+  on}, pages 1215--1219. IEEE, 2016.
+
+\end{thebibliography}
