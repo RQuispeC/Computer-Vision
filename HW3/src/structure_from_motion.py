@@ -60,8 +60,8 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15, isfirst=True):
             continue
         S_Ixx,S_Iyy,S_Ixy,S_Iyx = 0,0,0,0
         S_Ixt,S_Iyt = 0,0
-        row = curr_kpts[index][0] - (neigh_size-1)//2
-        col = curr_kpts[index][1] - (neigh_size-1)//2
+        row = curr_kpts[index][1] - (neigh_size-1)//2
+        col = curr_kpts[index][0] - (neigh_size-1)//2
         space = (neigh_size-1)//2   
         for i in range(0,neigh_size):
             new_row = row + i
@@ -92,12 +92,6 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15, isfirst=True):
           A = np.array([A[0][0],A[1][0]])
           opt_flow.append(A)
     return opt_flow
-   
-def computeTransformation(video, kpts, neigh_size = 15):
-    trans_params = [] 
-    for i in range(len(video) - 1):
-        trans_params.append(parameters(video[i], video[i+1], kpts[i], neigh_size))
-    return trans_params
 
 #find keypoints 
 def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_aperture_sz = 3, harris_k = 0.04):
@@ -117,7 +111,13 @@ def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_apertu
         for i in range((int)(frame.shape[0] * 0.25), (int)(frame.shape[0] * 0.75)):
             for j in range((int)(frame.shape[1] * 0.25), (int)(frame.shape[1] * 0.75)):
                 if empty_frame[i, j] == 1:
-                    kpt.append([i, j])
+                    kpt.append([j, i])
+    elif method == 'sift':
+        sift = cv2.xfeatures2d.SIFT_create()
+        points = sift.detect(frame.astype('u1'), None)
+        for i in range(len(points)):
+            if points[i].pt[0]>=frame.shape[1] * 0.25 and points[i].pt[0]<frame.shape[1] * 0.75 and points[i].pt[1]>=frame.shape[0] * 0.25 and points[i].pt[1]<frame.shape[0] * 0.75:
+                kpt.append([points[i].pt[0],points[i].pt[1]]) 
     else:
         exit('Error: Invalid method for keypoints')
         
@@ -135,13 +135,13 @@ def validate_points(key_points,status,level=1):
         
     return np.array(new_keypoints)
     
-def optical_flow(video, level=2,max_keypoints=100, file_name = 'dbg/flow_'):
+def optical_flow(video, color, level=2,max_keypoints=100, file_name = 'dbg/flow_',kpts_method = 'sift',):
     keypoints=[]
     pyramid = obtaining_pyramid(video,level)
-    kpts = interest_point(pyramid[0], kpts_method)[0:max_keypoints]
+    kpts = interest_point(pyramid[0], kpts_method)
+    kpts = kpts[0:min(max_keypoints,len(kpts)-1)]
     status=[True for i in range(len(kpts))]
     mask = np.zeros((video[0].shape[0], video[0].shape[1], 3))
-    color = np.random.randint(0,255,(max_keypoints,3))
     for index in range(1, len(pyramid)):
         keypoints.append(np.array(kpts))
         frame = video[index]
@@ -161,6 +161,9 @@ def optical_flow(video, level=2,max_keypoints=100, file_name = 'dbg/flow_'):
                 frame = cv2.circle(frame,(factor*a,factor*b),5,color[i].tolist(),-1)
                 kpts[i][0] = kpts[i][0] + flow[i][0]
                 kpts[i][1] = kpts[i][1] + flow[i][1]
+                if kpts[i][0]<0 or kpts[i][0]>=frame.shape[0] or kpts[i][1]<0 or kpts[i][1]>=frame.shape[1]:
+                    status[i]=False
+                    kpts[i]=[-100,-100]
             else :
                 status[i]=False
                 kpts[i]=[-100,-100]
@@ -183,6 +186,26 @@ def obtaining_pyramid(video,level=1):
 def g_t(a_f, b_f):
     return np.array([a_f[0]*b_f[0], a_f[0]*b_f[1] + a_f[1]*b_f[0], a_f[0]*b_f[2] + a_f[2]*b_f[0], a_f[1]*b_f[1], a_f[1]*b_f[2] + a_f[2]*b_f[1], a_f[2]*b_f[2] ])
 
+ply_header = '''ply
+format ascii 1.0
+element vertex %(vert_num)d
+property float x
+property float y
+property float z
+property uchar blue
+property uchar green
+property uchar red
+end_header
+'''
+
+def write_ply(fn, verts, colors):
+    verts = verts.reshape(-1, 3)
+    colors = colors.reshape(-1, 3)
+    print(verts.shape, colors.shape)
+    verts = np.hstack([verts, colors])
+    with open(fn, 'wb') as f:
+        f.write((ply_header % dict(vert_num=len(verts))).encode('utf-8'))
+        np.savetxt(f, verts, fmt='%f %f %f %d %d %d ')
 
 def structure_from_motion(kpts):
     P = len(kpts[0])
@@ -242,12 +265,14 @@ def structure_from_motion(kpts):
     return M, S
 
 if __name__ == '__main__':
-    file_name = 'input/room.mp4'
+    file_name = 'input/video3.mp4'
     neigh_size = 15
-    kpts_method = 'shiTomosi'
-    frame_per_sec = 30 
-    video = load_video(file_name, frame_per_sec)[0:50]
-    keypoints = optical_flow(video, level=1)
-    
+    kpts_method_ = 'Harris'
+    frame_per_sec = 30
+    video = load_video(file_name, frame_per_sec)[0:800]
+    color = np.random.randint(0,255,(1000,3))    
+    keypoints = optical_flow(video,color, max_keypoints=1000, level=0,kpts_method = kpts_method_)
+    print(len(keypoints),color[:len(keypoints)].shape)
     M,S = structure_from_motion(keypoints)
-    
+    write_ply("keypoints.ply", S, color[:len(keypoints[0])])
+
