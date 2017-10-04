@@ -210,7 +210,7 @@ def write_ply(fn, verts, colors):
         f.write((ply_header % dict(vert_num=len(verts))).encode('utf-8'))
         np.savetxt(f, verts, fmt='%f %f %f %d %d %d ')
 
-def write_ply_H(fn, verts, colors, cams):
+def write_ply_h(fn, verts, colors, cams):
     colors = colors.reshape(-1, 3)
     color_cams=np.hstack((np.zeros(cams.shape[0]),np.zeros(cams.shape[0]),np.full((cams.shape[0]),255)))
     colors =np.vstack((colors,color_cams))
@@ -345,7 +345,7 @@ def structure_from_motion_h(kpts):
             cams = np.vstack((cams, cam.ravel()))
     
     color = np.random.randint(0,255,(1000,3))
-    write_ply("keypoints_Harris.ply", S, color[:len(kpts[0]),cams])
+    write_ply_h("keypoints_Harris.ply", S, color[:len(kpts[0]),cams])
 
 if __name__ == '__main__':
     file_name = 'input/video14.mp4'
