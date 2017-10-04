@@ -48,6 +48,36 @@ def derivate(img, direct='X'):
     else :
         return cv2.filter2D(img, -1, kernelY)
 
+#find keypoints 
+def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_aperture_sz = 3, harris_k = 0.04, prunning_thresh=0.05):
+    kpt=[]
+    if method == 'shiTomosi':
+        # params for ShiTomasi corner detection
+        feature_params = dict( maxCorners = 100, qualityLevel = 0.3, minDistance = 7, blockSize = 7 )
+        kpt_aux = cv2.goodFeaturesToTrack(frame, mask = None, **feature_params)
+        kpt = []
+        for index in range(len(kpt_aux)):
+            kpt.append([kpt_aux[index][0][0], kpt_aux[index][0][1]])
+    elif method == 'Harris':
+        empty_frame = np.zeros(frame.shape)
+        kpt = cv2.cornerHarris(np.float32(frame), harris_block_sz, harris_aperture_sz, harris_k)
+        empty_frame[kpt > 0.01 * kpt.max()] = 1
+        kpt = []
+        for i in range((int)(frame.shape[0] * prunning_thresh), (int)(frame.shape[0] * (1.0-prunning_thresh))):
+            for j in range((int)(frame.shape[1] * prunning_thresh), (int)(frame.shape[1] * (1.0-prunning_thresh))):
+                if empty_frame[i, j] == 1:
+                    kpt.append([j, i])
+    elif method == 'sift':
+        sift = cv2.xfeatures2d.SIFT_create()
+        points = sift.detect(frame.astype('u1'), None)
+        for i in range(len(points)):
+            if points[i].pt[0]>=frame.shape[1] * prunning_thresh and points[i].pt[0]<frame.shape[1] * (1.0-prunning_thresh) and points[i].pt[1]>=frame.shape[0] * prunning_thresh and points[i].pt[1]<frame.shape[0] * (1.0-prunning_thresh):
+                kpt.append([points[i].pt[0],points[i].pt[1]]) 
+    else:
+        exit('Error: Invalid method for keypoints')
+        
+    return kpt
+
 def parameters(curr_img, next_img, curr_kpts, neigh_size = 15, isfirst=True):
     Ix = derivate(curr_img, direct='X')
     Iy = derivate(curr_img, direct='Y')
@@ -93,36 +123,6 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15, isfirst=True):
           opt_flow.append(A)
     return opt_flow
 
-#find keypoints 
-def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_aperture_sz = 3, harris_k = 0.04):
-    kpt=[]
-    if method == 'shiTomosi':
-        # params for ShiTomasi corner detection
-        feature_params = dict( maxCorners = 100, qualityLevel = 0.3, minDistance = 7, blockSize = 7 )
-        kpt_aux = cv2.goodFeaturesToTrack(frame, mask = None, **feature_params)
-        kpt = []
-        for index in range(len(kpt_aux)):
-            kpt.append([kpt_aux[index][0][0], kpt_aux[index][0][1]])
-    elif method == 'Harris':
-        empty_frame = np.zeros(frame.shape)
-        kpt = cv2.cornerHarris(np.float32(frame), harris_block_sz, harris_aperture_sz, harris_k)
-        empty_frame[kpt > 0.01 * kpt.max()] = 1
-        kpt = []
-        for i in range((int)(frame.shape[0] * 0.25), (int)(frame.shape[0] * 0.75)):
-            for j in range((int)(frame.shape[1] * 0.25), (int)(frame.shape[1] * 0.75)):
-                if empty_frame[i, j] == 1:
-                    kpt.append([j, i])
-    elif method == 'sift':
-        sift = cv2.xfeatures2d.SIFT_create()
-        points = sift.detect(frame.astype('u1'), None)
-        for i in range(len(points)):
-            if points[i].pt[0]>=frame.shape[1] * 0.25 and points[i].pt[0]<frame.shape[1] * 0.75 and points[i].pt[1]>=frame.shape[0] * 0.25 and points[i].pt[1]<frame.shape[0] * 0.75:
-                kpt.append([points[i].pt[0],points[i].pt[1]]) 
-    else:
-        exit('Error: Invalid method for keypoints')
-        
-    return kpt
-
 def validate_points(key_points,status,level=1):
     new_keypoints=[]
     factor = pow(2,level)
@@ -161,7 +161,7 @@ def optical_flow(video, color, level=2,max_keypoints=100, file_name = 'dbg/flow_
                 frame = cv2.circle(frame,(factor*a,factor*b),5,color[i].tolist(),-1)
                 kpts[i][0] = kpts[i][0] + flow[i][0]
                 kpts[i][1] = kpts[i][1] + flow[i][1]
-                if kpts[i][0]<0 or kpts[i][0]>=frame.shape[0] or kpts[i][1]<0 or kpts[i][1]>=frame.shape[1]:
+                if kpts[i][0]<0 or kpts[i][0]>=frame.shape[1] or kpts[i][1]<0 or kpts[i][1]>=frame.shape[0]:
                     status[i]=False
                     kpts[i]=[-100,-100]
             else :
@@ -170,7 +170,6 @@ def optical_flow(video, color, level=2,max_keypoints=100, file_name = 'dbg/flow_
         mask_prev=mask.copy()
         img = cv2.add(frame.astype('u1'),mask.astype('u1'))
         cv2.imwrite(file_name + str(index) + '.jpg', img)
-        
     return validate_points(keypoints,status,level)
     
 def obtaining_pyramid(video,level=1):
@@ -184,7 +183,10 @@ def obtaining_pyramid(video,level=1):
     return pyramid
 
 def g_t(a_f, b_f):
-    return np.array([a_f[0]*b_f[0], a_f[0]*b_f[1] + a_f[1]*b_f[0], a_f[0]*b_f[2] + a_f[2]*b_f[0], a_f[1]*b_f[1], a_f[1]*b_f[2] + a_f[2]*b_f[1], a_f[2]*b_f[2] ])
+    return np.array([a_f[0]*b_f[0], a_f[0]*b_f[1]+a_f[1]*b_f[0], a_f[0]*b_f[2]+a_f[2]*b_f[0], a_f[1]*b_f[1], a_f[1]*b_f[2]+a_f[2]*b_f[1], a_f[2]*b_f[2] ])
+
+def g_t_h(a_f, b_f):
+    return np.array([a_f[0]*b_f[0], a_f[0]*b_f[1]+a_f[1]*b_f[0], a_f[0]*b_f[2]+a_f[2]*b_f[0], a_f[0]*b_f[3]+a_f[3]*b_f[0], a_f[1]*b_f[1], a_f[1]*b_f[2]+a_f[2]*b_f[1], a_f[1]*b_f[3]+a_f[3]*b_f[1], a_f[2]*b_f[2], a_f[2]*b_f[3]+a_f[3]*b_f[2], a_f[3]*b_f[3]])
 
 ply_header = '''ply
 format ascii 1.0
@@ -200,6 +202,7 @@ end_header
 
 def write_ply(fn, verts, colors):
     verts = verts.reshape(-1, 3)
+    print(verts.shape, verts[0,0],verts[0,1],verts[0,2])
     colors = colors.reshape(-1, 3)
     print(verts.shape, colors.shape)
     verts = np.hstack([verts, colors])
@@ -228,10 +231,9 @@ def structure_from_motion(kpts):
     U=U[:,:3]
 
     SIG=np.diag(SIG[:3])
-    V_T=V_T[:,V_T.shape[1]-3:]
+    V_T=V_T[:,:3]
     V_T = np.matrix.transpose(V_T)
 
-    
     M_hat = U
     S_hat = np.dot(SIG,V_T)
     #compute A
@@ -248,6 +250,7 @@ def structure_from_motion(kpts):
             Gii = np.vstack((Gii, g_t(M_hat[i], M_hat[i])))
             Gjj = np.vstack((Gjj, g_t(M_hat[i + F], M_hat[i + F])))
             Gij = np.vstack((Gij, g_t(M_hat[i], M_hat[i + F])))
+    
     G = np.vstack((Gii, Gjj, Gij))
     G_trans = np.matrix.transpose(G)
     G_t_G = np.dot(G_trans, G)
@@ -259,20 +262,87 @@ def structure_from_motion(kpts):
     A = np.linalg.cholesky(L) 
     M = np.dot(M_hat, A)
     S = np.dot(np.linalg.inv(A),S_hat)
-    print(M.shape, S.shape)
-    print(M)
-    print(S)
+    S = np.matrix.transpose(S)
+    print("M S: ",M.shape, S.shape, S[0,0],S[0,1],S[0,2])
     return M, S
 
-if __name__ == '__main__':
-    file_name = 'input/video3.mp4'
-    neigh_size = 15
-    kpts_method_ = 'Harris'
-    frame_per_sec = 30
-    video = load_video(file_name, frame_per_sec)[0:800]
-    color = np.random.randint(0,255,(1000,3))    
-    keypoints = optical_flow(video,color, max_keypoints=1000, level=0,kpts_method = kpts_method_)
-    print(len(keypoints),color[:len(keypoints)].shape)
-    M,S = structure_from_motion(keypoints)
-    write_ply("keypoints.ply", S, color[:len(keypoints[0])])
+def structure_from_motion2(kpts):
+    P = len(kpts[0])
+    F = len(kpts)
+    #compute w
+    X = []
+    Y = []
+    for frame in kpts:
+        centroit = np.array([(float)(frame[:, 0].sum()), (float)(frame[:, 1].sum())])/ P
+        if X == []:
+            X = np.array(frame[:, 0] - centroit[0])
+            Y = np.array(frame[:, 1] - centroit[1])
+        else:
+            X = np.vstack((X, np.array(frame[:, 0] - centroit[0])))
+            Y = np.vstack((Y, np.array(frame[:, 1] - centroit[1])))
+    W = np.vstack((X, Y,np.ones(X.shape)))
+    
+    #apply SVD
+    U, SIG, V_T = np.linalg.svd(W)
+    U=U[:,:4]
 
+    SIG=np.diag(SIG[:4])
+    V_T=V_T[:,:4]
+    V_T = np.matrix.transpose(V_T)
+
+    M_hat = U
+    S_hat = np.dot(SIG,V_T)
+    #compute A
+    c = np.append(np.ones(2 * F), np.zeros(F))
+    Gii = []
+    Gjj = []
+    Gij = []
+    for i in range(F):
+        if Gii == []:
+            Gii = g_t_h(M_hat[i], M_hat[i])
+            Gjj = g_t_h(M_hat[i + F], M_hat[i + F])
+            Gij = g_t_h(M_hat[i], M_hat[i + F])
+        else:
+            Gii = np.vstack((Gii, g_t(M_hat[i], M_hat[i])))
+            Gjj = np.vstack((Gjj, g_t(M_hat[i + F], M_hat[i + F])))
+            Gij = np.vstack((Gij, g_t(M_hat[i], M_hat[i + F])))
+    
+    G = np.vstack((Gii, Gjj, Gij))
+    G_trans = np.matrix.transpose(G)
+    G_t_G = np.dot(G_trans, G)
+    if np.linalg.det(G_t_G) == 0:
+          exit('Matrix G_t_G i not invertible')
+    l = np.dot(np.linalg.inv(G_t_G), np.dot(G_trans, c))
+    l = l.ravel()
+    L = np.array([[l[0], l[1], l[2], l[3]], [l[1], l[4], l[5], l[6]], [l[2], l[5], l[7], l[8]], [l[3], l[6], l[8], l[9]]])
+    A = np.linalg.cholesky(L) 
+    M = np.dot(M_hat, A)
+    S = np.dot(np.linalg.inv(A),S_hat)
+    S = np.matrix.transpose(S)
+    # normalize homogeneous coordenates
+    for i in range(P):
+        S[i]/=S[i,3]
+
+    # compute camara location
+    cams=[]
+    for i in range(F):
+        cam = np.vstack((M[i], M[i + F], M[i + 2 * F]))
+        cam = np.dot(-np.linalg.inv(cam[:, :3]), cam[:,3])
+        if cams == []:
+            cams = np.array(cam.ravel())
+        else:
+            cams = np.vstack((cams, cam.ravel()))
+    
+    return M, S[:,:3], cams
+
+if __name__ == '__main__':
+    file_name = 'input/video14.mp4'
+    neigh_size = 15
+    kpts_method_ = 'sift'
+    frame_per_sec = 30
+    video = load_video(file_name, frame_per_sec)[:1000]
+    color = np.random.randint(0,255,(1000,3))    
+    keypoints = optical_flow(video,color, max_keypoints=1000,file_name = 'dbg/flow_0_14_1000_', level=1,kpts_method = kpts_method_)
+    print("keypoints:  ",len(keypoints[0]),color[:len(keypoints)].shape)
+    M,S = structure_from_motion(keypoints)
+    write_ply("keypoints_0_14_1000.ply", S, color[:len(keypoints[0])])
