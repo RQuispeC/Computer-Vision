@@ -37,7 +37,7 @@ def interpolation(x, y, img, isfirst):
     r2 =  ((j[3]-y)/(j[3]-j[2]))*img[i[0]][j[0]] +((y-j[2])/(j[3]-j[2]))*img[i[1]][j[1]]
     
     p = ((i[0]-x)/(i[0]-i[2]))*r1 + ((x-i[2])/(i[0]-i[2]))*r2   
-    
+    print(p)
     return p
     
 def derivate(img, direct='X'):
@@ -97,7 +97,7 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15, isfirst=True):
             new_row = row + i
             for j in range(0,neigh_size):          
                 new_col = col + j
-                if new_row<0 or new_col<0 or new_row>=curr_img.shape[0]-1 or new_col>=curr_img.shape[1]-1:
+                if new_row<0 or new_col<0 or new_row>=curr_img.shape[1]-1 or new_col>=curr_img.shape[0]-1:
                     continue
                 Ix_ = interpolation(new_row,new_col,Ix, isfirst)
                 Iy_ = interpolation(new_row,new_col,Iy, isfirst)
@@ -220,7 +220,7 @@ def write_ply_h(fn, verts, colors, cams):
         f.write((ply_header % dict(vert_num=len(verts))).encode('utf-8'))
         np.savetxt(f, verts, fmt='%f %f %f %d %d %d ')
 
-def structure_from_motion(kpts):
+def structure_from_motion(kpts,color):
     P = len(kpts[0])
     F = len(kpts)
     #compute w
@@ -274,10 +274,9 @@ def structure_from_motion(kpts):
     S = np.dot(np.linalg.inv(A),S_hat)
     S = np.matrix.transpose(S)
 
-    color = np.random.randint(0,255,(1000,3))
-    write_ply("keypoints_0_14_1000.ply", S[:,:3], color[:len(kpts[0])])
+    write_ply("keypoints.ply", S[:,:3], color[:len(kpts[0])])
 
-def structure_from_motion_h(kpts):
+def structure_from_motion_h(kpts,color):
     P = len(kpts[0])
     F = len(kpts)
     #compute w
@@ -344,15 +343,15 @@ def structure_from_motion_h(kpts):
         else:
             cams = np.vstack((cams, cam.ravel()))
     
-    color = np.random.randint(0,255,(1000,3))
-    write_ply_h("keypoints_Harris.ply", S, color[:len(kpts[0]),cams])
+    write_ply_h("keypoints.ply", S, color[:len(kpts[0]),cams])
 
 if __name__ == '__main__':
-    file_name = 'input/video14.mp4'
+    file_name = 'input/video1.mp4'
     neigh_size = 15
     kpts_method_ = 'sift'
     frame_per_sec = 30
-    video = load_video(file_name, frame_per_sec)[:1000]
-    keypoints = optical_flow(video,color, max_keypoints=1000,file_name = 'dbg/flow_0_14_1000_', level=1,kpts_method = kpts_method_)
+    color = np.random.randint(0,255,(1000,3))
+    video = load_video(file_name, frame_per_sec)[:5]
+    keypoints = optical_flow(video,color, max_keypoints=1000,file_name = 'dbg/flow_', level=1,kpts_method = kpts_method_)
     print("keypoints:  ",len(keypoints[0]),color[:len(keypoints)].shape)
-    structure_from_motion(keypoints)
+    structure_from_motion(keypoints,color)
