@@ -210,6 +210,16 @@ def write_ply(fn, verts, colors):
         f.write((ply_header % dict(vert_num=len(verts))).encode('utf-8'))
         np.savetxt(f, verts, fmt='%f %f %f %d %d %d ')
 
+def write_ply_H(fn, verts, colors, cams):
+    colors = colors.reshape(-1, 3)
+    color_cams=np.hstack((np.zeros(cams.shape[0]),np.zeros(cams.shape[0]),np.full((cams.shape[0]),255)))
+    colors =np.vstack((colors,color_cams))
+    verts = np.vstack((verts, cams))
+    verts = np.hstack([verts, colors])
+    with open(fn, 'wb') as f:
+        f.write((ply_header % dict(vert_num=len(verts))).encode('utf-8'))
+        np.savetxt(f, verts, fmt='%f %f %f %d %d %d ')
+
 def structure_from_motion(kpts):
     P = len(kpts[0])
     F = len(kpts)
@@ -263,10 +273,11 @@ def structure_from_motion(kpts):
     M = np.dot(M_hat, A)
     S = np.dot(np.linalg.inv(A),S_hat)
     S = np.matrix.transpose(S)
-    print("M S: ",M.shape, S.shape, S[0,0],S[0,1],S[0,2])
-    return M, S
 
-def structure_from_motion2(kpts):
+    color = np.random.randint(0,255,(1000,3))
+    write_ply("keypoints_0_14_1000.ply", S[:,:3], color[:len(kpts[0])])
+
+def structure_from_motion_h(kpts):
     P = len(kpts[0])
     F = len(kpts)
     #compute w
@@ -333,7 +344,8 @@ def structure_from_motion2(kpts):
         else:
             cams = np.vstack((cams, cam.ravel()))
     
-    return M, S[:,:3], cams
+    color = np.random.randint(0,255,(1000,3))
+    write_ply("keypoints_Harris.ply", S, color[:len(kpts[0]),cams])
 
 if __name__ == '__main__':
     file_name = 'input/video14.mp4'
@@ -341,8 +353,6 @@ if __name__ == '__main__':
     kpts_method_ = 'sift'
     frame_per_sec = 30
     video = load_video(file_name, frame_per_sec)[:1000]
-    color = np.random.randint(0,255,(1000,3))    
     keypoints = optical_flow(video,color, max_keypoints=1000,file_name = 'dbg/flow_0_14_1000_', level=1,kpts_method = kpts_method_)
     print("keypoints:  ",len(keypoints[0]),color[:len(keypoints)].shape)
-    M,S = structure_from_motion(keypoints)
-    write_ply("keypoints_0_14_1000.ply", S, color[:len(keypoints[0])])
+    structure_from_motion(keypoints)
