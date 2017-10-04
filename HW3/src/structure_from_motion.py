@@ -29,15 +29,12 @@ def interpolation(x, y, img, isfirst):
         
     new_x = int(np.floor(x))
     new_y = int(np.floor(y))
-    
     i = [new_x, new_x, new_x + 1, new_x + 1]
     j = [new_y, new_y + 1, new_y, new_y + 1]
-    
     r1 =  ((j[3]-y)/(j[3]-j[2]))*img[i[2]][j[2]] +((y-j[2])/(j[3]-j[2]))*img[i[3]][j[3]]
     r2 =  ((j[3]-y)/(j[3]-j[2]))*img[i[0]][j[0]] +((y-j[2])/(j[3]-j[2]))*img[i[1]][j[1]]
     
     p = ((i[0]-x)/(i[0]-i[2]))*r1 + ((x-i[2])/(i[0]-i[2]))*r2   
-    print(p)
     return p
     
 def derivate(img, direct='X'):
@@ -97,7 +94,7 @@ def parameters(curr_img, next_img, curr_kpts, neigh_size = 15, isfirst=True):
             new_row = row + i
             for j in range(0,neigh_size):          
                 new_col = col + j
-                if new_row<0 or new_col<0 or new_row>=curr_img.shape[1]-1 or new_col>=curr_img.shape[0]-1:
+                if new_row-1<0 or new_col-1<0 or new_row+1>=curr_img.shape[0]-1 or new_col+1>=curr_img.shape[1]-1:
                     continue
                 Ix_ = interpolation(new_row,new_col,Ix, isfirst)
                 Iy_ = interpolation(new_row,new_col,Iy, isfirst)
@@ -202,9 +199,7 @@ end_header
 
 def write_ply(fn, verts, colors):
     verts = verts.reshape(-1, 3)
-    print(verts.shape, verts[0,0],verts[0,1],verts[0,2])
     colors = colors.reshape(-1, 3)
-    print(verts.shape, colors.shape)
     verts = np.hstack([verts, colors])
     with open(fn, 'wb') as f:
         f.write((ply_header % dict(vert_num=len(verts))).encode('utf-8'))
@@ -212,8 +207,9 @@ def write_ply(fn, verts, colors):
 
 def write_ply_h(fn, verts, colors, cams):
     colors = colors.reshape(-1, 3)
-    color_cams=np.hstack((np.zeros(cams.shape[0]),np.zeros(cams.shape[0]),np.full((cams.shape[0]),255)))
+    color_cams=np.hstack((np.zeros((cams.shape[0],1)),np.zeros((cams.shape[0],1)),np.full((cams.shape[0],1),255)))
     colors =np.vstack((colors,color_cams))
+    print(colors.shape,verts.shape,cams.shape)
     verts = np.vstack((verts, cams))
     verts = np.hstack([verts, colors])
     with open(fn, 'wb') as f:
@@ -313,9 +309,9 @@ def structure_from_motion_h(kpts,color):
             Gjj = g_t_h(M_hat[i + F], M_hat[i + F])
             Gij = g_t_h(M_hat[i], M_hat[i + F])
         else:
-            Gii = np.vstack((Gii, g_t(M_hat[i], M_hat[i])))
-            Gjj = np.vstack((Gjj, g_t(M_hat[i + F], M_hat[i + F])))
-            Gij = np.vstack((Gij, g_t(M_hat[i], M_hat[i + F])))
+            Gii = np.vstack((Gii, g_t_h(M_hat[i], M_hat[i])))
+            Gjj = np.vstack((Gjj, g_t_h(M_hat[i + F], M_hat[i + F])))
+            Gij = np.vstack((Gij, g_t_h(M_hat[i], M_hat[i + F])))
     
     G = np.vstack((Gii, Gjj, Gij))
     G_trans = np.matrix.transpose(G)
@@ -343,7 +339,7 @@ def structure_from_motion_h(kpts,color):
         else:
             cams = np.vstack((cams, cam.ravel()))
     
-    write_ply_h("keypoints.ply", S, color[:len(kpts[0]),cams])
+    write_ply_h("keypoints.ply", S[:,:3], color[:len(kpts[0])],cams)
 
 if __name__ == '__main__':
     file_name = 'input/video1.mp4'
@@ -351,7 +347,7 @@ if __name__ == '__main__':
     kpts_method_ = 'sift'
     frame_per_sec = 30
     color = np.random.randint(0,255,(1000,3))
-    video = load_video(file_name, frame_per_sec)[:5]
+    video = load_video(file_name, frame_per_sec)[:10]
     keypoints = optical_flow(video,color, max_keypoints=1000,file_name = 'dbg/flow_', level=1,kpts_method = kpts_method_)
     print("keypoints:  ",len(keypoints[0]),color[:len(keypoints)].shape)
-    structure_from_motion(keypoints,color)
+    structure_from_motion_h(keypoints,color)
