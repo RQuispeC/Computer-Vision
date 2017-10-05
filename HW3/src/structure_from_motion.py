@@ -46,15 +46,16 @@ def derivate(img, direct='X'):
         return cv2.filter2D(img, -1, kernelY)
 
 #find keypoints 
-def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_aperture_sz = 3, harris_k = 0.04, prunning_thresh=0.05):
+def interest_point(frame, method='shiTomosi', harris_block_sz = 2, harris_aperture_sz = 3, harris_k = 0.04, prunning_thresh=0.15):
     kpt=[]
     if method == 'shiTomosi':
         # params for ShiTomasi corner detection
-        feature_params = dict( maxCorners = 100, qualityLevel = 0.3, minDistance = 7, blockSize = 7 )
+        feature_params = dict( maxCorners = 1000, qualityLevel = 0.3, minDistance = 7, blockSize = 7 )
         kpt_aux = cv2.goodFeaturesToTrack(frame, mask = None, **feature_params)
         kpt = []
         for index in range(len(kpt_aux)):
-            kpt.append([kpt_aux[index][0][0], kpt_aux[index][0][1]])
+            if kpt_aux[index][0][0]>=frame.shape[1] * prunning_thresh and kpt_aux[index][0][0]<frame.shape[1] * (1.0-prunning_thresh) and kpt_aux[index][0][1]>=frame.shape[0] * prunning_thresh and kpt_aux[index][0][1]<frame.shape[0] * (1.0-prunning_thresh):
+                kpt.append([kpt_aux[index][0][0], kpt_aux[index][0][1]])
     elif method == 'Harris':
         empty_frame = np.zeros(frame.shape)
         kpt = cv2.cornerHarris(np.float32(frame), harris_block_sz, harris_aperture_sz, harris_k)
@@ -136,6 +137,7 @@ def optical_flow(video, color, level=2,max_keypoints=100, file_name = 'dbg/flow_
     keypoints=[]
     pyramid = obtaining_pyramid(video,level)
     kpts = interest_point(pyramid[0], kpts_method)
+    print(len(kpts))
     kpts = kpts[0:min(max_keypoints,len(kpts)-1)]
     status=[True for i in range(len(kpts))]
     mask = np.zeros((video[0].shape[0], video[0].shape[1], 3))
@@ -235,12 +237,11 @@ def structure_from_motion(kpts,color):
     #apply SVD
     U, SIG, V_T = np.linalg.svd(W)
     U=U[:,:3]
-
-    SIG=np.diag(SIG[:3])
+    SIG=np.sqrt(np.diag(SIG[:3]))
     V_T=V_T[:,:3]
     V_T = np.matrix.transpose(V_T)
 
-    M_hat = U
+    M_hat = np.dot(U,SIG)
     S_hat = np.dot(SIG,V_T)
     #compute A
     c = np.append(np.ones(2 * F), np.zeros(F))
@@ -270,7 +271,7 @@ def structure_from_motion(kpts,color):
     S = np.dot(np.linalg.inv(A),S_hat)
     S = np.matrix.transpose(S)
 
-    write_ply("keypoints.ply", S[:,:3], color[:len(kpts[0])])
+    write_ply("keypoints_origamy_17_all.ply", S[:,:3], color[:len(kpts[0])])
 
 def structure_from_motion_h(kpts,color):
     P = len(kpts[0])
@@ -339,15 +340,24 @@ def structure_from_motion_h(kpts,color):
         else:
             cams = np.vstack((cams, cam.ravel()))
     
-    write_ply_h("keypoints.ply", S[:,:3], color[:len(kpts[0])],cams)
+    write_ply_h("keypoints_chaous.ply", S[:,:3], color[:len(kpts[0])],cams)
 
+def load_images(file_):
+    video=[]
+    for i in range(9):
+        file_aux=file_+str(i+1)+".png"
+        img = cv2.imread(file_aux,0)
+        img = np.float32(img)
+        video.append(img)
+    return video
 if __name__ == '__main__':
-    file_name = 'input/video1.mp4'
+    file_name = 'input/video17.mp4'
     neigh_size = 15
-    kpts_method_ = 'sift'
+    kpts_method_ = 'shiTomosi'
     frame_per_sec = 30
     color = np.random.randint(0,255,(1000,3))
-    video = load_video(file_name, frame_per_sec)[:10]
-    keypoints = optical_flow(video,color, max_keypoints=1000,file_name = 'dbg/flow_', level=1,kpts_method = kpts_method_)
+    video = load_video(file_name, frame_per_sec)
+    #video = load_images('input/dino000');    
+    keypoints = optical_flow(video,color, max_keypoints=1000,file_name = 'dbg/flow_17_all_', level=1,kpts_method = kpts_method_)
     print("keypoints:  ",len(keypoints[0]),color[:len(keypoints)].shape)
-    structure_from_motion_h(keypoints,color)
+    structure_from_motion(keypoints,color)
