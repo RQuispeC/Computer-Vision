@@ -48,13 +48,13 @@ Institute of Computing, University of Campinas (UNICAMP) \\
 Campinas-SP, Brazil, 13083-852 \\
 
 \vspace{0.5cm}
-\textbf{\large{Single Image Crowd Person Counting}}
+\textbf{\large{Single image crowd person counting}}
 \end{center}
 
 In our project we aim to work over the crowd person counting. This is an interesting problem it has applications in safe monitoring, disaster management, design of public places, intelligence gathering, virtual environment, forensic search, among others. The problem can be defined as follow: given and image find the number of persons that appears, as can be see in figure \ref{fig:scenario} the scenarios are really general  and challenging. 
 
-\vspace{0.3cm}
-The work of Wang et al.~\cite{wang2015deep} uses the well known Alexnet architecture and changes the last layer for a unique neuron and applies transfer learning with data augmentation over this network, Zhang et al.~\cite{zhang2016single} proposed ShangaiTech dataset in order to boost the use of deep learning over this problem and Shang et al.~\cite{shang2016end} used GoogleNet and a Long Short Term Memory(LSTM) for this problem. Inspired by these works we intend to use an available network, initially we consider Caffenet, GoogleNet, YOLO or Resnet in order to apply transfer learning on this problem. We are also considering data augmentation with preprocessing as similar to~\cite{zhang2016single}.
+\vspae{0.3cm}
+The work of Wang et al.~\cite{wang2015deep} uses the well known Alexnet architecture and changes the last layer for a unique neuron and applies transfer learning with data augmentation over this network, Zhang et al.~\cite{zhang2016single} proposed ShangaiTech dataset in order to boost the use of deep learning over this problem and Shang et al.~\cite{shang2016end} used GoogleNet and a Long Short Term Memory(LSTM) for this problem. Inspired by these works we intend to use an available network, we initially consider Caffenet, GoogleNet, YOLO or Resnet in order to apply transfer learning on this problem.
 
 \begin{figure}[h!]
 \centering
@@ -76,7 +76,7 @@ In order to test our method we will use the datasets available for the problem, 
 \centering
 \begin{tabular}{|l|c|c|r|r|r|r|}
 \hline
-\multicolumn{1}{|c|}{\textbf{Dataset}} & \textbf{Nro. of images} & \textbf{Resolution} & \multicolumn{1}{c|}{\textbf{Min.}} & \multicolumn{1}{c|}{\textbf{Ave.}} & \multicolumn{1}{c|}{\textbf{Max.}} & \multicolumn{1}{c|}{\textbf{Total count}} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Dataset}} & \textbf{Nro. of images} & \textbf{Resolution} & \multicolumn{1}{c|}{\textbf{Min}} & \multicolumn{1}{c|}{\textbf{Ave}} & \multicolumn{1}{c|}{\textbf{Max}} & \multicolumn{1}{c|}{\textbf{Total count}} \\ \hline
 \textbf{UCSD} & 2000 & 158x238 & 11 & 25 & 46 & 49,885 \\ \hline
 \textbf{Mall} & 2000 & 320x240 & 13 & - & 53 & 62, 325 \\ \hline
 \textbf{UCF\_CC\_50} & 50 & Varied & 94 & 1279 & 4543 & 63,974 \\ \hline
