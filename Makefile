@@ -1,6 +1,6 @@
 DOCKER_IMAGE = adnrv/opencv
 
-CURRENT_DIR = $(shell pwd)"/HW3"
+CURRENT_DIR = $(shell pwd)"/HW4"
 
 SOURCE_DIR = $(CURRENT_DIR)
 DOCKER_DIR = /builds  
