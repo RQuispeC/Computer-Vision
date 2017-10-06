@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  2 OCT 2017 20:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.27)  5 OCT 2017 19:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -719,40 +719,40 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count138
-<figs/cover.jpg, id=8, 722.7pt x 481.8pt>
+<figs/cover.jpg, id=9, 722.7pt x 481.8pt>
 File: figs/cover.jpg Graphic file (type jpg)
  <use figs/cover.jpg>
-Package pdftex.def Info: figs/cover.jpg used on input line 60.
+Package pdftex.def Info: figs/cover.jpg used on input line 63.
 (pdftex.def)             Requested size: 229.18532pt x 152.78967pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<figs/mallexample.jpg, id=9, 642.4pt x 481.8pt>
+<figs/mallexample.jpg, id=10, 642.4pt x 481.8pt>
 File: figs/mallexample.jpg Graphic file (type jpg)
  <use figs/mallexample.jpg>
-Package pdftex.def Info: figs/mallexample.jpg used on input line 64.
+Package pdftex.def Info: figs/mallexample.jpg used on input line 67.
 (pdftex.def)             Requested size: 203.72244pt x 152.78967pt.
 
 (./proposal.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 91.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 94.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figs/cover.jpg> <./figs/
 mallexample.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 91.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 94.
  (./proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 91.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 91.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 94.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 94.
 Package rerunfilecheck Info: File `proposal.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 91.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 94.
  ) 
 Here is how much of TeX's memory you used:
  10531 strings out of 493304
@@ -761,15 +761,15 @@ Here is how much of TeX's memory you used:
  13838 multiletter control sequences out of 15000+600000
  22977 words of font info for 34 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,9n,40p,774b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,9n,40p,737b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/bitstrea/charter/bchri8a.pfb>
-Output written on proposal.pdf (1 page, 149967 bytes).
+Output written on proposal.pdf (1 page, 150340 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 42 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  8 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
