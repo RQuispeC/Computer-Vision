@@ -387,15 +387,10 @@ def save_video(video, file_name = 'output/p2-1-1.avi', fps = 30, by_frame = Fals
         out.release()
 if __name__ == '__main__':
     file_name = 'input/p3-1-1.mp4'
-    video=[]
-    for i in range(129):
-        video.append(cv2.imread("dbg/flowSP_"+str(i+1)+".jpg"))
-    save_video(video)
-
     neigh_size_ = 15
-    kpts_method_ = 'Harris'
+    kpts_method_ = 'sift'
     frame_per_sec = 20
     color = np.random.randint(0,255,(10000,3))
-    video = load_video(file_name, frame_per_sec)[0:300]
+    video = load_video(file_name, frame_per_sec)[0:200]
     keypoints = optical_flow(video,color, max_keypoints=10000,file_name = 'output/flow_'+kpts_method_+'_', level=0,kpts_method = kpts_method_, neigh_size = neigh_size_)
     structure_from_motion(keypoints,color)
