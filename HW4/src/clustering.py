@@ -6,9 +6,8 @@ import os
 import utils
 
 #returns an image with clusters
-def clusterize(img, K):
+def clusterize(img, K=4, max_iters=10):
     shape_img=img.shape;
-    # Mean filter
     kernel = np.ones((3,3),np.float32)/9
     img = cv2.filter2D(img,-1,kernel)
     #img = cv2.blur(img,(5,5))
@@ -16,7 +15,7 @@ def clusterize(img, K):
     # convert to np.float32
     Z = np.float32(Z)
     # define criteria, number of clusters(K) and apply kmeans()
-    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
+    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, max_iters, 1.0)
     ret,label,center=cv2.kmeans(Z,K,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
 
     label=label.reshape((shape_img[0],shape_img[1]))
