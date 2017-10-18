@@ -90,7 +90,7 @@ class imageDescriptor():
         cnt = contours[0]
         M = cv2.moments(cnt)
         if M['m00'] == 0:
-            print(ind, 'mask without centroid')
+            #print(ind, 'mask without centroid')
             return []
         cx = int(M['m10']/M['m00'])
         cy = int(M['m01']/M['m00'])

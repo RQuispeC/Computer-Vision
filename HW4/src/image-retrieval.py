@@ -22,7 +22,7 @@ def cluster(img, K=4, max_iters=10):
     return label
 
 #return a vector of vectors(1 for each cluster)
-def conectedComponents(img, img_clustered):
+def conectedComponents(img, img_clustered, size_threshold = 100):
     visited = np.zeros(img_clustered.shape)
     components = []
     ac = 0
@@ -31,6 +31,8 @@ def conectedComponents(img, img_clustered):
             if visited[i, j] == 1:
                 continue
             comp, visited = utils.bfs(img_clustered, i, j, img_clustered[i, j], visited)
+            if len(comp) <= size_threshold:
+                continue
             components.append(comp)
             ac += len(comp)
     return components
@@ -38,29 +40,38 @@ def conectedComponents(img, img_clustered):
 
 #builts data if not exiss
 def builtStructure(K = 10, features = [], save_filename = 'input/data.npz', overwrite = False):
+    npz_file_names = []
+    img_file_names = []
+    img_names = os.listdir('input/')
+    img_names.sort()
+    alreadyCompt = True
+    for img_name in img_names:
+        if img_name[len(img_name) - 4:] != '.jpg':
+            continue
+        img_file_names.append('input/' + img_name)
+        npz_file_name = 'input/' + img_name + '.npz'
+        npz_file_names.append(npz_file_name)
+        if not os.path.exists(npz_file_name):
+            alreadyCompt = False
+        
     #check if data exists
-    if os.path.exists(save_filename) and not overwrite:
-        npz_file = np.load(outfile)
-        data = npz_file['arr_0']
-        features = npz_file['arr_1']
-    else:
-        img_names = os.listdir('input/')
-        img_names.sort()
+    if not alreadyCompt or overwrite:
         #img_names = img_names[:3]
-        data = []
-        for img_name in img_names:
-            if img_name[len(img_name) - 4:] != '.jpg':
-                continue
-            img = cv2.imread('input/' + img_name)
+        for img_name, npz_name in zip(img_file_names, npz_file_names):
+            print(img_name)
+            print(npz_name)
+            img = cv2.imread(img_name)
             #clusterize
             clusters = cluster(img, K = K)
             #find conected components
             components = conectedComponents(img, clusters)
+            print('N components', len(components))
             #built
-            data.append(img_des.imageDescriptor(img, components, features))
-        #save data
-        np.savez(save_filename, data, features)
-    return data, features
+            des = img_des.imageDescriptor(img, components, features)
+            #save data
+            np.savez(npz_name, des, features)
+        
+    return npz_file_names
    
 #return matches
 def findMatch(query, data_structure):
@@ -69,10 +80,10 @@ def findMatch(query, data_structure):
 if __name__ == '__main__':
     features = ['region_size', 'mean_color', 'contrast', 'correlation', 'entropy', 'centroid', 'bound_box']
     K = 10
-    save_filename = 'input/data.npz'
+    save_filename = 'input/data'
     
     #built structure
-    data, features = builtStructure(K, features, save_filename)
+    npz_file_names = builtStructure(K, features, save_filename)
     #querie the structure 
 
 
