@@ -88,6 +88,48 @@ def findMatch(query, data_structure):
     distance.sort()
     print('-->', query)
     print(distance)
+    return distance
+
+def metrics(distances, npz_file_names, type_metric='MRR', k = 10):
+    position_match = []
+    for name, distance in zip(npz_file_names, distances):
+        new_positions = []
+        idx = 1;
+        name = name[0:name.find('_')]
+        for pos in distance:
+            if name == pos[1][0:pos[1].find('_')]:
+                new_positions.append(idx)
+            idx += 1
+        position_match.append([name[6:len(name)],new_positions])
+
+    print(position_match)
+
+    # source: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
+    print('********** Mean Reciprocal Rank **********')
+    MRR=0.0;
+    for element in position_match:
+        print(element[0]+" : {0:2f}".format(1.0/element[1][0]))
+        MRR += 1.0/element[1][0]
+    print('MRR : {0:2f}'.format(MRR/len(position_match)))
+
+    # source: https://en.wikipedia.org/wiki/Information_retrieval#Mean_average_precision
+    print('********** Mean Average Precision **********')
+    MAP=0.0;
+    print('Average Precision : ')
+    for element in position_match:
+        AP = 0.0
+        number_relevant_document = 0.0
+        for idx in element[1]:
+            if idx < k:
+                number_relevant_document += 1
+                AP += number_relevant_document/idx
+        if number_relevant_document != 0 :
+            AP = AP/number_relevant_document
+        else:
+            AP = 0
+        print(element[0]+" : {0:2f}".format(AP))
+        MAP += AP
+    print('MAP : {0:2f}'.format(MAP/len(position_match)))
 
 if __name__ == '__main__':
     features = ['region_size', 'mean_color', 'contrast', 'correlation', 'entropy', 'centroid', 'bound_box']
@@ -97,8 +139,11 @@ if __name__ == '__main__':
     #built structure
     npz_file_names = builtStructure(K, features, save_filename, overwrite = False)
     #querie the structure 
-    i = 0 
+    i = 0
+    distances=[] 
     for npz_file in npz_file_names:
-        findMatch(npz_file, np.append(npz_file_names[:i], npz_file_names[i+1:]))
+        distance = findMatch(npz_file, np.append(npz_file_names[:i], npz_file_names[i+1:]))
+        distances.append(distance)        
         i += 1
 
+    metrics(distances, npz_file_names)
