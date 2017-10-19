@@ -90,7 +90,8 @@ def findMatch(query, data_structure):
     print(distance)
     return distance
 
-def metrics(distances, npz_file_names, type_metric='MRR', k = 10):
+def metrics(distances, npz_file_names, k = 10):
+    #source: https://stats.stackexchange.com/questions/127041/mean-average-precision-vs-mean-reciprocal-rank
     position_match = []
     for name, distance in zip(npz_file_names, distances):
         new_positions = []
@@ -146,4 +147,4 @@ if __name__ == '__main__':
         distances.append(distance)        
         i += 1
 
-    metrics(distances, npz_file_names)
+    metrics(distances, npz_file_names, k=5)
