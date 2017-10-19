@@ -3,6 +3,8 @@ import cv2
 from skimage.feature import greycomatrix
 from skimage.feature import greycoprops
 import random
+from scipy.spatial.distance import cosine
+from scipy.spatial.distance import hamming
 
 class imageDescriptor():
     def __init__(self, img, components, features = []):
@@ -11,6 +13,10 @@ class imageDescriptor():
         self.masks = self.builtGrayMasks()
         self.color_components = self.builtColorComponents()
         self.descriptor = self.builtDescriptor(features)
+        self.components = None
+        self.masks = None
+        self.color_components = None
+
         
     def builtColorComponents(self):
         color_comp = []
@@ -36,23 +42,26 @@ class imageDescriptor():
     def builtDescriptor(self, features):
         descriptor = []
         for color_component, component, mask in zip(self.color_components, self.components, self.masks):
+            des_comp = []
             for feature in features:
                 if feature  == 'region_size':
-                    descriptor.append(self.region_size(component))
+                    des_comp.append(self.region_size(component))
                 elif feature == 'mean_color':
-                    descriptor.append(self.mean_color(color_component))
+                    des_comp.append(self.mean_color(color_component))
                 elif feature == 'contrast': 
-                    descriptor.append(self.contrast(mask))
+                    des_comp.append(self.contrast(mask))
                 elif feature == 'correlation':
-                    descriptor.append(self.correlation(mask))
+                    des_comp.append(self.correlation(mask))
                 elif feature == 'entropy':
-                    descriptor.append(self.entropy(mask))
+                    des_comp.append(self.entropy(mask))
                 elif feature == 'centroid':
-                    descriptor.append(self.centroid(mask))
+                    des_comp.append(self.centroid(mask))
                 elif feature == 'bound_box':
-                    descriptor.append(self.bounding_box(component))
+                    des_comp.append(self.bounding_box(component))
                 else:
                     exit('Error: not valid feature ' + feature)
+            descriptor.append(des_comp)
+        return descriptor
         
     def region_size(self, component):
         return len(component)
@@ -97,8 +106,50 @@ class imageDescriptor():
         return [cy, cx]
     
     def bounding_box(self, component):
-        return np.array([np.min(component, 0), np.max(component, 0)])
+        vect = np.min(component, 0) - np.max(component, 0)
+        return np.linalg.norm(vect)
 
-    def similarity(self, left, right):
-        return 1
+
+def similarity(left, right, distance_metric = 'l2-norm'):
+    tot_distance = 0
+    best_comp_match = []
+    for left_component in left.descriptor:
+        distances = []
+        i = 0
+        for right_component in right.descriptor:
+            distance_sum = 0
+            ac_dist = []
+            for ind in range(1, 7):
+                left_elem, right_elem = left_component[ind], right_component[ind]
+                if left_elem == [] or right_elem == []:
+                    continue
+                left_elem = np.array(left_elem)
+                right_elem = np.array(right_elem)
+                if distance_metric == 'l1-norm':
+                    diff = abs(left_elem -  right_elem)
+                    distance = (diff * diff).sum()
+                elif distance_metric == 'l2-norm':
+                    distance = np.linalg.norm(left_elem - right_elem).sum()
+                elif distance_metric == 'chebyshev':
+                    diff = abs(left_elem - right_elem)
+                    distance = diff.max()
+                elif distance_metric == 'cosine':
+                    distance = cosine(left_elem, right_elem).sum()
+                elif distance_metric == 'hamming':
+                    distance = hamming(left_elem, right_elem).sum()
+                else:
+                    exit('Error: invalid distance metric')
+                distance_sum += distance
+                ac_dist.append(distance)
+            ''' 
+            print('+', left_component)
+            print('-', right_component)
+            print(distance_sum) 
+            '''
+            distances.append((distance_sum, i, ac_dist))
+            i += 1
+        distances.sort()
+        tot_distance += np.min(distances[0][0])
+        best_comp_match.append(distances[0][2])
+    return tot_distance
     

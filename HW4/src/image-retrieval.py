@@ -4,6 +4,7 @@ import sklearn
 import image_descriptor as img_des
 import os
 import utils
+import pickle
 
 #returns an image with clusters
 def cluster(img, K=4, max_iters=10):
@@ -49,7 +50,7 @@ def builtStructure(K = 10, features = [], save_filename = 'input/data.npz', over
         if img_name[len(img_name) - 4:] != '.jpg':
             continue
         img_file_names.append('input/' + img_name)
-        npz_file_name = 'input/' + img_name + '.npz'
+        npz_file_name = 'input/' + img_name + '.ob'
         npz_file_names.append(npz_file_name)
         if not os.path.exists(npz_file_name):
             alreadyCompt = False
@@ -69,21 +70,35 @@ def builtStructure(K = 10, features = [], save_filename = 'input/data.npz', over
             #built
             des = img_des.imageDescriptor(img, components, features)
             #save data
-            np.savez(npz_name, des, features)
+            pickle.dump(des, open(npz_name, "wb"))
         
     return npz_file_names
-   
+
+def loadNpzFile(filename):
+    data = pickle.load(open(filename, "rb"))
+    return data
+
 #return matches
 def findMatch(query, data_structure):
-    return 1
+    distance = []
+    left = loadNpzFile(query)
+    for data_name in data_structure.ravel():
+        distance.append((img_des.similarity(left, loadNpzFile(data_name)), data_name))
+    
+    distance.sort()
+    print('-->', query)
+    print(distance)
 
 if __name__ == '__main__':
     features = ['region_size', 'mean_color', 'contrast', 'correlation', 'entropy', 'centroid', 'bound_box']
-    K = 10
+    K = 4
     save_filename = 'input/data'
     
     #built structure
-    npz_file_names = builtStructure(K, features, save_filename)
+    npz_file_names = builtStructure(K, features, save_filename, overwrite = False)
     #querie the structure 
-
+    i = 0 
+    for npz_file in npz_file_names:
+        findMatch(npz_file, np.append(npz_file_names[:i], npz_file_names[i+1:]))
+        i += 1
 
