@@ -7,7 +7,7 @@ import utils
 import pickle
 
 #returns an image with clusters
-def cluster(img, K=4, max_iters=10):
+def cluster(img, K=4, max_iters=10, img_name = '', plot = False):
     shape_img=img.shape;
     kernel = np.ones((3,3),np.float32)/9
     img = cv2.filter2D(img,-1,kernel)
@@ -20,6 +20,13 @@ def cluster(img, K=4, max_iters=10):
     ret,label,center=cv2.kmeans(Z,K, None,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
 
     label=label.reshape((shape_img[0],shape_img[1]))
+
+    if plot:    
+        center = np.uint8(center)
+        res = center[label.flatten()]
+        res2 = res.reshape((img.shape))
+        cv2.imwrite('output/' + img_name + '_clust.jpg', res2)
+
     return label
 
 #return a vector of vectors(1 for each cluster)
@@ -63,7 +70,7 @@ def builtStructure(K = 10, features = [], save_filename = 'input/data.npz', over
             print(npz_name)
             img = cv2.imread(img_name)
             #clusterize
-            clusters = cluster(img, K = K)
+            clusters = cluster(img, K = K, img_name[:img_name.find('/')], True)
             #find conected components
             components = conectedComponents(img, clusters)
             print('N components', len(components))
