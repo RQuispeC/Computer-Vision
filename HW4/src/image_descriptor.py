@@ -107,10 +107,10 @@ class imageDescriptor():
     
     def bounding_box(self, component):
         vect = np.min(component, 0) - np.max(component, 0)
-        return np.linalg.norm(vect)
+        return 0#np.linalg.norm(vect)
 
 
-def similarity(left, right, distance_metric = 'l2-norm'):
+def similarity(left, right, features_to_use, distance_metric = 'l2-norm'):
     tot_distance = 0
     best_comp_match = []
     for left_component in left.descriptor:
@@ -119,7 +119,7 @@ def similarity(left, right, distance_metric = 'l2-norm'):
         for right_component in right.descriptor:
             distance_sum = 0
             ac_dist = []
-            for ind in range(1, 7):
+            for ind in features_to_use:
                 left_elem, right_elem = left_component[ind], right_component[ind]
                 if left_elem == [] or right_elem == []:
                     continue

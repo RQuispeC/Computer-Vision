@@ -79,15 +79,15 @@ def loadNpzFile(filename):
     return data
 
 #return matches
-def findMatch(query, data_structure):
+def findMatch(query, data_structure, features_use):
     distance = []
     left = loadNpzFile(query)
     for data_name in data_structure.ravel():
-        distance.append((img_des.similarity(left, loadNpzFile(data_name)), data_name))
+        distance.append((img_des.similarity(left, loadNpzFile(data_name),features_use), data_name,))
     
     distance.sort()
-    print('-->', query)
-    print(distance)
+    #print('-->', query)
+    #print(distance)
     return distance
 
 def metrics(distances, npz_file_names, k = 10):
@@ -134,17 +134,22 @@ def metrics(distances, npz_file_names, k = 10):
 
 if __name__ == '__main__':
     features = ['region_size', 'mean_color', 'contrast', 'correlation', 'entropy', 'centroid', 'bound_box']
-    K = 4
+    features_to_use= [[0,1,2,3,4,5,6],[1,2,3,4,5,6],[0,1,2,3,4,5]]
+    K = 5
     save_filename = 'input/data'
     
     #built structure
-    npz_file_names = builtStructure(K, features, save_filename, overwrite = False)
+    npz_file_names = builtStructure(K, features , save_filename, overwrite = False)
     #querie the structure 
     i = 0
     distances=[] 
-    for npz_file in npz_file_names:
-        distance = findMatch(npz_file, np.append(npz_file_names[:i], npz_file_names[i+1:]))
-        distances.append(distance)        
-        i += 1
-
-    metrics(distances, npz_file_names, k=5)
+    for features_use in features_to_use:
+        print("index of features => ",features_use)
+        for npz_file in npz_file_names:
+            distance = findMatch(npz_file, np.append(npz_file_names[:i], npz_file_names[i+1:]),features_use)
+            distances.append(distance)        
+            i += 1
+            if i==3:
+                break
+            
+        metrics(distances, npz_file_names, k=5)
