@@ -140,11 +140,11 @@ if __name__ == '__main__':
     
     #built structure
     npz_file_names = builtStructure(K, features , save_filename, overwrite = False)
-    #querie the structure 
-    i = 0
+    #querie the s   tructure 
     distances=[] 
     for features_use in features_to_use:
         print("index of features => ",features_use)
+        i = 0
         for npz_file in npz_file_names:
             distance = findMatch(npz_file, np.append(npz_file_names[:i], npz_file_names[i+1:]),features_use)
             distances.append(distance)        
