@@ -55,7 +55,7 @@ def conectedComponents(img, img_clustered, size_threshold = 300, img_name = '', 
 
 
 #builts data if not exiss
-def builtStructure(K = [8,2,4], features = [], save_filename = 'input/data.npz', overwrite = False):
+def builtStructure(K = [2,4,8], features = [], save_filename = 'input/data.npz', overwrite = False):
     npz_file_names = []
     img_file_names = []
     img_names = os.listdir('input/')
@@ -66,7 +66,7 @@ def builtStructure(K = [8,2,4], features = [], save_filename = 'input/data.npz',
         if img_name[len(img_name) - 4:] != '.jpg':
             continue
         img_file_names.append('input/' + img_name)
-        npz_file_name = 'input/' + img_name + '.ob'
+        npz_file_name = 'input/' + img_name + '.ob1'
         npz_file_names.append(npz_file_name)
         if not os.path.exists(npz_file_name):
             alreadyCompt = False
@@ -75,7 +75,7 @@ def builtStructure(K = [8,2,4], features = [], save_filename = 'input/data.npz',
     if not alreadyCompt or overwrite:
         #img_names = img_names[:3]
         for img_name, npz_name in zip(img_file_names, npz_file_names):
-            print("creatin file ",npz_name,"...")
+            print("creating file ",npz_name,"...")
             img = cv2.imread(img_name)
             for K_ in K:
                 img_name_= img_name[6:img_name.find('-')-3]+'_K-'+str(K_)
@@ -83,6 +83,7 @@ def builtStructure(K = [8,2,4], features = [], save_filename = 'input/data.npz',
                 clusters = cluster(img, K_, img_name = img_name_, plot=True)
 		        #find conected components
                 components = conectedComponents(img, clusters, img_name = img_name_, plot=True)
+                    
             print('Nro components : ', len(components))
             #built
             des = img_des.imageDescriptor(img, components, features)
@@ -123,7 +124,7 @@ def metrics(distances, npz_file_names, k = 5):
             idx += 1
         position_match.append([name[6:len(name)],new_positions])
 
-    print(position_match)
+    #print(position_match)
 
     # source: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
     print('********** Mean Reciprocal Rank **********')
@@ -164,7 +165,7 @@ if __name__ == '__main__':
     npz_file_names = builtStructure(K, features , save_filename, overwrite = True)
     #querie the s   tructure
     for features_use in features_to_use:
-        print('\nfeatures => ',features[min(features_use):max(features_use)])
+        print('\nfeatures => ',features[min(features_use): max(features_use)])
         i = 0
         distances=[]
         for npz_file in npz_file_names:
@@ -177,7 +178,7 @@ if __name__ == '__main__':
     # Write top 3 for each test
     print('writing file the top 3 results of querying.....')
     file_ = open('output/top_3.txt','w')
-    file_.write('#format: query ===> (first)(second)(third)')
+    file_.write('#format: query ===> (first) (second) (third)\n\n')
     for top_3_element in top_3:
         new_line = top_3_element[0]+' ===> '
         for element in top_3_element[1:]:

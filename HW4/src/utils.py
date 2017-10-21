@@ -23,4 +23,5 @@ def bfs(bfsImg, i, j, label, visited):
                 q.append([ni, nj])
     comp = np.array(comp)
     return comp, visited
-    
+
+
