@@ -1,0 +1,6 @@
+\section{Distance Measure}
+In order to compare two images $I$ and $J$, we consider the aproach indicated in the project statement, this is, for each componenet in image $I$ we find its corresponding best match in the components of $J$, note that this comparison in not comutative and that two or more components of $I$ may match the same component in $J$. 
+
+In order to compute the similarity of two components we evaluate L2-norm and Cosine distance of each feature (size of region, mean color, etc) and sum up all this values. While more close to cero is this value, the similarity of the components is bigger. Note that to compare features like mean color (3 values) the comparison is done elementwise. Comparison of distance functions are available in section \ref{sec:experiments}
+
+
