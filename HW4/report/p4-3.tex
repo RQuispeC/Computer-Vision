@@ -71,11 +71,11 @@ X & X & X & X & X & X & - & 0.472 & 0.437 \\ \hline
 \multicolumn{2}{|l|}{\textit{\textbf{K(clusters): 8}}} & \multicolumn{2}{l|}{\textit{\textbf{Distance : L2-norm}}} & \multicolumn{3}{l|}{\textit{\textbf{Threshold : 300}}} & \multicolumn{2}{l|}{\textit{\textbf{K(metric MAP) :  5}}} \\ \hline
 \multicolumn{7}{|c|}{\textbf{Features}} & \multicolumn{2}{c|}{\textbf{Metrics}} \\ \hline
 \textbf{Region Size} & \textbf{Mean Color} & \textbf{Contrast} & \textbf{Correlation} & \textbf{Entropy} & \textbf{Centroid} & \textbf{Bound Box} & \multicolumn{1}{c|}{\textbf{MRR}} & \multicolumn{1}{c|}{\textbf{MAP}} \\ \hline
-X & X & X & X & X & X & X & 0.414 & 0.360 \\ \hline
-\textit{\textbf{-}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{0.786}} & \textit{\textbf{0.745}} \\ \hline
-X & X & X & X & X & X & - & 0.395 & 0.341 \\ \hline
-- & X & X & X & X & X & - & 0.737 & 0.685 \\ \hline
-- & X & X & X & X & - & - & 0.769 & 0.734 \\ \hline
+X & X & X & X & X & X & X & 0.545 & 0.496 \\ \hline
+\textit{\textbf{-}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{X}} & \textit{\textbf{0.834}} & \textit{\textbf{0.801}} \\ \hline
+X & X & X & X & X & X & - & 0.527 & 0.475 \\ \hline
+- & X & X & X & X & X & - & 0.788 & 0.740 \\ \hline
+- & X & X & X & X & - & - & 0.814 & 0.787 \\ \hline
 \end{tabular}
 \caption{Results for L2-norm distance, threshold 300 for connected components and k=8 for K-means}
 \label{table:results04}
@@ -89,7 +89,7 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 
 
 \begin{itemize}
-\item \textbf{beach\_2}: crater\_3, beach\_4, crater\_5 (figure\ref{fig:results_beach_2}).
+\item \textbf{beach\_2}: beach\_4, beach\_3, crater\_1 (figure\ref{fig:results_beach_2}).
 
 \begin{figure}[H]
 	\centering
@@ -100,24 +100,24 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/crater_3.jpg}
-	  \caption{1st: crater\_3}
+	  \includegraphics[width=0.9\linewidth]{../input/beach_4.jpg}
+	  \caption{1st: beach\_4}
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
         \centering
-        \includegraphics[width=0.9\linewidth]{../input/beach_4.jpg}
-        \caption{2nd: beach\_4}
+        \includegraphics[width=0.9\linewidth]{../input/beach_3.jpg}
+        \caption{2nd: beach\_3}
     \end{subfigure}%
     \begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/crater_5.jpg}
-	    \caption{3th: crater\_5}
+	  \includegraphics[width=0.9\linewidth]{../input/beach_1.jpg}
+	    \caption{3th: beach\_1}
 	\end{subfigure}
     \caption{Results for beach\_2}
     \label{fig:results_beach_2}
 \end{figure}
 
-\item \textbf{boat\_5}: boat\_2, cherry\_3, boat\_4 (figure \ref{fig:results_boat_5}).
+\item \textbf{boat\_5}: boat\_3, boat\_4, cherry\_1 (figure \ref{fig:results_boat_5}).
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{0.25\textwidth}
@@ -127,24 +127,24 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/boat_2.jpg}
-	  \caption{1st: boat\_2}
+	  \includegraphics[width=0.9\linewidth]{../input/boat_3.jpg}
+	  \caption{1st: boat\_3}
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
         \centering
-        \includegraphics[width=0.9\linewidth]{../input/cherry_3.jpg}
-        \caption{2nd: cherry\_3}
+        \includegraphics[width=0.9\linewidth]{../input/boat_4.jpg}
+        \caption{2nd: boat\_4}
     \end{subfigure}%
     \begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/boat_4.jpg}
-	    \caption{3th: boat\_4}
+	  \includegraphics[width=0.9\linewidth]{../input/cherry_1.jpg}
+	    \caption{3th: cherry\_1}
 	\end{subfigure}
     \caption{Results for boat\_5}
     \label{fig:results_boat_5}
 \end{figure}
 
-\item \textbf{cherry\_3}: cherry\_2, cherry\_1, cherry\_4 (figure \ref{fig:results_cherry_3}).
+\item \textbf{cherry\_3}: cherry\_1, cherry\_2, cherry\_4 (figure \ref{fig:results_cherry_3}).
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{0.25\textwidth}
@@ -154,13 +154,13 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/cherry_2.jpg}
-	  \caption{1st: cherry\_2}
+	  \includegraphics[width=0.9\linewidth]{../input/cherry_1.jpg}
+	  \caption{1st: cherry\_1}
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
         \centering
-        \includegraphics[width=0.9\linewidth]{../input/cherry_1.jpg}
-        \caption{2nd: cherry\_1}
+        \includegraphics[width=0.9\linewidth]{../input/cherry_2.jpg}
+        \caption{2nd: cherry\_2}
     \end{subfigure}%
     \begin{subfigure}{0.25\textwidth}
 	  \centering
@@ -172,7 +172,7 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 \end{figure}
 
 
-\item \textbf{pond\_2}: pond\_1, pond\_3, boat\_3 (figure \ref{fig:results_pond_2}).
+\item \textbf{pond\_2}: pond\_1, pond\_3, cherry\_1 (figure \ref{fig:results_pond_2}).
 
 \begin{figure}[H]
 	\centering
@@ -189,19 +189,19 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 	\begin{subfigure}{0.25\textwidth}
         \centering
         \includegraphics[width=0.9\linewidth]{../input/pond_3.jpg}
-        \caption{2nd: bond\_3}
+        \caption{2nd: pond\_3}
     \end{subfigure}%
     \begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/boat_3.jpg}
-	    \caption{3th: boat\_3}
+	  \includegraphics[width=0.9\linewidth]{../input/cherry_1.jpg}
+	    \caption{3th: cherry\_1}
 	\end{subfigure}
     \caption{Results for pond\_2}
     \label{fig:results_pond_2}
 \end{figure}
 
 
-\item \textbf{stHelens\_2}: stHelens\_3, stHelens\_5, stHelens\_4 (Figure \ref{fig:results_stHelens_2}).
+\item \textbf{stHelens\_2}: stHelens\_4, stHelens\_3, stHelens\_5 (Figure \ref{fig:results_stHelens_2}).
 
 \begin{figure}[H]
 	\centering
@@ -212,18 +212,18 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/stHelens_3.jpg}
-	  \caption{1st: stHelens\_3}
+	  \includegraphics[width=0.9\linewidth]{../input/stHelens_4.jpg}
+	  \caption{1st: stHelens\_4}
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
         \centering
-        \includegraphics[width=0.9\linewidth]{../input/stHelens_5.jpg}
-        \caption{2nd: stHelens\_5}
+        \includegraphics[width=0.9\linewidth]{../input/stHelens_3.jpg}
+        \caption{2nd: stHelens\_3}
     \end{subfigure}%
     \begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/stHelens_4.jpg}
-	    \caption{3th: stHelens\_4}
+	  \includegraphics[width=0.9\linewidth]{../input/stHelens_5.jpg}
+	    \caption{3th: stHelens\_5}
 	\end{subfigure}
     \caption{Results for stHelens\_2}
     \label{fig:results_stHelens_2}
@@ -242,7 +242,7 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 	\begin{subfigure}{0.25\textwidth}
 	  \centering
 	  \includegraphics[width=0.9\linewidth]{../input/sunset1_1.jpg}
-	  \caption{1st: sunset1\_2}
+	  \caption{1st: sunset1\_1}
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
         \centering
@@ -258,7 +258,7 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
     \label{fig:results_sunset1_2}
 \end{figure}
 
-\item \textbf{sunset2\_2}: sunset2\_4, sunset2\_3, beach\_2 (Figure \ref{fig:results_sunset2_2}).
+\item \textbf{sunset2\_2}: sunset2\_3, beach\_4, beach\_3 (Figure \ref{fig:results_sunset2_2}).
 
 \begin{figure}[H]
 	\centering
@@ -269,18 +269,18 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/sunset2_4.jpg}
-	  \caption{1st: sunset2\_4}
+	  \includegraphics[width=0.9\linewidth]{../input/sunset2_3.jpg}
+	  \caption{1st: sunset2\_3}
 	\end{subfigure}%
 	\begin{subfigure}{0.25\textwidth}
         \centering
-        \includegraphics[width=0.9\linewidth]{../input/sunset2_3.jpg}
-        \caption{2nd: sunset2\_3}
+        \includegraphics[width=0.9\linewidth]{../input/beach_4.jpg}
+        \caption{2nd: beach\_4}
     \end{subfigure}%
     \begin{subfigure}{0.25\textwidth}
 	  \centering
-	  \includegraphics[width=0.9\linewidth]{../input/beach_2.jpg}
-	    \caption{3th: beach\_2}
+	  \includegraphics[width=0.9\linewidth]{../input/beach_3.jpg}
+	    \caption{3th: beach\_3}
 	\end{subfigure}
     \caption{Results for sunset2\_2}
     \label{fig:results_sunset2_2}
@@ -290,46 +290,48 @@ Based on the results, the best hyperparameter setup is \textbf{\textit{K = 8} fo
 
 
 \if false
-beach_1 ==> [(stHelens_4), (stHelens_5), (stHelens_3)]
-beach_2 ==> [(crater_3), (beach_4), (crater_5)]
-beach_3 ==> [(beach_4), (beach_2), (beach_1)]
-beach_4 ==> [(beach_3), (beach_2), (stHelens_1)]
-beach_5 ==> [(stHelens_4), (stHelens_5), (beach_1)]
-boat_1 ==> [(stHelens_4), (stHelens_3), (crater_1)]
-boat_2 ==> [(boat_3), (boat_5), (cherry_3)]
-boat_3 ==> [(boat_2), (boat_5), (boat_4)]
-boat_4 ==> [(boat_5), (cherry_3), (boat_3)]
-boat_5 ==> [(boat_2), (cherry_3), (boat_4)]
-cherry_1 ==> [(cherry_3), (cherry_2), (cherry_5)]
-cherry_2 ==> [(cherry_3'), (cherry_1), (cherry_4)]
-cherry_3 ==> [(cherry_2), (cherry_1), (cherry_4)]
-cherry_4 ==> [(cherry_3), (cherry_2), (cherry_1)]
-cherry_5 ==> [(cherry_2), (cherry_3), (cherry_1)]
-crater_1 ==> [(stHelens_4), (stHelens_3), (boat_1)]
-crater_2 ==> [(crater_5), (crater_4), (crater_3)]
-crater_3 ==> [(crater_5), (beach_2'), (crater_4)]
-crater_4 ==> [(crater_5), (crater_2), (stHelens_5)]
-crater_5 ==> [(crater_4), (crater_2), (stHelens_5)]
-pond_1 ==> [(pond_3), (pond_2), (boat_2)]
-pond_2 ==> [(pond_1), (pond_3), (boat_3)]
-pond_3 ==> [(pond_1), (pond_2), (cherry_3)]
-pond_4 ==> [(pond_5), (pond_2), (stHelens_5)]
-pond_5 ==> [(pond_4), (cherry_3), (cherry_2)]
-stHelens_1 ==> [(cherry_3), (stHelens_5), (cherry_5)]
-stHelens_2 ==> [(stHelens_3), (stHelens_5), (stHelens_4)]
-stHelens_3 ==> [(stHelens_4), (stHelens_5), (stHelens_2)]
-stHelens_4 ==> [(stHelens_3), (stHelens_5), (beach_1)]
-stHelens_5 ==> [(stHelens_4), (stHelens_2), (stHelens_3)]
-sunset1_1 ==> [(sunset1_3), (sunset1_2), (beach_4)]
-sunset1_2 ==> [(sunset1_1), (sunset1_3), (beach_4)]
-sunset1_3 ==> [(sunset1_1), (sunset1_2), (beach_4)]
-sunset1_4 ==> [(sunset2_1), (beach_3), (beach_4)]
-sunset1_5 ==> [(cherry_3), (cherry_2), (beach_1)]
-sunset2_1 ==> [(pond_4), (boat_2), (boat_3)]
-sunset2_2 ==> [(sunset2_4), (sunset2_3), (beach_2)]
-sunset2_3 ==> [(beach_4), (sunset2_2), (beach_2)]
-sunset2_4 ==> [(sunset2_2), (sunset2_3), (beach_3)]
-sunset2_5 ==> [(crater_3), (beach_2), (cherry_5)]
+#format: query ===> (first) (second) (third)
+
+beach_1.jpg ===>  (stHelens_3.jpg)  (stHelens_2.jpg)  (stHelens_5.jpg) 
+beach_2.jpg ===>  (beach_4.jpg)  (beach_3.jpg)  (beach_1.jpg) 
+beach_3.jpg ===>  (beach_4.jpg)  (beach_2.jpg)  (beach_1.jpg) 
+beach_4.jpg ===>  (beach_3.jpg)  (beach_2.jpg)  (beach_1.jpg) 
+beach_5.jpg ===>  (stHelens_5.jpg)  (stHelens_3.jpg)  (stHelens_2.jpg) 
+boat_1.jpg ===>  (stHelens_3.jpg)  (crater_1.jpg)  (stHelens_4.jpg) 
+boat_2.jpg ===>  (boat_3.jpg)  (boat_4.jpg)  (cherry_1.jpg) 
+boat_3.jpg ===>  (boat_2.jpg)  (boat_5.jpg)  (boat_4.jpg) 
+boat_4.jpg ===>  (boat_5.jpg)  (boat_3.jpg)  (crater_5.jpg) 
+boat_5.jpg ===>  (boat_3.jpg)  (boat_4.jpg)  (cherry_1.jpg) 
+cherry_1.jpg ===>  (cherry_3.jpg)  (cherry_2.jpg)  (cherry_4.jpg) 
+cherry_2.jpg ===>  (cherry_1.jpg)  (cherry_3.jpg)  (cherry_4.jpg) 
+cherry_3.jpg ===>  (cherry_1.jpg)  (cherry_2.jpg)  (cherry_4.jpg) 
+cherry_4.jpg ===>  (cherry_3.jpg)  (cherry_2.jpg)  (cherry_1.jpg) 
+cherry_5.jpg ===>  (cherry_1.jpg)  (cherry_3.jpg)  (cherry_2.jpg) 
+crater_1.jpg ===>  (stHelens_3.jpg)  (stHelens_2.jpg)  (stHelens_4.jpg) 
+crater_2.jpg ===>  (crater_5.jpg)  (crater_4.jpg)  (crater_3.jpg) 
+crater_3.jpg ===>  (crater_5.jpg)  (crater_2.jpg)  (crater_4.jpg) 
+crater_4.jpg ===>  (crater_5.jpg)  (crater_2.jpg)  (stHelens_2.jpg) 
+crater_5.jpg ===>  (crater_4.jpg)  (crater_3.jpg)  (crater_2.jpg) 
+pond_1.jpg ===>  (pond_3.jpg)  (pond_2.jpg)  (cherry_1.jpg) 
+pond_2.jpg ===>  (pond_1.jpg)  (pond_3.jpg)  (cherry_1.jpg) 
+pond_3.jpg ===>  (pond_1.jpg)  (pond_2.jpg)  (cherry_1.jpg) 
+pond_4.jpg ===>  (pond_5.jpg)  (stHelens_5.jpg)  (pond_2.jpg) 
+pond_5.jpg ===>  (pond_4.jpg)  (cherry_1.jpg)  (cherry_3.jpg) 
+stHelens_1.jpg ===>  (stHelens_4.jpg)  (cherry_3.jpg)  (stHelens_5.jpg) 
+stHelens_2.jpg ===>  (stHelens_4.jpg)  (stHelens_3.jpg)  (stHelens_5.jpg) 
+stHelens_3.jpg ===>  (stHelens_2.jpg)  (stHelens_5.jpg)  (crater_1.jpg) 
+stHelens_4.jpg ===>  (stHelens_2.jpg)  (stHelens_5.jpg)  (stHelens_3.jpg) 
+stHelens_5.jpg ===>  (stHelens_4.jpg)  (stHelens_2.jpg)  (stHelens_3.jpg) 
+sunset1_1.jpg ===>  (sunset1_2.jpg)  (sunset1_3.jpg)  (sunset2_2.jpg) 
+sunset1_2.jpg ===>  (sunset1_1.jpg)  (sunset1_3.jpg)  (beach_4.jpg) 
+sunset1_3.jpg ===>  (sunset1_1.jpg)  (sunset1_2.jpg)  (crater_4.jpg) 
+sunset1_4.jpg ===>  (beach_4.jpg)  (crater_4.jpg)  (beach_3.jpg) 
+sunset1_5.jpg ===>  (cherry_1.jpg)  (cherry_3.jpg)  (boat_2.jpg) 
+sunset2_1.jpg ===>  (pond_5.jpg)  (crater_4.jpg)  (beach_3.jpg) 
+sunset2_2.jpg ===>  (sunset2_3.jpg)  (beach_4.jpg)  (beach_3.jpg) 
+sunset2_3.jpg ===>  (sunset2_2.jpg)  (boat_2.jpg)  (boat_3.jpg) 
+sunset2_4.jpg ===>  (sunset2_2.jpg)  (sunset2_3.jpg)  (beach_4.jpg) 
+sunset2_5.jpg ===>  (crater_3.jpg)  (sunset2_2.jpg)  (beach_4.jpg) 
 \fi
 
 
